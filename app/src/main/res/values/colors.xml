@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    // standart theme
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#8BC34A</color>
+
+    // green theme
+    <color name="colorPrimaryGreen">#09af00</color>
+    <color name="colorPrimaryDarkGreen">#008b00</color>
+    <color name="colorAccentGreen">#FFF06292</color>
+
+</resources>

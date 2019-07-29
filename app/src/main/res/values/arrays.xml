@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fragment_setting_theme_color">
+        <item>standart</item>
+        <item>green</item>
+        <item>blue</item>
+        <item>orange</item>
+        <item>grey</item>
+        <item>red</item>
+    </string-array>
+
+
+</resources>
