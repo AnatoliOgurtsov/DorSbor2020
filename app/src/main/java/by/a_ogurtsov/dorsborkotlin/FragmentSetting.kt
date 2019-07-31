@@ -19,7 +19,7 @@ class FragmentSetting : PreferenceFragmentCompat(), SharedPreferences.OnSharedPr
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+       // val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
         model = ViewModelProviders.of(this.getActivity()!!).get(MyViewModel::class.java)
 
     }
@@ -37,6 +37,7 @@ class FragmentSetting : PreferenceFragmentCompat(), SharedPreferences.OnSharedPr
             Log.d(LOG_TAG, "$color в сеттингах")
 
             this.model.currentColor.value = color
+
         }
     }
 
@@ -45,13 +46,13 @@ class FragmentSetting : PreferenceFragmentCompat(), SharedPreferences.OnSharedPr
         preferenceScreen.sharedPreferences
             .registerOnSharedPreferenceChangeListener(this)
 
-        Log.d(LOG_TAG, "FragmentMain Resumed")
+        Log.d(LOG_TAG, "FragmentSettings Resumed")
 
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d(LOG_TAG, "FragmentMain Paused")
+        Log.d(LOG_TAG, "FragmentSettings Paused")
         preferenceScreen.sharedPreferences
             .unregisterOnSharedPreferenceChangeListener(this)
     }

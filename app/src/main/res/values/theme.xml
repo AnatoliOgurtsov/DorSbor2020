@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.Theme.App" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="primaryButtonTheme">@style/Widget.Button.Primary</item>
+    </style>
+
+
+    <!-- Base application theme. -->
+    <style name="AppThemeStandart" parent="Base.Theme.App">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="primaryTextColor">@color/primaryText</item>
+        <item name="buttonNormalColor">@color/buttonNormal</item>
+        <item name="buttonHighlightColor">@color/buttonHighlight</item>
+        <item name="buttonTextColor">@color/buttonText</item>
+    </style>
+
+    <!-- Green application theme. -->
+    <style name="AppThemeGreen" parent="Base.Theme.App">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryGreen</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkGreen</item>
+        <item name="colorAccent">@color/colorAccentGreen</item>
+        <item name="primaryTextColor">@color/primaryTextGreen</item>
+        <item name="buttonNormalColor">@color/buttonNormalGreen</item>
+        <item name="buttonHighlightColor">@color/buttonHighlightGreen</item>
+        <item name="buttonTextColor">@color/buttonTextGreen</item>
+        <item name="iconColor">@color/iconColor</item>
+    </style>
+
+
+
+    <style name="Widget.Button.Primary"
+           parent="Widget.AppCompat.Button">
+        <item name="colorButtonNormal">?attr/buttonNormalColor</item>
+        <item name="colorControlHighlight">?attr/buttonHighlightColor</item>
+        <item name="android:textColor">?attr/buttonTextColor</item>
+    </style>
+
+</resources>
