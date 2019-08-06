@@ -5,32 +5,81 @@
         <item name="primaryButtonTheme">@style/Widget.Button.Primary</item>
     </style>
 
-
-    <!-- Base application theme. -->
-    <style name="AppThemeStandart" parent="Base.Theme.App">
+    <!-- Water application theme. -->
+    <style name="AppThemeWater" parent="Base.Theme.App">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="primaryTextColor">@color/primaryText</item>
-        <item name="buttonNormalColor">@color/buttonNormal</item>
-        <item name="buttonHighlightColor">@color/buttonHighlight</item>
-        <item name="buttonTextColor">@color/buttonText</item>
+        <item name="colorPrimary">@color/colorPrimaryWater</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkWater</item>
+        <item name="colorAccent">@color/colorAccentWater</item>
+        <item name="primaryTextColor">@color/primaryTextWater</item>
+        <item name="buttonNormalColor">@color/buttonNormalWater</item>
+        <item name="buttonHighlightColor">@color/buttonHighlightWater</item>
+        <item name="buttonTextColor">@color/buttonTextWater</item>
+        <item name="toolbarTextColor">@color/toolBarTextColorWater</item>
+        <item name="colorControlNormal">@color/toolBarTextColorWater</item>
     </style>
 
-    <!-- Green application theme. -->
-    <style name="AppThemeGreen" parent="Base.Theme.App">
+    <!-- Olive application theme. -->
+    <style name="AppThemeOlive" parent="Base.Theme.App">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimaryGreen</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkGreen</item>
-        <item name="colorAccent">@color/colorAccentGreen</item>
-        <item name="primaryTextColor">@color/primaryTextGreen</item>
-        <item name="buttonNormalColor">@color/buttonNormalGreen</item>
-        <item name="buttonHighlightColor">@color/buttonHighlightGreen</item>
-        <item name="buttonTextColor">@color/buttonTextGreen</item>
-        <item name="iconColor">@color/iconColor</item>
+        <item name="colorPrimary">@color/colorPrimaryOlive</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkOlive</item>
+        <item name="colorAccent">@color/colorAccentOlive</item>
+        <item name="primaryTextColor">@color/primaryTextOlive</item>
+        <item name="buttonNormalColor">@color/buttonNormalOlive</item>
+        <item name="buttonHighlightColor">@color/buttonHighlightOlive</item>
+        <item name="buttonTextColor">@color/buttonTextOlive</item>
+        <item name="iconColor">@color/iconColorOlive</item>
+        <item name="toolbarTextColor">@color/toolBarTextColorOlive</item>
+        <item name="colorControlNormal">@color/toolBarTextColorOlive</item>
     </style>
 
+
+    <!-- Snow application theme. -->
+    <style name="AppThemeSnow" parent="Base.Theme.App">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimarySnow</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkSnow</item>
+        <item name="colorAccent">@color/colorAccentSnow</item>
+        <item name="primaryTextColor">@color/primaryTextSnow</item>
+        <item name="buttonNormalColor">@color/buttonNormalSnow</item>
+        <item name="buttonHighlightColor">@color/buttonHighlightSnow</item>
+        <item name="buttonTextColor">@color/buttonTextSnow</item>
+        <item name="iconColor">@color/iconColorSnow</item>
+        <item name="toolbarTextColor">@color/toolBarTextColorSnow</item>
+        <item name="colorControlNormal">@color/toolBarTextColorSnow</item>
+
+    </style>
+
+    <!-- Carrot application theme. -->
+    <style name="AppThemeCarrot" parent="Base.Theme.App">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryCarrot</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkCarrot</item>
+        <item name="colorAccent">@color/colorAccentCarrot</item>
+        <item name="primaryTextColor">@color/primaryTextCarrot</item>
+        <item name="buttonNormalColor">@color/buttonNormalCarrot</item>
+        <item name="buttonHighlightColor">@color/buttonHighlightCarrot</item>
+        <item name="buttonTextColor">@color/buttonTextCarrot</item>
+        <item name="iconColor">@color/iconColorCarrot</item>
+        <item name="toolbarTextColor">@color/toolBarTextColorCarrot</item>
+        <item name="colorControlNormal">@color/toolBarTextColorCarrot</item>
+    </style>
+
+    <!-- Honey application theme. -->
+    <style name="AppThemeHoney" parent="Base.Theme.App">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryHoney</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkHoney</item>
+        <item name="colorAccent">@color/colorAccentHoney</item>
+        <item name="primaryTextColor">@color/primaryTextHoney</item>
+        <item name="buttonNormalColor">@color/buttonNormalHoney</item>
+        <item name="buttonHighlightColor">@color/buttonHighlightHoney</item>
+        <item name="buttonTextColor">@color/buttonTextHoney</item>
+        <item name="iconColor">@color/iconColorHoney</item>
+        <item name="toolbarTextColor">@color/toolBarTextColorHoney</item>
+        <item name="colorControlNormal">@color/toolBarTextColorHoney</item>
+    </style>
 
 
     <style name="Widget.Button.Primary"

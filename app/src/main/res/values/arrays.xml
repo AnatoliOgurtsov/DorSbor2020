@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="fragment_setting_theme_color">
-        <item>standart</item>
-        <item>green</item>
-        <item>blue</item>
-        <item>orange</item>
-        <item>grey</item>
-        <item>red</item>
+        <item>водяная</item>
+        <item>оливковая</item>
+        <item>морковная</item>
+        <item>снежная</item>
+        <item>медовая</item>
     </string-array>
 
 

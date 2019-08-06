@@ -1,7 +1,6 @@
 package by.a_ogurtsov.dorsborkotlin
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -24,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     val FRAGMENTSETTINGS = "FRAGMENT_SETTINGS"
     val CURRENTFRAGMENT = "CURRENT_FRAGMENT"
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initViewModel()
         initToolbar()
-        initFragment(savedInstanceState)
+        initFragment()
 
     }
 
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         when (sharedPreferences != null) {
             true -> color = sharedPreferences.getString("pref_color_theme", "")
-            false -> color = "standart"
+            false -> color = "водяная"
         }
         setAppTheme(color)
     }
@@ -66,29 +66,33 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun initFragment(savedInstanceState: Bundle?) {
-
+    fun initFragment() {
 
         val fragmentManager: FragmentManager = supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         val fragmentMain: FragmentMain = FragmentMain().newInstance(color)
         val fragmentSetting: FragmentSetting = FragmentSetting()
 
-        if (intent.getStringExtra(CURRENTFRAGMENT) == null) {
+        if (intent.getStringExtra(CURRENTFRAGMENT) == null) {                              //добавляется MainFragment в первый раз
             fragmentTransaction.add(R.id.container, fragmentMain, FRAGMENTMAIN)
             fragmentTransaction.commit()
             intent.putExtra(CURRENTFRAGMENT, FRAGMENTMAIN)
 
-        } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTSETTINGS) {
-            fragmentTransaction.add(R.id.container, fragmentSetting, FRAGMENTSETTINGS)
+
+        } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTSETTINGS) {           //добавляется SettingFragment
+            fragmentTransaction.replace(R.id.container, fragmentSetting, FRAGMENTSETTINGS)
             fragmentTransaction.commit()
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             supportActionBar?.setTitle(resources.getString(R.string.SETTING))
+            invalidateOptionsMenu()   // update menu
 
-        } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTMAIN) {
-            fragmentTransaction.add(R.id.container, fragmentMain, FRAGMENTMAIN)
+
+        } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTMAIN) {                //добавляется MainFragment
+            fragmentTransaction.replace(R.id.container, fragmentMain, FRAGMENTMAIN)
             fragmentTransaction.commit()
             intent.putExtra(CURRENTFRAGMENT, FRAGMENTMAIN)
+            invalidateOptionsMenu()   // update menu
+
         }
     }
 
@@ -96,6 +100,15 @@ class MainActivity : AppCompatActivity() {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu, menu)
         return true
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+
+        when (intent.getStringExtra(CURRENTFRAGMENT)) {
+            null, FRAGMENTMAIN -> menu?.findItem(R.id.menu_setting)!!.isVisible = true
+            FRAGMENTSETTINGS -> menu?.findItem(R.id.menu_setting)!!.isVisible = false
+        }
+        return super.onPrepareOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -112,12 +125,12 @@ class MainActivity : AppCompatActivity() {
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)
                 supportActionBar?.setTitle(resources.getString(R.string.SETTING))
                 intent.putExtra(CURRENTFRAGMENT, FRAGMENTSETTINGS)
-            }
+                invalidateOptionsMenu()   // update menu
 
+            }
 
             // нажатие стрелки назад
             android.R.id.home -> {
-                Log.d(LOG_TAG, "PressUpButton")
                 val fragmentManager: FragmentManager = supportFragmentManager
                 val fragment: Fragment = fragmentManager.findFragmentByTag(FRAGMENTSETTINGS)!!
 
@@ -125,14 +138,13 @@ class MainActivity : AppCompatActivity() {
 
                 when (fragment.tag) {
                     FRAGMENTSETTINGS -> {
-
-
                         val fragmentMain: FragmentMain = FragmentMain()
                         fragmentTransaction.replace(R.id.container, fragmentMain.newInstance(color), FRAGMENTMAIN)
                         fragmentTransaction.commit()
                         supportActionBar?.setDisplayHomeAsUpEnabled(false)
                         supportActionBar?.setTitle(resources.getString(R.string.app_name))
                         intent.putExtra(CURRENTFRAGMENT, FRAGMENTMAIN)
+                        invalidateOptionsMenu()   // update menu
                     }//->
                 } //when
             }
@@ -142,10 +154,12 @@ class MainActivity : AppCompatActivity() {
 
     fun setAppTheme(color: String) {
 
-
         when (color) {
-            "standart" -> setTheme(R.style.AppThemeStandart)
-            "green" -> setTheme(R.style.AppThemeGreen)
+            "водяная" -> setTheme(R.style.AppThemeWater)
+            "оливковая" -> setTheme(R.style.AppThemeOlive)
+            "снежная" -> setTheme(R.style.AppThemeSnow)
+            "морковная" -> setTheme(R.style.AppThemeCarrot)
+            "медовая" -> setTheme(R.style.AppThemeHoney)
         }
 
     }

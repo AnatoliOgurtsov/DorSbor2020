@@ -3,11 +3,9 @@ package by.a_ogurtsov.dorsborkotlin
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProviders
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.PreferenceManager
 
 
 class FragmentSetting : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
@@ -34,8 +32,6 @@ class FragmentSetting : PreferenceFragmentCompat(), SharedPreferences.OnSharedPr
             var pref_color_theme: Preference? = findPreference(key!!)
             var color: String = pref_color_theme!!.summary as String
 
-            Log.d(LOG_TAG, "$color в сеттингах")
-
             this.model.currentColor.value = color
 
         }
@@ -46,15 +42,13 @@ class FragmentSetting : PreferenceFragmentCompat(), SharedPreferences.OnSharedPr
         preferenceScreen.sharedPreferences
             .registerOnSharedPreferenceChangeListener(this)
 
-        Log.d(LOG_TAG, "FragmentSettings Resumed")
 
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d(LOG_TAG, "FragmentSettings Paused")
+
         preferenceScreen.sharedPreferences
             .unregisterOnSharedPreferenceChangeListener(this)
     }
-
 }

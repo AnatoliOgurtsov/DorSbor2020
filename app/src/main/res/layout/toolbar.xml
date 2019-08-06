@@ -5,7 +5,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
+        app:titleTextColor="?attr/toolbarTextColor"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 </androidx.appcompat.widget.Toolbar>
+
+
+        <!--
+android:theme="@style/ToolbarStyle"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->

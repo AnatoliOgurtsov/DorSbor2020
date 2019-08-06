@@ -1,23 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    // standart theme
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#8BC34A</color>
-    <color name="primaryText">#3F51B5</color>
-    <color name="buttonNormal">#860065</color>
-    <color name="buttonHighlight">#F154BD</color>
-    <color name="buttonText">#FFFFFF</color>
+    // water theme
+    <color name="colorPrimaryWater">#3F51B5</color>
+    <color name="colorPrimaryDarkWater">#303F9F</color>
+    <color name="colorAccentWater">#8BC34A</color>
+    <color name="primaryTextWater">#3F51B5</color>
+    <color name="buttonNormalWater">#860065</color>
+    <color name="buttonHighlightWater">#F154BD</color>
+    <color name="buttonTextWater">#FFFFFF</color>
+    <color name="toolBarTextColorWater">#FFFFFF</color>
 
-    // green theme
-    <color name="colorPrimaryGreen">#09af00</color>
-    <color name="colorPrimaryDarkGreen">#008b00</color>
-    <color name="colorAccentGreen">#FFF06292</color>
-    <color name="primaryTextGreen">#09af00</color>
-    <color name="buttonNormalGreen">#FFCF07</color>
-    <color name="buttonHighlightGreen">#F7E976</color>
-    <color name="buttonTextGreen">#FFFFFF</color>
-    <color name="iconColor">#FFCF07</color>
+
+    // olive theme
+    <color name="colorPrimaryOlive">#3CAC58</color>
+    <color name="colorPrimaryDarkOlive">#1F7736</color>
+    <color name="colorAccentOlive">#FFF06292</color>
+    <color name="primaryTextOlive">#3CAC58</color>
+    <color name="buttonNormalOlive">#FFCF07</color>
+    <color name="buttonHighlightOlive">#F7E976</color>
+    <color name="buttonTextOlive">#FFFFFF</color>
+    <color name="iconColorOlive">#FFCF07</color>
+    <color name="toolBarTextColorOlive">#FFFFFF</color>
+
+    // snow theme
+    <color name="colorPrimarySnow">#FFFFFF</color>
+    <color name="colorPrimaryDarkSnow">#979797</color>
+    <color name="colorAccentSnow">#FFF06292</color>
+    <color name="primaryTextSnow">#000000</color>
+    <color name="buttonNormalSnow">#FFF06292</color>
+    <color name="buttonHighlightSnow">#FFFFFF</color>
+    <color name="buttonTextSnow">#000000</color>
+    <color name="iconColorSnow">#FF0000</color>
+    <color name="toolBarTextColorSnow">#000000</color>
+
+    // carrot theme
+    <color name="colorPrimaryCarrot">#FF6D00</color>
+    <color name="colorPrimaryDarkCarrot">#C95700</color>
+    <color name="colorAccentCarrot">#24FD28</color>
+    <color name="primaryTextCarrot">#FF6D00</color>
+    <color name="buttonNormalCarrot">#FF6D00</color>
+    <color name="buttonHighlightCarrot">#FF9D4F</color>
+    <color name="buttonTextCarrot">#FFFFFF</color>
+    <color name="iconColorCarrot">#FF6D00</color>
+    <color name="toolBarTextColorCarrot">#FFFFFF</color>
+
+    // honey theme
+    <color name="colorPrimaryHoney">#C47D02</color>
+    <color name="colorPrimaryDarkHoney">#703103</color>
+    <color name="colorAccentHoney">#E9FF01</color>
+    <color name="primaryTextHoney">#C47D02</color>
+    <color name="buttonNormalHoney">#703103</color>
+    <color name="buttonHighlightHoney">#F39905</color>
+    <color name="buttonTextHoney">#000000</color>
+    <color name="iconColorHoney">#703103</color>
+    <color name="toolBarTextColorHoney">#000000</color>
+
+
+
 
 </resources>
