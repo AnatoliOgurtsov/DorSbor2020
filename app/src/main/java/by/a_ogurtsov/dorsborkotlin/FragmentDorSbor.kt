@@ -9,13 +9,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 
-class FragmentMain : Fragment() {
+class FragmentDorSbor : Fragment() {
 
     private val color: String = "привет"
 
 
-    fun newInstance(param1: String): FragmentMain {
-        val fragment = FragmentMain()
+    fun newInstance(param1: String): FragmentDorSbor {
+        val fragment = FragmentDorSbor()
         val args = Bundle()
         args.putString(color, param1)
         fragment.arguments = args
@@ -30,7 +30,7 @@ class FragmentMain : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view: View = inflater.inflate(R.layout.fragment_main, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_dor_sbor, container, false)
 
 
         val button: Button = view.findViewById(R.id.button)

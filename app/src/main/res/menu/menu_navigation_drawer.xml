@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view"
+>
+    <group>
+        <item android:id="@+id/navigation_view_item_dor_sbor"
+              android:title="@string/titleDorSbor"
+              android:icon="@drawable/ic_dor_sbor">
+        </item>
+        <item android:id="@+id/navigation_view_item_util_sbor"
+              android:title="@string/titleUtilSbor"
+              android:icon="@drawable/ic_util_sbor">
+        </item>
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item android:title="@string/app_name"
+                  android:icon="@drawable/ic_thumb_up">
+            </item>
+            <item android:title="@string/app_name"
+                  android:icon="@drawable/ic_thumb_up">
+            </item>
+        </menu>
+    </item>
+
+</menu>

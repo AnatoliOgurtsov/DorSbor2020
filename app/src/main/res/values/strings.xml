@@ -1,11 +1,17 @@
 <resources>
-    <string name="app_name">DorSborKotlin</string>
+    <string name="app_name">АвтоНалоги (Беларусь)</string>
+    <string name="email">AnatoliOgurtsov@gmail.com</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="BUTTON">button</string>
-    <string name="SETTING">Setting</string>
-    <string name="changeTHeme">Change theme</string>
+
+    <string name="titleDorSbor">Дорожный сбор</string>
+    <string name="titleUtilSbor">Утилизационный сбор</string>
+    <string name="SETTING">Настройки</string>
+    <string name="changeTHeme">Тема</string>
     <string name="water">водяная</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
 </resources>

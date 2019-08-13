@@ -9,4 +9,8 @@ class MyViewModel: ViewModel() {
         MutableLiveData<String>()
     }
 
+    val choice_from_fragmentStart: MutableLiveData<String> by lazy{
+        MutableLiveData<String>()
+    }
+
 }
