@@ -14,4 +14,12 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+
+    <string name="title_button_fiz">ФИЗИЧЕСКОЕ ЛИЦО</string>
+    <string name="title_button_yur">ЮРИДИЧЕСКОЕ ЛИЦО</string>
+    <string name="title_button_before_10_years">МЛАДШЕ 10 ЛЕТ</string>
+    <string name="title_button__10_years_and_oldest">10 ЛЕТ И СТАРШЕ</string>
+    <string name="switch_text">ИНВАЛИД ПЕРВОЙ ГРУППЫ \n ВЕТЕРАН ВЕЛИКОЙ ОТЕЧЕСТВЕННОЙ ВОЙНЫ</string>
+
+
 </resources>

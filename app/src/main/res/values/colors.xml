@@ -11,6 +11,11 @@
     <color name="buttonTextWater">#FFFFFF</color>
     <color name="toolBarTextColorWater">#FFFFFF</color>
 
+    <color name="materialButtonBackgroundTintWater">#3F51B5</color>
+    <color name="materialButtonTextColorWater">#FFFFFF</color>
+    <color name="materialButtonStrokeColorWater">#3F51B5</color>
+    <color name="materialButtonOutlineTextColorWater">#3F51B5</color>
+
 
     // olive theme
     <color name="colorPrimaryOlive">#3CAC58</color>
@@ -23,6 +28,12 @@
     <color name="iconColorOlive">#FFCF07</color>
     <color name="toolBarTextColorOlive">#FFFFFF</color>
 
+    <color name="materialButtonBackgroundTintOlive">#3CAC58</color>
+    <color name="materialButtonTextColorOlive">#FFFFFF</color>
+    <color name="materialButtonStrokeColorOlive">#3CAC58</color>
+    <color name="materialButtonOutlineTextColorOlive">#3CAC58</color>
+
+
     // snow theme
     <color name="colorPrimarySnow">#FFFFFF</color>
     <color name="colorPrimaryDarkSnow">#979797</color>
@@ -33,6 +44,12 @@
     <color name="buttonTextSnow">#000000</color>
     <color name="iconColorSnow">#FF0000</color>
     <color name="toolBarTextColorSnow">#000000</color>
+
+    <color name="materialButtonBackgroundTintSnow">#979797</color>
+    <color name="materialButtonTextColorSnow">#000000</color>
+    <color name="materialButtonStrokeColorSnow">#979797</color>
+    <color name="materialButtonOutlineTextColorSnow">#979797</color>
+
 
     // carrot theme
     <color name="colorPrimaryCarrot">#FF6D00</color>
@@ -45,6 +62,12 @@
     <color name="iconColorCarrot">#FF6D00</color>
     <color name="toolBarTextColorCarrot">#FFFFFF</color>
 
+    <color name="materialButtonBackgroundTintCarrot">#FF6D00</color>
+    <color name="materialButtonTextColorCarrot">#FFFFFF</color>
+    <color name="materialButtonStrokeColorCarrot">#FF6D00</color>
+    <color name="materialButtonOutlineTextColorCarrot">#FF6D00</color>
+
+
     // honey theme
     <color name="colorPrimaryHoney">#C47D02</color>
     <color name="colorPrimaryDarkHoney">#703103</color>
@@ -52,11 +75,14 @@
     <color name="primaryTextHoney">#C47D02</color>
     <color name="buttonNormalHoney">#703103</color>
     <color name="buttonHighlightHoney">#F39905</color>
-    <color name="buttonTextHoney">#000000</color>
+    <color name="buttonTextHoney">#FFFFFF</color>
     <color name="iconColorHoney">#703103</color>
     <color name="toolBarTextColorHoney">#000000</color>
 
-
+    <color name="materialButtonBackgroundTintHoney">#C47D02</color>
+    <color name="materialButtonTextColorHoney">#FFFFFF</color>
+    <color name="materialButtonStrokeColorHoney">#C47D02</color>
+    <color name="materialButtonOutlineTextColorHoney">#C47D02</color>
 
 
 </resources>

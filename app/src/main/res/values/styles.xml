@@ -1,4 +1,56 @@
 <resources>
+    <style name="MaterialButtonDefault" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">?attr/materialButtonBackgroundTint</item>
+        <item name="android:textColor">?attr/materialButtonTextColor</item>
+
+    </style>
 
 
+    <style name="MaterialButtonOutline" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="strokeColor">?attr/materialButtonStrokeColor</item>
+        <item name="android:textColor">?attr/materialButtonOutlineTextColor</item>
+        <item name="rippleColor">?attr/colorAccent</item>
+    </style>
+
+
+    <style name="MyShapeAppearanceOutlineButtonLeft">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+    </style>
+
+    <style name="MyShapeAppearanceOutlineButtonRight">
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+
+    <style name="MyShapeAppearanceOutlineButton">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="MaterialButtonToggleGroupTextAppearance">
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="MaterialButtonTextAppearance">
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:textSize">12sp</item>
+
+    </style>
+
+    <style name="TextViewScreen">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?attr/colorPrimaryDark</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:paddingEnd">@dimen/padding20dp</item>
+    </style>
 </resources>
+

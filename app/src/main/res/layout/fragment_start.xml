@@ -4,18 +4,20 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:padding="16dp">
-    <Button
+    <com.google.android.material.button.MaterialButton
+            style="@style/MaterialButtonDefault"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button_open_frag_dor_sbor"
             android:text="@string/titleDorSbor"
             android:layout_marginBottom="16dp"
-            android:theme="?attr/primaryButtonTheme"/>
-    <Button
+           />
+    <com.google.android.material.button.MaterialButton
+            style="@style/MaterialButtonDefault"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button_open_frag_util_sbor"
             android:text="@string/titleUtilSbor"
             android:layout_marginBottom="16dp"
-            android:theme="?attr/primaryButtonTheme"/>
+            />
 </LinearLayout>

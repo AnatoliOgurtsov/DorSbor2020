@@ -1,4 +1,4 @@
-package by.a_ogurtsov.dorsborkotlin
+package by.a_ogurtsov.AutoTaxes
 
 import android.os.Bundle
 import android.view.LayoutInflater

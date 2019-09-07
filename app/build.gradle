@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "by.a_ogurtsov.dorsborkotlin"
+        applicationId "by.a_ogurtsov.AutoTaxes"
         minSdkVersion 22
         targetSdkVersion 28
         versionCode 1
@@ -37,6 +37,7 @@ dependencies {
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.2.0-alpha01'
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.0-alpha01'
+    implementation 'com.google.android.material:material:1.1.0-alpha07'
 
 
 

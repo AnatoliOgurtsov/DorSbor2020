@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Base.Theme.App" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Base.Theme.App" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="primaryButtonTheme">@style/Widget.Button.Primary</item>
     </style>
 
@@ -17,6 +17,12 @@
         <item name="buttonTextColor">@color/buttonTextWater</item>
         <item name="toolbarTextColor">@color/toolBarTextColorWater</item>
         <item name="colorControlNormal">@color/toolBarTextColorWater</item>
+
+        <item name="materialButtonBackgroundTint">@color/materialButtonBackgroundTintWater</item>
+        <item name="materialButtonTextColor">@color/materialButtonTextColorWater</item>
+        <item name="materialButtonStrokeColor">@color/materialButtonStrokeColorWater</item>
+        <item name="materialButtonOutlineTextColor">@color/materialButtonOutlineTextColorWater</item>
+
     </style>
 
     <!-- Olive application theme. -->
@@ -32,6 +38,12 @@
         <item name="iconColor">@color/iconColorOlive</item>
         <item name="toolbarTextColor">@color/toolBarTextColorOlive</item>
         <item name="colorControlNormal">@color/toolBarTextColorOlive</item>
+
+        <item name="materialButtonBackgroundTint">@color/materialButtonBackgroundTintOlive</item>
+        <item name="materialButtonTextColor">@color/materialButtonTextColorOlive</item>
+        <item name="materialButtonStrokeColor">@color/materialButtonStrokeColorOlive</item>
+        <item name="materialButtonOutlineTextColor">@color/materialButtonOutlineTextColorOlive</item>
+
     </style>
 
 
@@ -49,6 +61,12 @@
         <item name="toolbarTextColor">@color/toolBarTextColorSnow</item>
         <item name="colorControlNormal">@color/toolBarTextColorSnow</item>
 
+        <item name="materialButtonBackgroundTint">@color/materialButtonBackgroundTintSnow</item>
+        <item name="materialButtonTextColor">@color/materialButtonTextColorSnow</item>
+        <item name="materialButtonStrokeColor">@color/materialButtonStrokeColorSnow</item>
+        <item name="materialButtonOutlineTextColor">@color/materialButtonOutlineTextColorSnow</item>
+
+
     </style>
 
     <!-- Carrot application theme. -->
@@ -64,6 +82,12 @@
         <item name="iconColor">@color/iconColorCarrot</item>
         <item name="toolbarTextColor">@color/toolBarTextColorCarrot</item>
         <item name="colorControlNormal">@color/toolBarTextColorCarrot</item>
+
+        <item name="materialButtonBackgroundTint">@color/materialButtonBackgroundTintCarrot</item>
+        <item name="materialButtonTextColor">@color/materialButtonTextColorCarrot</item>
+        <item name="materialButtonStrokeColor">@color/materialButtonStrokeColorCarrot</item>
+        <item name="materialButtonOutlineTextColor">@color/materialButtonOutlineTextColorCarrot</item>
+
     </style>
 
     <!-- Honey application theme. -->
@@ -79,6 +103,12 @@
         <item name="iconColor">@color/iconColorHoney</item>
         <item name="toolbarTextColor">@color/toolBarTextColorHoney</item>
         <item name="colorControlNormal">@color/toolBarTextColorHoney</item>
+
+        <item name="materialButtonBackgroundTint">@color/materialButtonBackgroundTintHoney</item>
+        <item name="materialButtonTextColor">@color/materialButtonTextColorHoney</item>
+        <item name="materialButtonStrokeColor">@color/materialButtonStrokeColorHoney</item>
+        <item name="materialButtonOutlineTextColor">@color/materialButtonOutlineTextColorHoney</item>
+
     </style>
 
 
