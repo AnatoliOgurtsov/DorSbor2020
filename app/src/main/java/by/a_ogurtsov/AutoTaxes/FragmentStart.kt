@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel
 
 class FragmentStart : Fragment(), View.OnClickListener {
 

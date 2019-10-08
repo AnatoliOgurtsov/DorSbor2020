@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +15,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/screen"
-                custom:colorLine="?attr/colorPrimaryDark"
+                custom:colorLine="?attr/colorPrimary"
                 custom:paddingLine="20"
                 custom:angleLine="40"
                 custom:thicknessLine="5"
@@ -28,6 +26,7 @@
                 android:textSize="30sp"
                 android:text="140 рублей 59 копеек"
                 android:paddingTop="60dp"
+
         />
         <TextView
                 style="@style/TextViewScreen"
@@ -39,9 +38,8 @@
         <TextView
                 style="@style/TextViewScreen"
                 android:id="@+id/textView_Base_Value"
-                android:text="базовая величина 25 рублей 50 копеек"
+                android:text="@string/base_value"
                 android:layout_alignParentBottom="true"
-                android:paddingEnd="@dimen/padding20dp"
                 android:layout_marginBottom="@dimen/padding10dp"
         />
     </RelativeLayout>

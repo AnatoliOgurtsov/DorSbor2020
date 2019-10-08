@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.preference.PreferenceManager
+import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel
 import com.google.android.material.navigation.NavigationView
 
 
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var model: MyViewModel
     private lateinit var color: String // color of theme
+
 
     val LOG_TAG = "myLogs"
     val FRAGMENTSTART = "FRAGMENT_START"
@@ -46,7 +48,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var intentEmail: Intent
 
     private val metrics: DisplayMetrics = DisplayMetrics()
-    private var widthScreen: Int = 0                                      //ширина экрана, передаем во фрагмент как атрибут
+    private var widthScreen: Int =
+        0                                      //ширина экрана, передаем во фрагмент как атрибут
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,13 +76,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         model.currentColor.observe(this, observerColorTheme)
 
-        val observerPressButtonFromFragmentStart = Observer<String> { choice_from_fragmentStart ->
 
+        val observerPressButtonFromFragmentStart = Observer<String> { choice_from_fragmentStart ->
             when (choice_from_fragmentStart) {
                 "FRAGMENT_DORSBOR" -> {                                        // pressed button дорожный сбор from startfragment
                     setTitle(R.string.titleDorSbor)
                     val fragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.replace(R.id.container, FragmentDorSbor().newInstance(color, widthScreen), FRAGMENTDORSBOR)
+                    fragmentTransaction.replace(
+                        R.id.container,
+                        FragmentDorSbor().newInstance(color, widthScreen),
+                        FRAGMENTDORSBOR
+                    )
                         .commit()
                     intent.putExtra(CURRENTFRAGMENT, FRAGMENTDORSBOR)
                     intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTDORSBOR)
@@ -157,7 +164,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTDORSBOR) {
             setTitle(R.string.titleDorSbor)                                                 //добавляется DorSborFragment
-            fragmentTransaction.replace(R.id.container, FragmentDorSbor().newInstance(color, widthScreen), FRAGMENTDORSBOR).commit()
+            fragmentTransaction.replace(
+                R.id.container,
+                FragmentDorSbor().newInstance(color, widthScreen),
+                FRAGMENTDORSBOR
+            ).commit()
             intent.putExtra(CURRENTFRAGMENT, FRAGMENTDORSBOR)
             intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTDORSBOR)
             invalidateOptionsMenu()   // update menu
@@ -255,7 +266,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.navigation_view_item_dor_sbor -> {
                 setTitle(R.string.titleDorSbor)
                 val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.container, FragmentDorSbor().newInstance(color, widthScreen), FRAGMENTDORSBOR)
+                fragmentTransaction.replace(
+                    R.id.container,
+                    FragmentDorSbor().newInstance(color, widthScreen),
+                    FRAGMENTDORSBOR
+                )
                     .commit()
                 intent.putExtra(CURRENTFRAGMENT, FRAGMENTDORSBOR)
                 intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTDORSBOR)
@@ -296,4 +311,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         Log.d(LOG_TAG, widthScreen.toString())
 
     }
+
 }
+
+

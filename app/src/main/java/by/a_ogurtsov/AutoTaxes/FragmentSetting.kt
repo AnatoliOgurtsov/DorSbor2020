@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel
 
 
 class FragmentSetting : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {

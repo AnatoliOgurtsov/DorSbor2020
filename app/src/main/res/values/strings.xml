@@ -15,6 +15,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
 
+    <string name="base_value">базовая величина 25 рублей 50 копеек</string>
     <string name="title_button_fiz">ФИЗИЧЕСКОЕ ЛИЦО</string>
     <string name="title_button_yur">ЮРИДИЧЕСКОЕ ЛИЦО</string>
     <string name="title_button_before_10_years">МЛАДШЕ 10 ЛЕТ</string>
