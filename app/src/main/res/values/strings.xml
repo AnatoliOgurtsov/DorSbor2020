@@ -2,6 +2,7 @@
     <string name="app_name">АвтоНалоги (Беларусь)</string>
     <string name="email">AnatoliOgurtsov@gmail.com</string>
 
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="BUTTON">button</string>
 
@@ -15,12 +16,37 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
 
-    <string name="base_value">базовая величина 25 рублей 50 копеек</string>
+
     <string name="title_button_fiz">ФИЗИЧЕСКОЕ ЛИЦО</string>
     <string name="title_button_yur">ЮРИДИЧЕСКОЕ ЛИЦО</string>
     <string name="title_button_before_10_years">МЛАДШЕ 10 ЛЕТ</string>
     <string name="title_button__10_years_and_oldest">10 ЛЕТ И СТАРШЕ</string>
-    <string name="switch_text">ИНВАЛИД ПЕРВОЙ ГРУППЫ \n ВЕТЕРАН ВЕЛИКОЙ ОТЕЧЕСТВЕННОЙ ВОЙНЫ</string>
+    <string name="switch_text">ИНВАЛИД ПЕРВОЙ ГРУППЫ \nВЕТЕРАН ВЕЛИКОЙ ОТЕЧЕСТВЕННОЙ ВОЙНЫ</string>
+
+
+    <string name="title_button_legk_car">ЛЕГКОВОЙ АВТОМОБИЛЬ</string>
+    <string name="title_button_gruz_car">ГРУЗОВОЙ АВТОМОБИЛЬ, АВТОМОБИЛЬ-ТЯГАЧ, СЕДЕЛЬНЫЙ ТЯГАЧ, ГРУЗОПАССАЖИРСКИЙ АВТОМОБИЛЬ</string>
+    <string name="title_button_bus">АВТОБУС</string>
+    <string name="title_button_pricep">ПРИЦЕП</string>
+    <string name="title_button_motocycle">МОТОЦИКЛ</string>
+
+    <string name="title_button_less_1_5t">имеющий разрешенную максимальную массу НЕ БОЛЕЕ 1,5 ТОНН</string>
+    <string name="title_button_in_1_5_2t">имеющий разрешенную максимальную массу БОЛЕЕ 1,5 ТОНН, НО НЕ БОЛЕЕ 2 ТОНН</string>
+    <string name="title_button_in_2_3t">имеющий разрешенную максимальную массу БОЛЕЕ 2 ТОНН, НО НЕ БОЛЕЕ 3 ТОНН</string>
+    <string name="title_button_more_3t">имеющий разрешенную максимальную массу БОЛЕЕ 3 ТОНН</string>
+
+    <string name="title_button_less_2_5t">имеющий разрешенную максимальную массу НЕ БОЛЕЕ 2,5 ТОНН</string>
+    <string name="title_button_in_2_5_3_5t">имеющий разрешенную максимальную массу БОЛЕЕ 2,5 ТОНН, НО НЕ БОЛЕЕ 3,5 ТОНН</string>
+    <string name="title_button_in_3_5_12t">имеющий разрешенную максимальную массу БОЛЕЕ 3,5 ТОНН, НО НЕ БОЛЕЕ 12 ТОНН</string>
+    <string name="title_button_more_12t">имеющий разрешенную максимальную массу БОЛЕЕ 12 ТОНН</string>
+
+    <string name="title_button_less20">НЕ БОЛЕЕ 20 ПОСАДОЧНЫХ МЕСТ</string>
+    <string name="title_button_in_21_40">БОЛЕЕ 20, НО НЕ БОЛЕЕ 40 ПОСАДОЧНЫХ МЕСТ</string>
+    <string name="title_button_more_40">БОЛЕЕ 40 ПОСАДОЧНЫХ МЕСТ</string>
+
+    <string name="title_button_less_0_75">имеющий разрешенную максимальную массу НЕ БОЛЕЕ 750 КИЛОГРАММ</string>
+    <string name="title_button_more_0_75">имеющий разрешенную максимальную массу БОЛЕЕ 750 КИЛОГРАММ</string>
+    <string name="title_button_dacha">ПРИЦЕП-ДАЧА</string>
 
 
 </resources>

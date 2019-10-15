@@ -25,7 +25,7 @@ import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel
 import com.google.android.material.navigation.NavigationView
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var model: MyViewModel
     private lateinit var color: String // color of theme

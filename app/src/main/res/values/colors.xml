@@ -4,7 +4,7 @@
     // water theme
     <color name="colorPrimaryWater">#3F51B5</color>
     <color name="colorPrimaryDarkWater">#303F9F</color>
-    <color name="colorAccentWater">#8BC34A</color>
+    <color name="colorAccentWater">#860065</color>
     <color name="primaryTextWater">#3F51B5</color>
     <color name="buttonNormalWater">#860065</color>
     <color name="buttonHighlightWater">#F154BD</color>
@@ -16,11 +16,13 @@
     <color name="materialButtonStrokeColorWater">#3F51B5</color>
     <color name="materialButtonOutlineTextColorWater">#3F51B5</color>
 
+    <color name="iconTintWater">#860065</color>
+
 
     // olive theme
     <color name="colorPrimaryOlive">#3CAC58</color>
     <color name="colorPrimaryDarkOlive">#1F7736</color>
-    <color name="colorAccentOlive">#FFF06292</color>
+    <color name="colorAccentOlive">#A07B1A</color>
     <color name="primaryTextOlive">#3CAC58</color>
     <color name="buttonNormalOlive">#FFCF07</color>
     <color name="buttonHighlightOlive">#F7E976</color>
@@ -33,28 +35,31 @@
     <color name="materialButtonStrokeColorOlive">#3CAC58</color>
     <color name="materialButtonOutlineTextColorOlive">#3CAC58</color>
 
+    <color name="iconTintOlive">#A07B1A</color>
+
 
     // snow theme
-    <color name="colorPrimarySnow">#FFFFFF</color>
-    <color name="colorPrimaryDarkSnow">#979797</color>
+    <color name="colorPrimarySnow">#858585</color>
+    <color name="colorPrimaryDarkSnow">#686868</color>
     <color name="colorAccentSnow">#FFF06292</color>
     <color name="primaryTextSnow">#000000</color>
     <color name="buttonNormalSnow">#FFF06292</color>
     <color name="buttonHighlightSnow">#FFFFFF</color>
     <color name="buttonTextSnow">#000000</color>
     <color name="iconColorSnow">#FF0000</color>
-    <color name="toolBarTextColorSnow">#000000</color>
+    <color name="toolBarTextColorSnow">#FFFFFF</color>
 
     <color name="materialButtonBackgroundTintSnow">#979797</color>
     <color name="materialButtonTextColorSnow">#000000</color>
     <color name="materialButtonStrokeColorSnow">#979797</color>
     <color name="materialButtonOutlineTextColorSnow">#979797</color>
 
+    <color name="iconTintSnow">#FFF06292</color>
 
     // carrot theme
     <color name="colorPrimaryCarrot">#FF6D00</color>
     <color name="colorPrimaryDarkCarrot">#C95700</color>
-    <color name="colorAccentCarrot">#24FD28</color>
+    <color name="colorAccentCarrot">#009E04</color>
     <color name="primaryTextCarrot">#FF6D00</color>
     <color name="buttonNormalCarrot">#FF6D00</color>
     <color name="buttonHighlightCarrot">#FF9D4F</color>
@@ -67,11 +72,12 @@
     <color name="materialButtonStrokeColorCarrot">#FF6D00</color>
     <color name="materialButtonOutlineTextColorCarrot">#FF6D00</color>
 
+    <color name="iconTintCarrot">#009E04</color>
 
     // honey theme
     <color name="colorPrimaryHoney">#C47D02</color>
-    <color name="colorPrimaryDarkHoney">#703103</color>
-    <color name="colorAccentHoney">#E9FF01</color>
+    <color name="colorPrimaryDarkHoney">#913F03</color>
+    <color name="colorAccentHoney">#913F03</color>
     <color name="primaryTextHoney">#C47D02</color>
     <color name="buttonNormalHoney">#703103</color>
     <color name="buttonHighlightHoney">#F39905</color>
@@ -83,6 +89,8 @@
     <color name="materialButtonTextColorHoney">#FFFFFF</color>
     <color name="materialButtonStrokeColorHoney">#C47D02</color>
     <color name="materialButtonOutlineTextColorHoney">#C47D02</color>
+
+    <color name="iconTintHoney">#913F03</color>
 
 
 </resources>

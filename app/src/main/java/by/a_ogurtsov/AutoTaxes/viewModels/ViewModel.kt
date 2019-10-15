@@ -5,11 +5,12 @@ import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import by.a_ogurtsov.AutoTaxes.MainActivity
+import by.a_ogurtsov.AutoTaxes.repositories.RepositoryDorSbor
 
 
 class MyViewModel(application: Application) : AndroidViewModel(application) {
+
+    val repository: RepositoryDorSbor = RepositoryDorSbor()
 
     val currentColor: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
@@ -19,14 +20,15 @@ class MyViewModel(application: Application) : AndroidViewModel(application) {
         MutableLiveData<String>()
     }
 
-    fun <T> putSprefs (sprefs: SharedPreferences, key: String, value: T) {
+    fun <T> putSprefs(sprefs: SharedPreferences, key: String, value: T) {
         val editor: SharedPreferences.Editor = sprefs.edit()
-        when (value){
+        when (value) {
             is Int -> editor.putInt(key, value)
             is String -> editor.putString(key, value)
         }
         editor.apply()
         Log.d("myLogs", "$key $value")
+
     }
 
     fun calculateSumsValue(
@@ -36,20 +38,6 @@ class MyViewModel(application: Application) : AndroidViewModel(application) {
         kindAuto: String,
         weightAuto: String,
         veteran: Int
-    ): String {
-        when (fizYur) {
-            "fiz" -> {
-
-
-            } //end fiz
-            "yur" -> {
-
-            } //end yur
-
-
-        } // end fizyur
-
-
-        return "$period + $fizYur + $age + $kindAuto + $weightAuto + $veteran"
-    }
+    ): MutableList<String> =
+        repository.totalAmount(period, fizYur, age, kindAuto, weightAuto, veteran)
 }

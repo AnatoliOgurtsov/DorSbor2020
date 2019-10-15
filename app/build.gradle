@@ -38,6 +38,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.2.0-alpha01'
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.0-alpha01'
     implementation 'com.google.android.material:material:1.1.0-alpha07'
+    implementation files('libs/lib_denom.jar')
 
 
 

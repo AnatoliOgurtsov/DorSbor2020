@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="primaryTextColor" format="reference"/>
-    <attr name="buttonNormalColor" format="reference"/>
-    <attr name="buttonHighlightColor" format="reference"/>
-    <attr name="buttonTextColor" format="reference"/>
-    <attr name="primaryButtonTheme" format="reference"/>
-    <attr name="iconColor" format="reference"/>
-    <attr name="toolbarTextColor" format="reference"/>
-    <attr name="materialButtonBackgroundTint" format="reference"/>
-    <attr name="materialButtonTextColor" format="reference"/>
-    <attr name="materialButtonOutlineTextColor" format="reference"/>
-    <attr name="materialButtonStrokeColor" format="reference"/>
-    
-    
+    <attr name="primaryTextColor" format="reference" />
+    <attr name="buttonNormalColor" format="reference" />
+    <attr name="buttonHighlightColor" format="reference" />
+    <attr name="buttonTextColor" format="reference" />
+    <attr name="primaryButtonTheme" format="reference" />
+    <attr name="iconColor" format="reference" />
+    <attr name="toolbarTextColor" format="reference" />
+    <attr name="materialButtonBackgroundTint" format="reference" />
+    <attr name="materialButtonTextColor" format="reference" />
+    <attr name="materialButtonOutlineTextColor" format="reference" />
+    <attr name="materialButtonStrokeColor" format="reference" />
+    <attr name="colorIconTint" format="reference" />
+
     <declare-styleable name="Screen">
         <attr name="colorLine" format="color"></attr>
         <attr name="paddingLine" format="integer"></attr>
         <attr name="angleLine" format="integer"></attr>
         <attr name="thicknessLine" format="integer"></attr>
     </declare-styleable>
-        
+
 </resources>
