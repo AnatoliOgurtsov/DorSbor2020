@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/radioGroup_us_gibrid_motor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/less_1000"
+        android:orientation="vertical"
+              >
+    <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/less_1000"
+            android:text="@string/less_1000"
+            style="@style/RadioGroup"
+            >
+    </com.google.android.material.radiobutton.MaterialRadioButton>
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/in_1000_2000"
+            android:text="@string/in_1000_2000"
+            style="@style/RadioGroup"
+
+             >
+    </com.google.android.material.radiobutton.MaterialRadioButton>
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/in_2000_3000"
+            android:text="@string/in_2000_3000"
+            style="@style/RadioGroup"
+               >
+    </com.google.android.material.radiobutton.MaterialRadioButton>
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/in_3000_3500"
+            android:text="@string/in_3000_3500"
+            style="@style/RadioGroup"
+              >
+    </com.google.android.material.radiobutton.MaterialRadioButton>
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/more_3500"
+            android:text="@string/more_3500"
+            style="@style/RadioGroup"
+            >
+    </com.google.android.material.radiobutton.MaterialRadioButton>
+
+</RadioGroup>

@@ -42,10 +42,19 @@ class SharedPreferenceIntLiveData(sharedPref: SharedPreferences, key: String, de
     override fun getValueFromPreferences(key: String, defValue: Int): Int = pref.getInt(key, defValue)
 }
 
+class SharedPreferenceBooleanLiveData(sharedPref: SharedPreferences, key: String, defValue: Boolean) :
+    SharedPreferenceLiveData<Boolean>(sharedPref, key, defValue) {
+    override fun getValueFromPreferences(key: String, defValue: Boolean): Boolean = pref.getBoolean(key, defValue)
+}
+
 fun SharedPreferences.stringLiveData(key: String, defValue: String): SharedPreferenceLiveData<String>{
     return SharedPreferenceStringLiveData(this, key, defValue)
 }
 
 fun SharedPreferences.intLiveData(key: String, defValue: Int): SharedPreferenceLiveData<Int>{
     return SharedPreferenceIntLiveData(this, key, defValue)
+}
+
+fun SharedPreferences.booleanLiveData(key: String, defValue: Boolean): SharedPreferenceLiveData<Boolean>{
+    return SharedPreferenceBooleanLiveData(this, key, defValue)
 }

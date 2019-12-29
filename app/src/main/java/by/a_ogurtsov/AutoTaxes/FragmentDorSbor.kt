@@ -243,8 +243,7 @@ class FragmentDorSbor : Fragment() {
                 2 -> buttonToogleGroup.check(idButton1)
                 1 -> buttonToogleGroup.check(idButton2)
             }
-        } //========================================================
-
+        }
     }
 
     fun setButtonWidth(button: MaterialButton) {

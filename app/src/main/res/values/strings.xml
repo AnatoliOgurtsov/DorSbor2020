@@ -16,7 +16,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
 
-
     <string name="title_button_fiz">ФИЗИЧЕСКОЕ ЛИЦО</string>
     <string name="title_button_yur">ЮРИДИЧЕСКОЕ ЛИЦО</string>
     <string name="title_button_before_10_years">МЛАДШЕ 10 ЛЕТ</string>
@@ -26,6 +25,7 @@
 
     <string name="title_button_legk_car">ЛЕГКОВОЙ АВТОМОБИЛЬ</string>
     <string name="title_button_gruz_car">ГРУЗОВОЙ АВТОМОБИЛЬ, АВТОМОБИЛЬ-ТЯГАЧ, СЕДЕЛЬНЫЙ ТЯГАЧ, ГРУЗОПАССАЖИРСКИЙ АВТОМОБИЛЬ</string>
+    <string name="title_button_gruz_car_us">ГРУЗОВОЙ АВТОМОБИЛЬ</string>
     <string name="title_button_bus">АВТОБУС</string>
     <string name="title_button_pricep">ПРИЦЕП</string>
     <string name="title_button_motocycle">МОТОЦИКЛ</string>
@@ -47,6 +47,30 @@
     <string name="title_button_less_0_75">имеющий разрешенную максимальную массу НЕ БОЛЕЕ 750 КИЛОГРАММ</string>
     <string name="title_button_more_0_75">имеющий разрешенную максимальную массу БОЛЕЕ 750 КИЛОГРАММ</string>
     <string name="title_button_dacha">ПРИЦЕП-ДАЧА</string>
+
+
+    //======================================Утилизационный сбор=====================================
+    //==============================================================================================
+    //==============================================================================================
+
+    <string name="title_button_before_3_years">ДО ТРЕХ ЛЕТ</string>
+    <string name="title_button_3_years_and_oldest">СТАРШЕ ТРЕХ ЛЕТ</string>
+    <string name="title_button_dumpTruck">САМОСВАЛ</string>
+    <string name="switch_gibrid_text">С ГИБРИДНОЙ СИЛОВОЙ УСТАНОВКОЙ РАБОЧИМ ОБЪЕМОМ:</string>
+    <string name="less_1000">НЕ БОЛЕЕ 1000 куб. см.</string>
+    <string name="in_1000_2000">СВЫШЕ 1000, НО НЕ БОЛЕЕ 2000 куб. см.</string>
+    <string name="in_2000_3000">СВЫШЕ 2000, НО НЕ БОЛЕЕ 3000 куб. см.</string>
+    <string name="in_3000_3500">СВЫШЕ 3000, НЕ НЕ БОЛЕЕ 3500 куб. см.</string>
+    <string name="more_3500">СВЫШЕ 3500 куб. см.</string>
+
+
+    <string name="title_button_less_2_5t_us">имеющий полную массу НЕ БОЛЕЕ 2,5 ТОНН</string>
+    <string name="title_button_in_2_5_3_5t_us">имеющий полную массу БОЛЕЕ 2,5 ТОНН, НО НЕ БОЛЕЕ 3,5 ТОНН</string>
+    <string name="title_button_in_3_5_5t_us">имеющий полную массу БОЛЕЕ 3,5 ТОНН, НО НЕ БОЛЕЕ 5 ТОНН</string>
+    <string name="title_button_in_5_8t_us">имеющий полную массу БОЛЕЕ 5 ТОНН, НО НЕ БОЛЕЕ 8 ТОНН</string>
+    <string name="title_button_in_8_12t_us">имеющий полную массу БОЛЕЕ 8 ТОНН, НО НЕ БОЛЕЕ 12 ТОНН</string>
+    <string name="title_button_in_12_20t_us">имеющий полную массу БОЛЕЕ 12 ТОНН, НО НЕ БОЛЕЕ 20 ТОНН</string>
+    <string name="title_button_in_20_50t_us">имеющий полную массу БОЛЕЕ 20 ТОНН, НО НЕ БОЛЕЕ 50 ТОНН</string>
 
 
 </resources>

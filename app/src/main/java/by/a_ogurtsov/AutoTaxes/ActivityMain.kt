@@ -96,7 +96,11 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 "FRAGMENT_UTILSBOR" -> {                                       // pressed button утилизационный сбор from startfragment
                     setTitle(R.string.titleUtilSbor)
                     val fragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.replace(R.id.container, FragmentUtilSbor(), FRAGMENTUTILSBOR).commit()
+                    fragmentTransaction.replace(
+                        R.id.container,
+                        FragmentUtilSbor().newInstance(color, widthScreen),
+                        FRAGMENTUTILSBOR
+                    ).commit()
                     intent.putExtra(CURRENTFRAGMENT, FRAGMENTUTILSBOR)
                     intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTUTILSBOR)
                     invalidateOptionsMenu()   // update menu
@@ -125,7 +129,11 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navigationView = findViewById(R.id.navigation_view)
         navigationView.setNavigationItemSelectedListener(this)
         toggle = ActionBarDrawerToggle(
-            this, drawer, toolbar, R.string.nav_app_bar_open_drawer_description, R.string.navigation_drawer_close
+            this,
+            drawer,
+            toolbar,
+            R.string.nav_app_bar_open_drawer_description,
+            R.string.navigation_drawer_close
         )
         drawer.addDrawerListener(toggle)
         toggle.syncState()
@@ -158,7 +166,8 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTSETTINGS) {           //добавляется SettingFragment
             setTitle(R.string.SETTING)
-            fragmentTransaction.replace(R.id.container, FragmentSetting(), FRAGMENTSETTINGS).commit()
+            fragmentTransaction.replace(R.id.container, FragmentSetting(), FRAGMENTSETTINGS)
+                .commit()
             closeDrawer_initToolbar()
             invalidateOptionsMenu()   // update menu
 
@@ -205,7 +214,8 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             // нажатие кнопки "настройки"
             R.id.menu_setting -> {
                 setTitle(R.string.SETTING)
-                fragmentTransaction.replace(R.id.container, FragmentSetting(), FRAGMENTSETTINGS).commit()
+                fragmentTransaction.replace(R.id.container, FragmentSetting(), FRAGMENTSETTINGS)
+                    .commit()
 
                 closeDrawer_initToolbar()    // inherit fun
                 intent.putExtra(CURRENTFRAGMENT, FRAGMENTSETTINGS)
@@ -230,13 +240,18 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     }//->
                     FRAGMENTSTART -> {
                         setTitle(R.string.app_name)
-                        fragmentTransaction.replace(R.id.container, FragmentStart(), FRAGMENTSTART).commit()
+                        fragmentTransaction.replace(R.id.container, FragmentStart(), FRAGMENTSTART)
+                            .commit()
                         intent.putExtra(CURRENTFRAGMENT, FRAGMENTSTART)
                         invalidateOptionsMenu()   // update menu
                     }
                     FRAGMENTUTILSBOR -> {
                         setTitle(R.string.titleUtilSbor)
-                        fragmentTransaction.replace(R.id.container, FragmentUtilSbor(), FRAGMENTUTILSBOR).commit()
+                        fragmentTransaction.replace(
+                            R.id.container,
+                            FragmentUtilSbor().newInstance(color, widthScreen),
+                            FRAGMENTUTILSBOR
+                        ).commit()
                         intent.putExtra(CURRENTFRAGMENT, FRAGMENTUTILSBOR)
                         invalidateOptionsMenu()   // update menu
                     }
@@ -280,7 +295,12 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.navigation_view_item_util_sbor -> {
                 setTitle(R.string.titleUtilSbor)
                 val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.container, FragmentUtilSbor(), FRAGMENTUTILSBOR).commit()
+                fragmentTransaction.replace(
+                    R.id.container,
+                    FragmentUtilSbor().newInstance(color, widthScreen),
+                    FRAGMENTUTILSBOR
+                )
+                    .commit()
                 intent.putExtra(CURRENTFRAGMENT, FRAGMENTUTILSBOR)
                 intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTUTILSBOR)
                 invalidateOptionsMenu()   // update menu

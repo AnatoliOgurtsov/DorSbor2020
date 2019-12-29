@@ -7,9 +7,9 @@
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            >
-        <activity android:name="by.a_ogurtsov.AutoTaxes.ActivityMain"
+            android:supportsRtl="true">
+        <activity
+                android:name="by.a_ogurtsov.AutoTaxes.ActivityMain"
                 android:theme="@style/AppThemeCarrot">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,29 +20,26 @@
 
         <activity
                 android:name=".ActivityKindOfAuto"
-                android:theme="@style/AppThemeWaterDialog"
-               >
-        </activity>
+                android:theme="@style/AppThemeWaterDialog"></activity>
         <activity
                 android:name=".ActivityWeightLegkAuto"
-                android:theme="@style/AppThemeWaterDialog"
-                >
-        </activity>
+                android:theme="@style/AppThemeWaterDialog"></activity>
         <activity
                 android:name=".ActivityWeightGruzAuto"
-                android:theme="@style/AppThemeWaterDialog"
-                >
-        </activity>
+                android:theme="@style/AppThemeWaterDialog"></activity>
         <activity
                 android:name=".ActivityWeightBus"
-                android:theme="@style/AppThemeWaterDialog"
-                >
-        </activity>
+                android:theme="@style/AppThemeWaterDialog"></activity>
         <activity
                 android:name=".ActivityWeightPricep"
-                android:theme="@style/AppThemeWaterDialog"
-                >
-        </activity>
+                android:theme="@style/AppThemeWaterDialog"></activity>
+        <activity
+                android:name=".ActivityKindOfAutoUS"
+                android:theme="@style/AppThemeWaterDialog"></activity>
+        <activity
+                android:name=".ActivityWeightGruzAutoUs"
+                android:theme="@style/AppThemeWaterDialog"></activity>
+
     </application>
 
 </manifest>
