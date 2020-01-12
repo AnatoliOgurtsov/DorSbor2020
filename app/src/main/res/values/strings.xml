@@ -73,4 +73,11 @@
     <string name="title_button_in_20_50t_us">имеющий полную массу БОЛЕЕ 20 ТОНН, НО НЕ БОЛЕЕ 50 ТОНН</string>
 
 
+    <string name="title_button_bus_motor_less_2500">с рабочим объемом двигателя НЕ БОЛЕЕ 2500 куб. см.</string>
+    <string name="title_button_bus_motor_in_2500_5000">с рабочим объемом двигателя СВЫШЕ 2500, НО НЕ БОЛЕЕ 5000 куб. см.</string>
+    <string name="title_button_bus_motor_in_5000_10000">с рабочим объемом двигателя СВЫШЕ 5000, НО НЕ БОЛЕЕ 10000 куб. см.</string>
+    <string name="title_button_bus_motor_more_10000">с рабочим объемом двигателя СВЫШЕ 10000 куб. см.</string>
+
+    <string name="title_switchmaterial_bus">С ЭЛЕКТРОДВИГАТЕЛЯМИ</string>
+
 </resources>

@@ -7,7 +7,7 @@ import android.view.View
 import com.google.android.material.button.MaterialButton
 
 class ActivityKindOfAutoUS : ActivityParent() {
-    private val LAYOUT: Int = R.layout.activity_kind_of_auto_us
+    private val LAYOUT: Int = R.layout.activity_us_kind_of_auto
 
     private lateinit var button_legk_car: MaterialButton
     private lateinit var button_gruz_car: MaterialButton

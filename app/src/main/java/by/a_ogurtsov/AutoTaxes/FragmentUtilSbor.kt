@@ -5,14 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -22,6 +20,8 @@ import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.switchmaterial.SwitchMaterial
 
 class FragmentUtilSbor : Fragment() {
+
+    val LOG_TAG = "myLogs"
 
     private val LAYOUT: Int = R.layout.fragment_util_sbor
 
@@ -35,6 +35,8 @@ class FragmentUtilSbor : Fragment() {
     private var us_legk_car_gibrid_capacity =
         "less_1000"   // if toogle gibrid car = false, than null.
     private var us_gruz_car_weight = "less_2_5t"
+    private var us_bus_engine = "less_2500"
+    private var usBusEngineTemp = ""
 
 
     private lateinit var us_textView_Sums_Value: TextView
@@ -47,6 +49,9 @@ class FragmentUtilSbor : Fragment() {
     private lateinit var radioGroup_us_legk_gibrid_motor: RadioGroup
     private lateinit var radioGroup_us_gibrid_motor_item: RadioButton
     private lateinit var us_button_gruz_weight: MaterialButton
+    private lateinit var us_layout_bus: LinearLayout
+    private lateinit var us_layout_bus_Button: MaterialButton
+    private lateinit var us_layout_bus_SwitchButton: SwitchMaterial
 
 
     private lateinit var model: ViewModelUtilSbor
@@ -58,9 +63,11 @@ class FragmentUtilSbor : Fragment() {
     val SPREF_UTILSBOR_LEGK_CAR_GIBRID_SWITCH = "us_legk_car_gibrid_switch"
     val SPREF_UTILSBOR_LEGK_CAR_GIBRID_CAPACITY = "us_legk_car_gibrid_capacity"
     val SPREF_UTILSBOR_GRUZ_CAR_WEIGHT = "weight_of_gruz_auto_us"
+    val SPREF_UTILSBOR_BUS_ENGINE = "us_engineOfBus"
 
     val REQUEST_CODE_KIND_OF_AUTO = 1
     val REQUEST_CODE_GRUZ_AUTO_WEIGHT = 2
+    val REQUEST_CODE_BUS_ENGINE = 3
 
 
     fun newInstance(param1: String, param2: Int): FragmentUtilSbor {
@@ -92,11 +99,17 @@ class FragmentUtilSbor : Fragment() {
         us_button_3_years_and_oldest = view.findViewById(R.id.us_button_3_years_and_oldest)
         us_switchButton_legk_gibrid = view.findViewById(R.id.switch_button_gibrid)
 
-        radioGroup_us_legk_gibrid_motor = // radioGroupForLegkAutoGibrid
+        this.radioGroup_us_legk_gibrid_motor = // radioGroupForLegkAutoGibrid
             layoutInflater.inflate(R.layout.us_gibrid_motor, null) as RadioGroup
 
         this.us_button_gruz_weight =
             layoutInflater.inflate(R.layout.us_button_gruz_weight, null) as MaterialButton
+
+        this.us_layout_bus = layoutInflater.inflate(R.layout.us_layout_bus, null) as LinearLayout
+        this.us_layout_bus_Button = us_layout_bus.findViewById(R.id.us_button_bus_engine)
+        this.us_layout_bus_SwitchButton = us_layout_bus.findViewById(R.id.us_switch_button_bus)
+
+
 
 
         setbuttonToggleGroup(
@@ -136,13 +149,17 @@ class FragmentUtilSbor : Fragment() {
                     val intent = Intent(activity, ActivityWeightGruzAutoUs::class.java)
                     startActivityForResult(intent, REQUEST_CODE_GRUZ_AUTO_WEIGHT)
                 }
-
+                R.id.us_button_bus_engine -> {
+                    val intent = Intent(activity, ActivityEngineBusUs::class.java)
+                    startActivityForResult(intent, REQUEST_CODE_BUS_ENGINE)
+                }
             }
         }
         us_button_before_3_years.setOnClickListener(onButtonClickListener)
         us_button_3_years_and_oldest.setOnClickListener(onButtonClickListener)
         us_button_kind_of_auto.setOnClickListener(onButtonClickListener)
         us_button_gruz_weight.setOnClickListener(onButtonClickListener)
+        us_layout_bus_Button.setOnClickListener(onButtonClickListener)
 
         us_switchButton_legk_gibrid.setOnCheckedChangeListener { _, isChecked ->
             // switch gibrid
@@ -204,6 +221,50 @@ class FragmentUtilSbor : Fragment() {
             }
 
         }
+        us_layout_bus_SwitchButton.setOnCheckedChangeListener { _, isChecked ->
+            val layoutParam: ViewGroup.LayoutParams = us_layout_bus_SwitchButton.layoutParams
+            if (isChecked) {
+                usBusEngineTemp =
+                    this.us_bus_engine        // сохраняем состояние кнопки чтобы когда false передать во Preference нужное значение
+                model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_BUS_ENGINE, "electro")
+                us_layout_bus_Button.visibility = GONE
+                us_layout_bus_SwitchButton.layoutParams = layoutParam
+                setSwitchButtonWidth(us_layout_bus_SwitchButton)
+            } else {
+                us_layout_bus_Button.visibility = VISIBLE
+                when (usBusEngineTemp) {
+                    "less_2500" -> {
+                        model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_BUS_ENGINE, "less_2500")
+                        set_us_button_busEngine(
+                            R.string.title_button_bus_motor_less_2500,
+                            R.drawable.ic_hexagon_outline
+                        )
+                    }
+                    "2500_5000" -> {
+                        model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_BUS_ENGINE, "2500_5000")
+                        set_us_button_busEngine(
+                            R.string.title_button_bus_motor_in_2500_5000,
+                            R.drawable.ic_hexagon_slice_2
+                        )
+                    }
+                    "5000_10000" -> {
+                        model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_BUS_ENGINE, "5000_10000")
+                        set_us_button_busEngine(
+                            R.string.title_button_bus_motor_in_5000_10000,
+                            R.drawable.ic_hexagon_slice_4
+                        )
+                    }
+                    "more_10000" -> {
+                        model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_BUS_ENGINE, "more_10000")
+                        set_us_button_busEngine(
+                            R.string.title_button_bus_motor_more_10000,
+                            R.drawable.ic_hexagon_slice_6
+                        )
+                    }
+                }
+            }
+        }
+
         return view
     }
 
@@ -232,6 +293,11 @@ class FragmentUtilSbor : Fragment() {
             arguments!!.getInt(widthScreenDPI) - 80   // устанавливаем ширину кнопки без группы
     }
 
+    fun setSwitchButtonWidth(switchButton: SwitchMaterial) {
+        switchButton.layoutParams.width =
+            arguments!!.getInt(widthScreenDPI) - 80   // устанавливаем ширину switchButton без группы
+    }
+
     fun initSpref() {
         sprefUtilSbor = context!!.getSharedPreferences(SPREF_UTILSBOR_NAME, Context.MODE_PRIVATE)
         if (sprefUtilSbor.contains(SPREF_UTILSBOR_AGE)) {
@@ -242,7 +308,7 @@ class FragmentUtilSbor : Fragment() {
             this.us_legk_car_gibrid_capacity =
                 sprefUtilSbor.getString(SPREF_UTILSBOR_LEGK_CAR_GIBRID_CAPACITY, "")
             this.us_gruz_car_weight = sprefUtilSbor.getString(SPREF_UTILSBOR_GRUZ_CAR_WEIGHT, "")
-
+            this.us_bus_engine = sprefUtilSbor.getString(SPREF_UTILSBOR_BUS_ENGINE, "")
         }
         initPreferencesObserver()
 
@@ -258,7 +324,8 @@ class FragmentUtilSbor : Fragment() {
                         us_age,
                         us_legk_car_gibrid_switch,
                         us_legk_car_gibrid_capacity,
-                        us_gruz_car_weight
+                        us_gruz_car_weight,
+                        us_bus_engine
                     )
             }
             )
@@ -271,7 +338,8 @@ class FragmentUtilSbor : Fragment() {
                         us_age,
                         us_legk_car_gibrid_switch,
                         us_legk_car_gibrid_capacity,
-                        us_gruz_car_weight
+                        us_gruz_car_weight,
+                        us_bus_engine
                     )
             }
             )
@@ -284,7 +352,8 @@ class FragmentUtilSbor : Fragment() {
                         us_age,
                         us_legk_car_gibrid_switch,
                         us_legk_car_gibrid_capacity,
-                        us_gruz_car_weight
+                        us_gruz_car_weight,
+                        us_bus_engine
                     )
             })
         sprefUtilSbor.stringLiveData(SPREF_UTILSBOR_LEGK_CAR_GIBRID_CAPACITY, "")
@@ -296,7 +365,8 @@ class FragmentUtilSbor : Fragment() {
                         us_age,
                         us_legk_car_gibrid_switch,
                         us_legk_car_gibrid_capacity,
-                        us_gruz_car_weight
+                        us_gruz_car_weight,
+                        us_bus_engine
                     )
             })
         sprefUtilSbor.stringLiveData(SPREF_UTILSBOR_GRUZ_CAR_WEIGHT, "")
@@ -308,7 +378,21 @@ class FragmentUtilSbor : Fragment() {
                         us_age,
                         us_legk_car_gibrid_switch,
                         us_legk_car_gibrid_capacity,
-                        us_gruz_car_weight
+                        us_gruz_car_weight,
+                        us_bus_engine
+                    )
+            })
+        sprefUtilSbor.stringLiveData(SPREF_UTILSBOR_BUS_ENGINE, "")
+            .observe(this, Observer<String> { value ->
+                this.us_bus_engine = value
+                us_textView_Sums_Value.text =
+                    model.calculateSumsValue(
+                        us_kindAuto,
+                        us_age,
+                        us_legk_car_gibrid_switch,
+                        us_legk_car_gibrid_capacity,
+                        us_gruz_car_weight,
+                        us_bus_engine
                     )
             })
 
@@ -322,8 +406,11 @@ class FragmentUtilSbor : Fragment() {
                     when (data!!.getStringExtra("kind_of_auto")) {
                         "legk_car" -> {
 
-                            if (us_container.getChildAt(0) == us_button_gruz_weight)
+                            if (us_container.getChildAt(0) == us_button_gruz_weight)  // delete gruzcar weight button
                                 us_container.removeView(us_button_gruz_weight)
+
+                            if (us_container.getChildAt(0) == us_layout_bus)
+                                us_container.removeView(us_layout_bus)   // delete layoutBus
 
                             us_switchButton_legk_gibrid.visibility =
                                 VISIBLE                                    // switch button for gibrid
@@ -352,6 +439,9 @@ class FragmentUtilSbor : Fragment() {
                             if (us_container.getChildAt(0) == radioGroup_us_legk_gibrid_motor)
                                 us_container.removeView(radioGroup_us_legk_gibrid_motor)   // delete legkcar gibridRadiogroup
 
+                            if (us_container.getChildAt(0) == us_layout_bus)
+                                us_container.removeView(us_layout_bus)                // delete layoutBus
+
                             if (us_container.getChildAt(0) != us_button_gruz_weight) {      //проверяем  нет ли уже кнопки gruz_weight
 
                                 us_container.addView(this.us_button_gruz_weight)  // add weight button for gruz_auto
@@ -362,20 +452,34 @@ class FragmentUtilSbor : Fragment() {
 
                         }
                         "bus" -> {
-                            us_container.removeView(radioGroup_us_legk_gibrid_motor)   // delete legkcar gibridRadiogroup
-                            us_container.removeView(us_button_gruz_weight) // delete gruzcar weight button
+
+                            if (us_container.getChildAt(0) == radioGroup_us_legk_gibrid_motor)
+                                us_container.removeView(radioGroup_us_legk_gibrid_motor)   // delete legkcar gibridRadiogroup
+                            us_switchButton_legk_gibrid.visibility = GONE
+
+                            if (us_container.getChildAt(0) == us_button_gruz_weight)
+                                us_container.removeView(us_button_gruz_weight)         // delete gruzcar weight button
 
                             model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_KINDAUTO, "bus")
-                            us_switchButton_legk_gibrid.visibility = GONE
+
                             set_us_button_kind_of_auto(
                                 R.string.title_button_bus,
                                 R.drawable.ic_directions_bus_black_24dp
                             )
 
+                            if (us_container.getChildAt(0) != us_layout_bus) {  // проверяем нет ли уже layoutBus в контейнере
+                                us_container.addView(us_layout_bus)
+                                setButtonWidth(this.us_layout_bus_Button)
+
+                            }
+
                         }
                         "dumpTruck" -> {
                             us_container.removeView(us_button_gruz_weight)  // delete gruzcar weight button
                             us_container.removeView(radioGroup_us_legk_gibrid_motor)   // delete legkcar gibridRadiogroup
+
+                            if (us_container.getChildAt(0) == us_layout_bus)
+                                us_container.removeView(us_layout_bus)                // delete layoutBus
 
                             model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_KINDAUTO, "dumpTruck")
                             us_switchButton_legk_gibrid.visibility = GONE
@@ -388,6 +492,9 @@ class FragmentUtilSbor : Fragment() {
                         "pricep" -> {
                             us_container.removeView(us_button_gruz_weight)     // delete gruzcar weight button
                             us_container.removeView(radioGroup_us_legk_gibrid_motor)   // delete legkcar gibridRadiogroup
+
+                            if (us_container.getChildAt(0) == us_layout_bus)
+                                us_container.removeView(us_layout_bus)                // delete layoutBus
 
                             model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_KINDAUTO, "pricep")
                             us_switchButton_legk_gibrid.visibility = GONE
@@ -408,7 +515,7 @@ class FragmentUtilSbor : Fragment() {
                                 SPREF_UTILSBOR_GRUZ_CAR_WEIGHT,
                                 "less_2_5t"
                             )
-                            set_us_button_gruz_weight(
+                            set_us_button_gruzWeight(
                                 R.string.title_button_less_2_5t_us,
                                 R.drawable.ic_hexagon_outline
                             )
@@ -419,42 +526,42 @@ class FragmentUtilSbor : Fragment() {
                                 SPREF_UTILSBOR_GRUZ_CAR_WEIGHT,
                                 "2_5_3_5t"
                             )
-                            set_us_button_gruz_weight(
+                            set_us_button_gruzWeight(
                                 R.string.title_button_in_2_5_3_5t_us,
                                 R.drawable.ic_hexagon_slice_1
                             )
                         }
                         "3_5_5t" -> {
                             model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_GRUZ_CAR_WEIGHT, "3_5_5t")
-                            set_us_button_gruz_weight(
+                            set_us_button_gruzWeight(
                                 R.string.title_button_in_3_5_5t_us,
                                 R.drawable.ic_hexagon_slice_2
                             )
                         }
                         "5_8t" -> {
                             model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_GRUZ_CAR_WEIGHT, "5_8t")
-                            set_us_button_gruz_weight(
+                            set_us_button_gruzWeight(
                                 R.string.title_button_in_5_8t_us,
                                 R.drawable.ic_hexagon_slice_3
                             )
                         }
                         "8_12t" -> {
                             model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_GRUZ_CAR_WEIGHT, "8_12t")
-                            set_us_button_gruz_weight(
+                            set_us_button_gruzWeight(
                                 R.string.title_button_in_8_12t_us,
                                 R.drawable.ic_hexagon_slice_4
                             )
                         }
                         "12_20t" -> {
                             model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_GRUZ_CAR_WEIGHT, "12_20t")
-                            set_us_button_gruz_weight(
+                            set_us_button_gruzWeight(
                                 R.string.title_button_in_12_20t_us,
                                 R.drawable.ic_hexagon_slice_5
                             )
                         }
                         "20_50t" -> {
                             model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_GRUZ_CAR_WEIGHT, "20_50t")
-                            set_us_button_gruz_weight(
+                            set_us_button_gruzWeight(
                                 R.string.title_button_in_20_50t_us,
                                 R.drawable.ic_hexagon_slice_6
                             )
@@ -462,7 +569,42 @@ class FragmentUtilSbor : Fragment() {
                     }
                 } // end REQUEST_CODE_GRUZ_AUTO_WEIGHT =============================================
 
+                REQUEST_CODE_BUS_ENGINE -> {
+                    when (data!!.getStringExtra("us_engineOfBus")) {
+                        "less_2500" -> {
+                            model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_BUS_ENGINE, "less_2500")
+                            set_us_button_busEngine(
+                                R.string.title_button_bus_motor_less_2500,
+                                R.drawable.ic_hexagon_outline
+                            )
+                        }
+                        "2500_5000" -> {
+                            model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_BUS_ENGINE, "2500_5000")
+                            set_us_button_busEngine(
+                                R.string.title_button_bus_motor_in_2500_5000,
+                                R.drawable.ic_hexagon_slice_2
+                            )
 
+                        }
+                        "5000_10000" -> {
+                            model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_BUS_ENGINE, "5000_10000")
+                            set_us_button_busEngine(
+                                R.string.title_button_bus_motor_in_5000_10000,
+                                R.drawable.ic_hexagon_slice_4
+                            )
+
+                        }
+                        "more_10000" -> {
+                            model.putSprefs(sprefUtilSbor, SPREF_UTILSBOR_BUS_ENGINE, "more_10000")
+                            set_us_button_busEngine(
+                                R.string.title_button_bus_motor_more_10000,
+                                R.drawable.ic_hexagon_slice_6
+                            )
+                        }
+
+                    }
+
+                }
             }
 
         }
@@ -474,11 +616,16 @@ class FragmentUtilSbor : Fragment() {
 
     }
 
-    private fun set_us_button_gruz_weight(titleButtonGruzWeight: Int, iconButtonGruzWeight: Int) {
-
-        us_button_gruz_weight.text = resources.getString(titleButtonGruzWeight)
+    private fun set_us_button_gruzWeight(titleButton: Int, iconButton: Int) {
+        us_button_gruz_weight.text = resources.getString(titleButton)
         us_button_gruz_weight.gravity = TEXT_ALIGNMENT_VIEW_END
-        us_button_gruz_weight.setIconResource(iconButtonGruzWeight)
+        us_button_gruz_weight.setIconResource(iconButton)
+    }
+
+    private fun set_us_button_busEngine(titleButton: Int, iconButton: Int) {
+        us_layout_bus_Button.text = resources.getString(titleButton)
+        us_layout_bus_Button.gravity = TEXT_ALIGNMENT_VIEW_END
+        us_layout_bus_Button.setIconResource(iconButton)
     }
 
 
@@ -512,7 +659,6 @@ class FragmentUtilSbor : Fragment() {
                 setStateButtonUsGruzCarWeight(us_gruz_car_weight)
 
 
-
             }
             "bus" -> {
                 us_switchButton_legk_gibrid.visibility = GONE
@@ -520,6 +666,10 @@ class FragmentUtilSbor : Fragment() {
                     R.string.title_button_bus,
                     R.drawable.ic_directions_bus_black_24dp
                 )
+                us_container.addView(us_layout_bus)  // add layoutBus
+                setButtonWidth(us_layout_bus_Button)
+                setStateButtonUsBusEngine(us_bus_engine)
+
             }
             "dumpTruck" -> {
                 us_switchButton_legk_gibrid.visibility = GONE
@@ -544,47 +694,79 @@ class FragmentUtilSbor : Fragment() {
 
         when (usGruzCarWeight) {
             "less_2_5t" -> {
-                set_us_button_gruz_weight(
+                set_us_button_gruzWeight(
                     R.string.title_button_less_2_5t_us,
                     R.drawable.ic_hexagon_outline
                 )
             }
             "2_5_3_5t" -> {
-                set_us_button_gruz_weight(
+                set_us_button_gruzWeight(
                     R.string.title_button_in_2_5_3_5t_us,
                     R.drawable.ic_hexagon_slice_1
                 )
             }
             "3_5_5t" -> {
-                set_us_button_gruz_weight(
+                set_us_button_gruzWeight(
                     R.string.title_button_in_3_5_5t_us,
                     R.drawable.ic_hexagon_slice_2
                 )
             }
             "5_8t" -> {
-                set_us_button_gruz_weight(
+                set_us_button_gruzWeight(
                     R.string.title_button_in_5_8t_us,
                     R.drawable.ic_hexagon_slice_3
                 )
             }
             "8_12t" -> {
-                set_us_button_gruz_weight(
+                set_us_button_gruzWeight(
                     R.string.title_button_in_8_12t_us,
                     R.drawable.ic_hexagon_slice_4
                 )
             }
             "12_20t" -> {
-                set_us_button_gruz_weight(
+                set_us_button_gruzWeight(
                     R.string.title_button_in_12_20t_us,
                     R.drawable.ic_hexagon_slice_5
                 )
             }
             "20_50t" -> {
-                set_us_button_gruz_weight(
+                set_us_button_gruzWeight(
                     R.string.title_button_in_20_50t_us,
                     R.drawable.ic_hexagon_slice_6
                 )
             }
         }
     }
+
+    private fun setStateButtonUsBusEngine(usBusEngine: String) {
+
+        when (usBusEngine) {
+            "less_2500" -> {
+                set_us_button_busEngine(
+                    R.string.title_button_bus_motor_less_2500,
+                    R.drawable.ic_hexagon_outline
+                )
+            }
+            "2500_5000" -> {
+                set_us_button_busEngine(
+                    R.string.title_button_bus_motor_in_2500_5000,
+                    R.drawable.ic_hexagon_slice_2
+                )
+            }
+            "5000_10000" -> {
+                set_us_button_busEngine(
+                    R.string.title_button_bus_motor_in_5000_10000,
+                    R.drawable.ic_hexagon_slice_4
+                )
+            }
+            "more_10000" -> {
+                set_us_button_busEngine(
+                    R.string.title_button_bus_motor_more_10000,
+                    R.drawable.ic_hexagon_slice_6
+                )
+            }
+        }
+    }
+
+
 }

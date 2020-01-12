@@ -8,7 +8,7 @@ import com.google.android.material.button.MaterialButton
 
 
 class ActivityWeightGruzAutoUs : ActivityParent() {
-    private val LAYOUT: Int = R.layout.activity_weight_of_gruz_auto_us
+    private val LAYOUT: Int = R.layout.activity_us_weight_of_gruz_auto
 
     private lateinit var button_less_2_5t_us: MaterialButton
     private lateinit var button_in_2_5_3_5t_us: MaterialButton

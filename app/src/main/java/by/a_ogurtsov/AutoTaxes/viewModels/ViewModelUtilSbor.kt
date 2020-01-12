@@ -22,9 +22,10 @@ class ViewModelUtilSbor(application: Application) : AndroidViewModel(application
         age: Int,
         legk_car_gibrid_switch: Boolean,
         legk_car_gibrid_capacity: String,
-        us_gruz_car_weight: String
+        us_gruz_car_weight: String,
+        us_bus_engine: String
     ): String {
-        return "$kind_auto + $age + $legk_car_gibrid_switch + $legk_car_gibrid_capacity + $us_gruz_car_weight"
+        return "$kind_auto + $age + $legk_car_gibrid_switch + $legk_car_gibrid_capacity + $us_gruz_car_weight + $us_bus_engine"
     }
 
 

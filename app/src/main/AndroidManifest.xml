@@ -39,6 +39,9 @@
         <activity
                 android:name=".ActivityWeightGruzAutoUs"
                 android:theme="@style/AppThemeWaterDialog"></activity>
+        <activity
+                android:name=".ActivityEngineBusUs"
+                android:theme="@style/AppThemeWaterDialog"></activity>
 
     </application>
 
