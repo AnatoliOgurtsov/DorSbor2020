@@ -14,6 +14,7 @@ class ActivityWeightGruzAuto : ActivityParent() {
     private lateinit var button_in_2_5_3_5t: MaterialButton
     private lateinit var button_in_3_5_12t: MaterialButton
     private lateinit var button_more_12t: MaterialButton
+    private lateinit var button_semi_trailer: MaterialButton
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +28,7 @@ class ActivityWeightGruzAuto : ActivityParent() {
         button_in_2_5_3_5t = findViewById(R.id.button_in_2_5_3_5t)
         button_in_3_5_12t = findViewById(R.id.button_in_3_5_12t)
         button_more_12t = findViewById(R.id.button_more_12t)
+        button_semi_trailer = findViewById(R.id.button_semi_trailer)
 
 
         val onButtonClickListener = View.OnClickListener { v ->
@@ -44,6 +46,9 @@ class ActivityWeightGruzAuto : ActivityParent() {
                 R.id.button_more_12t -> {
                     intent.putExtra("weight_of_gruz_auto", "more_12t")
                 }
+                R.id.button_semi_trailer -> {
+                    intent.putExtra("weight_of_gruz_auto", "semi_trailer")
+                }
 
             }
             setResult(Activity.RESULT_OK, intent)  // pass kind of auto to FragmentDorSbor
@@ -53,6 +58,7 @@ class ActivityWeightGruzAuto : ActivityParent() {
         button_in_2_5_3_5t.setOnClickListener(onButtonClickListener)
         button_in_3_5_12t.setOnClickListener(onButtonClickListener)
         button_more_12t.setOnClickListener(onButtonClickListener)
+        button_semi_trailer.setOnClickListener(onButtonClickListener)
 
     }
 }

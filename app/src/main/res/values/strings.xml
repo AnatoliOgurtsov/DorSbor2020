@@ -39,6 +39,7 @@
     <string name="title_button_in_2_5_3_5t">имеющий разрешенную максимальную массу БОЛЕЕ 2,5 ТОНН, НО НЕ БОЛЕЕ 3,5 ТОНН</string>
     <string name="title_button_in_3_5_12t">имеющий разрешенную максимальную массу БОЛЕЕ 3,5 ТОНН, НО НЕ БОЛЕЕ 12 ТОНН</string>
     <string name="title_button_more_12t">имеющий разрешенную максимальную массу БОЛЕЕ 12 ТОНН</string>
+    <string name="title_button_semi_trailer">СЕДЕЛЬНЫЙ ТЯГАЧ</string>
 
     <string name="title_button_less20">НЕ БОЛЕЕ 20 ПОСАДОЧНЫХ МЕСТ</string>
     <string name="title_button_in_21_40">БОЛЕЕ 20, НО НЕ БОЛЕЕ 40 ПОСАДОЧНЫХ МЕСТ</string>
@@ -79,5 +80,13 @@
     <string name="title_button_bus_motor_more_10000">с рабочим объемом двигателя СВЫШЕ 10000 куб. см.</string>
 
     <string name="title_switchmaterial_bus">С ЭЛЕКТРОДВИГАТЕЛЯМИ</string>
+
+
+    <string name="title_button_in_50_80t_us">имеющий полную массу БОЛЕЕ 50 ТОНН, НО НЕ БОЛЕЕ 80 ТОНН</string>
+    <string name="title_button_in_80_350t_us">имеющий полную массу БОЛЕЕ 80 ТОНН, НО НЕ БОЛЕЕ 350 ТОНН</string>
+    <string name="title_button_more_350t_us">имеющий полную массу БОЛЕЕ 350 ТОНН</string>
+
+    <string name="title_button_pricep_more10t_us">ПРИЦЕП, имеющий полную массу СВЫШЕ 10 ТОНН</string>
+    <string name="title_button_half_pricep_more10t_us">ПОЛУПРИЦЕП, имеющий полную массу СВЫШЕ 10 ТОНН</string>
 
 </resources>

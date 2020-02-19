@@ -55,4 +55,18 @@
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
     </com.google.android.material.button.MaterialButton>
 
+
+
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_semi_trailer"
+            style="@style/MaterialButtonOutline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_button_semi_trailer"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_semi_trailer"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
 </LinearLayout>

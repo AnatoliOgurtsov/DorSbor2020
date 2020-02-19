@@ -21,7 +21,12 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.preference.PreferenceManager
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel
+import by.a_ogurtsov.AutoTaxes.workmanager.MyWorker
 import com.google.android.material.navigation.NavigationView
 
 
@@ -29,7 +34,6 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var model: MyViewModel
     private lateinit var color: String // color of theme
-
 
     val LOG_TAG = "myLogs"
     val FRAGMENTSTART = "FRAGMENT_START"
@@ -55,6 +59,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         getSizeButtonLayoutWidth()
         initTheme()
         setContentView(R.layout.activity_main)
@@ -62,6 +67,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         initToolbar()
         initDrawerLayout()
         initFragment()
+        startEuroRateTask()
     }
 
     fun initViewModel() {
@@ -225,37 +231,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             android.R.id.home -> {
                 drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)            // on drawer layout
                 initDrawerLayout()
-
-                when (intent.getStringExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK)) {
-                    FRAGMENTDORSBOR -> {
-                        setTitle(R.string.titleDorSbor)
-                        fragmentTransaction.replace(
-                            R.id.container,
-                            FragmentDorSbor().newInstance(color, widthScreen),
-                            FRAGMENTDORSBOR
-                        )
-                            .commit()
-                        intent.putExtra(CURRENTFRAGMENT, FRAGMENTDORSBOR)
-                        invalidateOptionsMenu()   // update menu
-                    }//->
-                    FRAGMENTSTART -> {
-                        setTitle(R.string.app_name)
-                        fragmentTransaction.replace(R.id.container, FragmentStart(), FRAGMENTSTART)
-                            .commit()
-                        intent.putExtra(CURRENTFRAGMENT, FRAGMENTSTART)
-                        invalidateOptionsMenu()   // update menu
-                    }
-                    FRAGMENTUTILSBOR -> {
-                        setTitle(R.string.titleUtilSbor)
-                        fragmentTransaction.replace(
-                            R.id.container,
-                            FragmentUtilSbor().newInstance(color, widthScreen),
-                            FRAGMENTUTILSBOR
-                        ).commit()
-                        intent.putExtra(CURRENTFRAGMENT, FRAGMENTUTILSBOR)
-                        invalidateOptionsMenu()   // update menu
-                    }
-                } //when
+                onBackPressedAndBackArrowPressed()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -311,8 +287,22 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onBackPressed() {
+        val fragmentTransaction: FragmentTransaction =
+            fragmentManager.beginTransaction()  // close navigationDrawer
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START)
+        } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTDORSBOR ||   // если тек. фрагмент или дорсбор или утилсбор то возвращаемся на стартовый фрагмент
+            intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTUTILSBOR
+        ) {
+            setTitle(R.string.app_name)
+            fragmentTransaction.replace(R.id.container, FragmentStart(), FRAGMENTSTART).commit()
+            intent.putExtra(CURRENTFRAGMENT, FRAGMENTSTART)
+            intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTSTART)
+        } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTSETTINGS) {
+
+            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)            // on drawer layout
+            initDrawerLayout()
+            onBackPressedAndBackArrowPressed()
         } else
             super.onBackPressed()
     }
@@ -330,6 +320,56 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         Log.d(LOG_TAG, widthScreen.toString())
 
+    }
+
+    fun onBackPressedAndBackArrowPressed() {
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        when (intent.getStringExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK)) {
+            FRAGMENTDORSBOR -> {
+                setTitle(R.string.titleDorSbor)
+                fragmentTransaction.replace(
+                    R.id.container,
+                    FragmentDorSbor().newInstance(color, widthScreen),
+                    FRAGMENTDORSBOR
+                )
+                    .commit()
+                intent.putExtra(CURRENTFRAGMENT, FRAGMENTDORSBOR)
+                invalidateOptionsMenu()   // update menu
+            }//->
+            FRAGMENTSTART -> {
+                setTitle(R.string.app_name)
+                fragmentTransaction.replace(R.id.container, FragmentStart(), FRAGMENTSTART)
+                    .commit()
+                intent.putExtra(CURRENTFRAGMENT, FRAGMENTSTART)
+                invalidateOptionsMenu()   // update menu
+            }
+            FRAGMENTUTILSBOR -> {
+                setTitle(R.string.titleUtilSbor)
+                fragmentTransaction.replace(
+                    R.id.container,
+                    FragmentUtilSbor().newInstance(color, widthScreen),
+                    FRAGMENTUTILSBOR
+                ).commit()
+                intent.putExtra(CURRENTFRAGMENT, FRAGMENTUTILSBOR)
+                invalidateOptionsMenu()   // update menu
+            }
+        } //when
+    }
+
+    fun startEuroRateTask() {
+
+        val contrains: Constraints =
+            Constraints.Builder()     // вводим ограничения на загрузку задачи без интернета
+                .setRequiredNetworkType(NetworkType.CONNECTED)     // WiFi or mobilData
+                .build()
+
+
+        val uploadWorkRequest = OneTimeWorkRequestBuilder<MyWorker>()
+            .setConstraints(contrains)
+            .addTag("TaskParseringSiteMinfinForEuroRate")
+            .build()
+
+        WorkManager.getInstance(applicationContext).enqueue(uploadWorkRequest)
     }
 
 }

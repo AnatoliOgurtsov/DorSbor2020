@@ -15,8 +15,8 @@
         <RelativeLayout
                 android:id="@+id/us_RL"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="@dimen/padding10dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="@dimen/padding20dp"
                 app:layout_constraintTop_toTopOf="parent">
 
             <by.a_ogurtsov.AutoTaxes.Screen
@@ -33,12 +33,9 @@
                     style="@style/TextViewScreen"
                     android:paddingTop="50dp"
                     android:text="555 рублей 55 копеек"
-                    android:textSize="29sp" />
+                    android:textSize="25sp" />
 
         </RelativeLayout>
-
-
-
 
         <com.google.android.material.button.MaterialButtonToggleGroup
                 android:id="@+id/us_buttonToggleGroup_vozrast"

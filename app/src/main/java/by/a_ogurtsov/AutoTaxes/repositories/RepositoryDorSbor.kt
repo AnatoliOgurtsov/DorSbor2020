@@ -81,6 +81,13 @@ class RepositoryDorSbor {
                                     countNumberOfBaseValue(numberOfBaseValue, age_gruz, veteran)
                                 )
                             }
+                            "semi_trailer" -> {
+                                numberOfBaseValue = 20
+                                return mutableListOf(
+                                    "${MyClass.check_ruble((numberOfBaseValue * age_gruz * baseValue) / veteran)}",
+                                    countNumberOfBaseValue(numberOfBaseValue, age_gruz, veteran)
+                                )
+                            }
                         } // end weightAuto Gruz fiz
 
                     }
@@ -207,6 +214,13 @@ class RepositoryDorSbor {
                             }
                             "more_12t" -> {
                                 numberOfBaseValue = 25
+                                return mutableListOf(
+                                    "${MyClass.check_ruble((numberOfBaseValue * age_gruz * baseValue) / veteran)}",
+                                    countNumberOfBaseValue(numberOfBaseValue, age_gruz, veteran)
+                                )
+                            }
+                            "semi_trailer" -> {
+                                numberOfBaseValue = 20
                                 return mutableListOf(
                                     "${MyClass.check_ruble((numberOfBaseValue * age_gruz * baseValue) / veteran)}",
                                     countNumberOfBaseValue(numberOfBaseValue, age_gruz, veteran)
