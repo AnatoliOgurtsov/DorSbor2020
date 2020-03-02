@@ -12,7 +12,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_button_legk_car"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_car_black_24dp"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
@@ -25,7 +24,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_button_gruz_car_us"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_gruz_black_24dp"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
@@ -38,7 +36,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_button_bus"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_directions_bus_black_24dp"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
@@ -50,7 +47,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_button_dumpTruck"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_dump_truck"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
@@ -63,7 +59,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_button_pricep"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_pricep"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">

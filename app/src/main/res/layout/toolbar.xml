@@ -11,6 +11,3 @@
 </androidx.appcompat.widget.Toolbar>
 
 
-        <!--
-android:theme="@style/ToolbarStyle"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->

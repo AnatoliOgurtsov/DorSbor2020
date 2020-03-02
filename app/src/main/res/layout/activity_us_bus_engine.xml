@@ -13,7 +13,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_button_bus_motor_less_2500"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_hexagon_outline"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
@@ -25,7 +24,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_button_bus_motor_in_2500_5000"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_hexagon_slice_2"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
@@ -37,7 +35,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_button_bus_motor_in_5000_10000"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_hexagon_slice_4"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
@@ -49,7 +46,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_button_bus_motor_more_10000"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_hexagon_slice_6"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">

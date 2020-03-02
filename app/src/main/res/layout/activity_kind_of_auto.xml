@@ -2,7 +2,6 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/padding10dp"
@@ -13,7 +12,6 @@
             android:id="@+id/button_legk_car"
             android:text="@string/title_button_legk_car"
             style="@style/MaterialButtonOutline"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_car_black_24dp"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
@@ -24,7 +22,6 @@
             android:id="@+id/button_gruz_car"
             android:text="@string/title_button_gruz_car"
             style="@style/MaterialButtonOutline"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_gruz_black_24dp"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
@@ -35,7 +32,6 @@
             android:id="@+id/button_bus"
             android:text="@string/title_button_bus"
             style="@style/MaterialButtonOutline"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_directions_bus_black_24dp"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
@@ -46,7 +42,6 @@
             android:id="@+id/button_pricep"
             android:text="@string/title_button_pricep"
             style="@style/MaterialButtonOutline"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_pricep"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
@@ -57,7 +52,6 @@
             android:id="@+id/button_motocycle"
             android:text="@string/title_button_motocycle"
             style="@style/MaterialButtonOutline"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_motorcycle_black_24dp"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">

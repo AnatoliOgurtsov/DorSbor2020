@@ -5,7 +5,6 @@
         android:id="@+id/us_button_gruz_weight"
         style="@style/MaterialButtonOutline"
         android:text="@string/title_button_less_2_5t_us"
-        android:textAlignment="viewStart"
         android:textAppearance="@style/MaterialButtonTextAppearance"
         app:icon="@drawable/ic_hexagon_outline"
         app:shapeAppearance="@style/MyShapeAppearanceOutlineButton"

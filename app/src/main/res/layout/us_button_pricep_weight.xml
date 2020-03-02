@@ -5,7 +5,6 @@
         android:id="@+id/us_button_pricep_weight"
         style="@style/MaterialButtonOutline"
         android:text="@string/title_button_pricep_more10t_us"
-        android:textAlignment="viewStart"
         android:textAppearance="@style/MaterialButtonTextAppearance"
         app:icon="@drawable/ic_hexagon_slice_6"
         app:shapeAppearance="@style/MyShapeAppearanceOutlineButton"

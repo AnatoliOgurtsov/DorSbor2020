@@ -98,6 +98,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTDORSBOR)
                     invalidateOptionsMenu()   // update menu
 
+
                 }
                 "FRAGMENT_UTILSBOR" -> {                                       // pressed button утилизационный сбор from startfragment
                     setTitle(R.string.titleUtilSbor)

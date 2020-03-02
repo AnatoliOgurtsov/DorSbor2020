@@ -34,9 +34,9 @@ class FragmentStart : Fragment(), View.OnClickListener {
         return view
     }
 
-    override fun onClick(v: View?) {
+    override fun onClick(v: View) {
 
-        when (v?.id) {
+        when (v.id) {
             R.id.button_open_frag_dor_sbor -> {
                 Log.d(LOG_TAG, "pressed DorsborKey")
                 model.choice_from_fragmentStart.value = FRAGMENTDORSBOR

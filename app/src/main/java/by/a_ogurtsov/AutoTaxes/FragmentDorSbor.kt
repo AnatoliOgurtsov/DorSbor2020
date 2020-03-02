@@ -261,7 +261,17 @@ class FragmentDorSbor : Fragment() {
             this.weightAuto = sprefDorSbor.getString(SPREF_DORSBOR_WEIGHTAUTO, "")
             this.veteran = sprefDorSbor.getInt(SPREF_DORSBOR_VETERAN, 1)
 
+        } else {
+            val editor: SharedPreferences.Editor = sprefDorSbor.edit()
+            editor.putString(SPREF_DORSBOR_PERIOD, period)
+            editor.putString(SPREF_DORSBOR_FIZYUR, fizYur)
+            editor.putInt(SPREF_DORSBOR_AGE, age)
+            editor.putString(SPREF_DORSBOR_KINDAUTO, kindAuto)
+            editor.putString(SPREF_DORSBOR_WEIGHTAUTO, weightAuto)
+            editor.putInt(SPREF_DORSBOR_VETERAN, veteran)
+            editor.apply()
         }
+
         initPreferencesObserver()
     }
 
@@ -512,6 +522,12 @@ class FragmentDorSbor : Fragment() {
                                 buttonKindAutoWeight.setIconResource(R.drawable.ic_hexagon_slice_6)
                                 buttonToggleGroup_fiz_yur.visibility = GONE
                             }
+                            "semi_trailer" -> {
+                                buttonKindAutoWeight.text =
+                                    resources.getString(R.string.title_button_semi_trailer)
+                                 buttonKindAutoWeight.setIconResource(R.drawable.ic_semi_trailer)
+                                buttonToggleGroup_fiz_yur.visibility = GONE
+                            }
                         }
                         model.putSprefs(
                             sprefDorSbor,
@@ -594,7 +610,7 @@ class FragmentDorSbor : Fragment() {
                 buttonToggleGroup_vozrast.visibility = GONE
 
                 when (weightAuto) {
-                    "2_5_3_5t", "3_5_12t", "more_12t" -> buttonToggleGroup_fiz_yur.visibility =
+                    "2_5_3_5t", "3_5_12t", "more_12t", "semi_trailer"-> buttonToggleGroup_fiz_yur.visibility =
                         GONE  // при этих весах физюр не нужен
                 }
 
@@ -656,6 +672,11 @@ class FragmentDorSbor : Fragment() {
                 buttonKindAutoWeight.text =
                     resources.getString(R.string.title_button_more_12t)
                 buttonKindAutoWeight.setIconResource(R.drawable.ic_hexagon_slice_6)
+            }
+            "semi_trailer" -> {
+                buttonKindAutoWeight.text =
+                    resources.getString(R.string.title_button_semi_trailer)
+                buttonKindAutoWeight.setIconResource(R.drawable.ic_semi_trailer)
             }
             "less_20" -> {
                 buttonKindAutoWeight.text =

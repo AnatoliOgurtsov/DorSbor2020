@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -13,7 +12,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_button_pricep_more10t_us"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_hexagon_slice_6"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
@@ -25,7 +23,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_button_half_pricep_more10t_us"
-            android:textAlignment="viewStart"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_hexagon_slice_3"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">

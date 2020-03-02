@@ -337,8 +337,20 @@ class FragmentUtilSbor : Fragment() {
             this.usDumpTruckWeight = sprefUtilSbor.getString(SPREF_UTILSBOR_DUMP_TRUCK_WEIGHT, "")
             this.usPricepWeight = sprefUtilSbor.getString(SPREF_UTILSBOR_PRICEP_WEIGHT, "")
         }
-        initPreferencesObserver()
+        else {
+            val editor: SharedPreferences.Editor = sprefUtilSbor.edit()
+            editor.putString(SPREF_UTILSBOR_KINDAUTO, us_kindAuto)
+            editor.putInt(SPREF_UTILSBOR_AGE, us_age)
+            editor.putBoolean(SPREF_UTILSBOR_LEGK_CAR_GIBRID_SWITCH, us_legk_car_gibrid_switch)
+            editor.putString(SPREF_UTILSBOR_LEGK_CAR_GIBRID_CAPACITY, us_legk_car_gibrid_capacity)
+            editor.putString(SPREF_UTILSBOR_GRUZ_CAR_WEIGHT, us_gruz_car_weight)
+            editor.putString(SPREF_UTILSBOR_BUS_ENGINE, us_bus_engine)
+            editor.putString(SPREF_UTILSBOR_DUMP_TRUCK_WEIGHT, usDumpTruckWeight)
+            editor.putString(SPREF_UTILSBOR_PRICEP_WEIGHT, usPricepWeight)
+            editor.apply()
+        }
 
+        initPreferencesObserver()
     }
 
     fun initPreferencesObserver() {
