@@ -2,6 +2,8 @@ package by.a_ogurtsov.AutoTaxes
 
 import android.content.Intent
 import android.content.Intent.*
+import android.content.pm.ActivityInfo
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -41,7 +43,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     val FRAGMENTUTILSBOR = "FRAGMENT_UTILSBOR"
     val FRAGMENTSETTINGS = "FRAGMENT_SETTINGS"
     val CURRENTFRAGMENT = "CURRENT_FRAGMENT"
-    val CURRENTFRAGMENT_PRESS_ARROW_BACK = "CURRENTFRAGMENT_PRESS_ARROW_BACK"
+    val CURRENTFRAGMENT_PRESS_ARROW_BACK = "CURRENT_FRAGMENT_PRESS_ARROW_BACK"
 
     private val fragmentManager: FragmentManager = supportFragmentManager
 
@@ -51,6 +53,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var intentEmail: Intent
 
+
     private val metrics: DisplayMetrics = DisplayMetrics()
     private var widthScreen: Int =
         0                                      //ширина экрана, передаем во фрагмент как атрибут
@@ -59,7 +62,6 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         getSizeButtonLayoutWidth()
         initTheme()
         setContentView(R.layout.activity_main)
@@ -67,10 +69,10 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         initToolbar()
         initDrawerLayout()
         initFragment()
-        startEuroRateTask()
+            //   startEuroRateTask()    парсит сайт минфина по поводу курса евро
     }
 
-    fun initViewModel() {
+    private fun initViewModel() {
 
         model = ViewModelProviders.of(this).get(MyViewModel::class.java)
 
@@ -85,39 +87,14 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val observerPressButtonFromFragmentStart = Observer<String> { choice_from_fragmentStart ->
             when (choice_from_fragmentStart) {
-                "FRAGMENT_DORSBOR" -> {                                        // pressed button дорожный сбор from startfragment
-                    setTitle(R.string.titleDorSbor)
-                    val fragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.replace(
-                        R.id.container,
-                        FragmentDorSbor().newInstance(color, widthScreen),
-                        FRAGMENTDORSBOR
-                    )
-                        .commit()
-                    intent.putExtra(CURRENTFRAGMENT, FRAGMENTDORSBOR)
-                    intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTDORSBOR)
-                    invalidateOptionsMenu()   // update menu
-
-
-                }
-                "FRAGMENT_UTILSBOR" -> {                                       // pressed button утилизационный сбор from startfragment
-                    setTitle(R.string.titleUtilSbor)
-                    val fragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.replace(
-                        R.id.container,
-                        FragmentUtilSbor().newInstance(color, widthScreen),
-                        FRAGMENTUTILSBOR
-                    ).commit()
-                    intent.putExtra(CURRENTFRAGMENT, FRAGMENTUTILSBOR)
-                    intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTUTILSBOR)
-                    invalidateOptionsMenu()   // update menu
-                }
+                "FRAGMENT_DORSBOR" -> showFragmentDorSbor()
+                "FRAGMENT_UTILSBOR" -> showFragmentUtilSbor()
             }
         }
         model.choice_from_fragmentStart.observe(this, observerPressButtonFromFragmentStart)
     }
 
-    fun initTheme() {
+    private fun initTheme() {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         when (sharedPreferences != null) {
             true -> color = sharedPreferences.getString("pref_color_theme", "")
@@ -126,31 +103,36 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setAppTheme(color)
     }
 
-    fun initToolbar() {
+    private fun initToolbar() {
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
     }
 
-    fun initDrawerLayout() {
+    private fun initDrawerLayout() {
         drawer = findViewById(R.id.drawer_layout)
         navigationView = findViewById(R.id.navigation_view)
         navigationView.setNavigationItemSelectedListener(this)
-        toggle = ActionBarDrawerToggle(
+        val view: View = View.inflate(this, R.layout.nav_drawer_header, navigationView)
+        val email = view.findViewById<TextView>(R.id.nav_header_email)
+        val textViewAppVersion = view.findViewById<TextView>(R.id.app_name)
+
+        addAppVersionInHeader(textViewAppVersion)
+
+        toggle =  ActionBarDrawerToggle(
             this,
             drawer,
             toolbar,
             R.string.nav_app_bar_open_drawer_description,
             R.string.navigation_drawer_close
         )
+
+
         drawer.addDrawerListener(toggle)
         toggle.syncState()
 
-
         // press email in drawer head
 
-        val view: View = View.inflate(this, R.layout.nav_drawer_header, navigationView)
-        val email: TextView = view.findViewById(R.id.nav_header_email)
-        val onClickListenerDrawerHead: View.OnClickListener = View.OnClickListener {
+        email.setOnClickListener {
             intentEmail = Intent(ACTION_SENDTO).apply {
                 data = Uri.parse("mailto:")
                 putExtra(EXTRA_EMAIL, resources.getStringArray(R.array.email_address))
@@ -159,10 +141,11 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             if (intentEmail.resolveActivity(packageManager) != null)
                 startActivity(intentEmail)
         }
-        email.setOnClickListener(onClickListenerDrawerHead)
+
+Log.d(LOG_TAG, "initDrawerLayout")
     }
 
-    fun initFragment() {
+    private fun initFragment() {
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
 
         if (intent.getStringExtra(CURRENTFRAGMENT) == null) {                              //добавляется StartFragment в первый раз
@@ -172,29 +155,13 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTSTART)
 
         } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTSETTINGS) {           //добавляется SettingFragment
-            setTitle(R.string.SETTING)
-            fragmentTransaction.replace(R.id.container, FragmentSetting(), FRAGMENTSETTINGS)
-                .commit()
-            closeDrawer_initToolbar()
-            invalidateOptionsMenu()   // update menu
-
+            showFragmentSettings()
         } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTDORSBOR) {
-            setTitle(R.string.titleDorSbor)                                                 //добавляется DorSborFragment
-            fragmentTransaction.replace(
-                R.id.container,
-                FragmentDorSbor().newInstance(color, widthScreen),
-                FRAGMENTDORSBOR
-            ).commit()
-            intent.putExtra(CURRENTFRAGMENT, FRAGMENTDORSBOR)
-            intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTDORSBOR)
-            invalidateOptionsMenu()   // update menu
-
+            showFragmentDorSbor()                                                    //добавляется DorSborFragment
+        } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTUTILSBOR) {
+            showFragmentUtilSbor()                                                     //добавляется UtilSborFragment
         } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTSTART) {                //добавляется СтартFragment при повороте экрана
-            setTitle(R.string.app_name)
-            fragmentTransaction.replace(R.id.container, FragmentStart(), FRAGMENTSTART).commit()
-            intent.putExtra(CURRENTFRAGMENT, FRAGMENTSTART)
-            intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTSTART)
-            invalidateOptionsMenu()     // update menu
+            showFragmentStart()
         }
     }
 
@@ -215,30 +182,21 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
 
         when (item?.itemId) {
             // нажатие кнопки "настройки"
-            R.id.menu_setting -> {
-                setTitle(R.string.SETTING)
-                fragmentTransaction.replace(R.id.container, FragmentSetting(), FRAGMENTSETTINGS)
-                    .commit()
+            R.id.menu_setting -> showFragmentSettings()
 
-                closeDrawer_initToolbar()    // inherit fun
-                intent.putExtra(CURRENTFRAGMENT, FRAGMENTSETTINGS)
-                invalidateOptionsMenu()   // update menu
-            }
+
             // нажатие стрелки назад
             android.R.id.home -> {
-                drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)            // on drawer layout
-                initDrawerLayout()
                 onBackPressedAndBackArrowPressed()
             }
         }
         return super.onOptionsItemSelected(item)
     }
 
-    fun setAppTheme(color: String) {
+    private fun setAppTheme(color: String) {
         when (color) {
             "водяная" -> setTheme(R.style.AppThemeWater)
             "оливковая" -> setTheme(R.style.AppThemeOlive)
@@ -253,111 +211,123 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
-
         when (p0.itemId) {
-            R.id.navigation_view_item_dor_sbor -> {
-                setTitle(R.string.titleDorSbor)
-                val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-                fragmentTransaction.replace(
-                    R.id.container,
-                    FragmentDorSbor().newInstance(color, widthScreen),
-                    FRAGMENTDORSBOR
-                )
-                    .commit()
-                intent.putExtra(CURRENTFRAGMENT, FRAGMENTDORSBOR)
-                intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTDORSBOR)
-                invalidateOptionsMenu()   // update menu
-
-            }
-            R.id.navigation_view_item_util_sbor -> {
-                setTitle(R.string.titleUtilSbor)
-                val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-                fragmentTransaction.replace(
-                    R.id.container,
-                    FragmentUtilSbor().newInstance(color, widthScreen),
-                    FRAGMENTUTILSBOR
-                )
-                    .commit()
-                intent.putExtra(CURRENTFRAGMENT, FRAGMENTUTILSBOR)
-                intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTUTILSBOR)
-                invalidateOptionsMenu()   // update menu
-            }
+            R.id.navigation_view_item_dor_sbor -> showFragmentDorSbor()
+            R.id.navigation_view_item_util_sbor -> showFragmentUtilSbor()
+            R.id.rate_app -> startIntentRateApp()
         }
-        drawer.closeDrawer(GravityCompat.START)
         return true
     }
 
     override fun onBackPressed() {
-        val fragmentTransaction: FragmentTransaction =
-            fragmentManager.beginTransaction()  // close navigationDrawer
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START)
-        } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTDORSBOR ||   // если тек. фрагмент или дорсбор или утилсбор то возвращаемся на стартовый фрагмент
-            intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTUTILSBOR
-        ) {
-            setTitle(R.string.app_name)
-            fragmentTransaction.replace(R.id.container, FragmentStart(), FRAGMENTSTART).commit()
-            intent.putExtra(CURRENTFRAGMENT, FRAGMENTSTART)
-            intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTSTART)
-        } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTSETTINGS) {
 
-            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)            // on drawer layout
-            initDrawerLayout()
-            onBackPressedAndBackArrowPressed()
-        } else
-            super.onBackPressed()
+        if (intent.getStringExtra(CURRENTFRAGMENT) != FRAGMENTSTART) {
+
+            when (intent.getStringExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK)) {
+                FRAGMENTSTART -> showFragmentStart()
+                FRAGMENTDORSBOR -> showFragmentDorSbor()
+                FRAGMENTUTILSBOR -> showFragmentUtilSbor()
+            } //when
+        } else super.onBackPressed()
     }
 
-    fun closeDrawer_initToolbar() {
+    private fun onBackPressedAndBackArrowPressed() {
+        when (intent.getStringExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK)) {
+            FRAGMENTSTART -> showFragmentStart()
+            FRAGMENTDORSBOR -> showFragmentDorSbor()
+            FRAGMENTUTILSBOR -> showFragmentUtilSbor()
+        } //when
+    }
+
+    private fun closeDrawer_initToolbar() {
         initToolbar()                                                        // pass toolbar to ActionBar
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)       // off drawer layout
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)     // set arrow back
     }
 
-    fun getSizeButtonLayoutWidth() {   // находим ширина экрана, чтобы выставить размеры кнопок в MaterialToogle
+    private fun getSizeButtonLayoutWidth() {   // находим ширина экрана, чтобы выставить размеры кнопок в MaterialToogle
 
         windowManager.defaultDisplay.getMetrics(this.metrics)
         this.widthScreen = metrics.widthPixels
-
         Log.d(LOG_TAG, widthScreen.toString())
-
     }
 
-    fun onBackPressedAndBackArrowPressed() {
+
+    private fun showFragmentStart() {
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        when (intent.getStringExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK)) {
-            FRAGMENTDORSBOR -> {
-                setTitle(R.string.titleDorSbor)
-                fragmentTransaction.replace(
-                    R.id.container,
-                    FragmentDorSbor().newInstance(color, widthScreen),
-                    FRAGMENTDORSBOR
-                )
-                    .commit()
-                intent.putExtra(CURRENTFRAGMENT, FRAGMENTDORSBOR)
-                invalidateOptionsMenu()   // update menu
-            }//->
-            FRAGMENTSTART -> {
-                setTitle(R.string.app_name)
-                fragmentTransaction.replace(R.id.container, FragmentStart(), FRAGMENTSTART)
-                    .commit()
-                intent.putExtra(CURRENTFRAGMENT, FRAGMENTSTART)
-                invalidateOptionsMenu()   // update menu
-            }
-            FRAGMENTUTILSBOR -> {
-                setTitle(R.string.titleUtilSbor)
-                fragmentTransaction.replace(
-                    R.id.container,
-                    FragmentUtilSbor().newInstance(color, widthScreen),
-                    FRAGMENTUTILSBOR
-                ).commit()
-                intent.putExtra(CURRENTFRAGMENT, FRAGMENTUTILSBOR)
-                invalidateOptionsMenu()   // update menu
-            }
-        } //when
+        setTitle(R.string.app_name)
+        fragmentTransaction.replace(R.id.container, FragmentStart(), FRAGMENTSTART)
+        .commit()
+        intent.putExtra(CURRENTFRAGMENT, FRAGMENTSTART)
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)            // on drawer layout
+       // initDrawerLayout()
+        toggle =  ActionBarDrawerToggle(
+            this,
+            drawer,
+            toolbar,
+            R.string.nav_app_bar_open_drawer_description,
+            R.string.navigation_drawer_close
+        )
+
+
+        drawer.addDrawerListener(toggle)
+        toggle.syncState()
+
+        invalidateOptionsMenu()   // update menu
     }
 
-    fun startEuroRateTask() {
+    private fun showFragmentDorSbor() {
+
+        setTitle(R.string.titleDorSbor)
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(
+            R.id.container,
+            FragmentDorSbor().newInstance(color, widthScreen),
+            FRAGMENTDORSBOR
+        )
+            .commit()
+        intent.putExtra(CURRENTFRAGMENT, FRAGMENTDORSBOR)
+        intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTSTART)
+        closeDrawer_initToolbar()    // inherit fun
+        invalidateOptionsMenu()   // update menu
+    }
+
+    private fun showFragmentUtilSbor() {
+
+        setTitle(R.string.titleUtilSbor)
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(
+            R.id.container,
+            FragmentUtilSbor().newInstance(color, widthScreen),
+            FRAGMENTUTILSBOR
+        ).commit()
+        intent.putExtra(CURRENTFRAGMENT, FRAGMENTUTILSBOR)
+        intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTSTART)
+        closeDrawer_initToolbar()    // inherit fun
+        invalidateOptionsMenu()   // update menu
+    }
+
+    private fun showFragmentSettings() {
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+
+        setTitle(R.string.SETTING)
+        fragmentTransaction.replace(R.id.container, FragmentSetting(), FRAGMENTSETTINGS)
+            .commit()
+
+        closeDrawer_initToolbar()    // inherit fun
+
+        if (intent.getStringExtra(CURRENTFRAGMENT) != FRAGMENTSETTINGS) {
+            intent.putExtra(
+                CURRENTFRAGMENT_PRESS_ARROW_BACK,
+                intent.getStringExtra(CURRENTFRAGMENT)
+            )
+        }
+        intent.putExtra(CURRENTFRAGMENT, FRAGMENTSETTINGS)
+        invalidateOptionsMenu()   // update menu
+
+    }
+
+   /* private fun startEuroRateTask() {
 
         val contrains: Constraints =
             Constraints.Builder()     // вводим ограничения на загрузку задачи без интернета
@@ -371,6 +341,20 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .build()
 
         WorkManager.getInstance(applicationContext).enqueue(uploadWorkRequest)
+    }
+*/
+    private fun startIntentRateApp() {
+        val appPackageName = packageName
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName"))
+        startActivity(intent)
+    }
+
+    // add appversion in header
+    private fun addAppVersionInHeader(textView : TextView){
+        textView.text = "${getString(R.string.app_name)} ${packageManager.getPackageInfo(
+            packageName,
+            0
+        ).versionName}"
     }
 
 }

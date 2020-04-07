@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">АвтоНалоги (Беларусь)</string>
     <string name="email">AnatoliOgurtsov@gmail.com</string>
+    <string name="author">Анатолий Огурцов</string>
+    <string name="about_app">О приложении</string>
+    <string name="rate_app">Оценить приложение</string>
 
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="BUTTON">button</string>
 
     <string name="titleDorSbor">Дорожный сбор</string>
     <string name="titleUtilSbor">Утилизационный сбор</string>
@@ -20,7 +20,7 @@
     <string name="title_button_yur">ЮРИДИЧЕСКОЕ ЛИЦО</string>
     <string name="title_button_before_10_years">МЛАДШЕ 10 ЛЕТ</string>
     <string name="title_button__10_years_and_oldest">10 ЛЕТ И СТАРШЕ</string>
-    <string name="switch_text">ИНВАЛИД ПЕРВОЙ ГРУППЫ \nВЕТЕРАН ВЕЛИКОЙ ОТЕЧЕСТВЕННОЙ ВОЙНЫ</string>
+    <string name="switch_text">ИНВАЛИД ПЕРВОЙ ИЛИ ВТОРОЙ ГРУППЫ, \nВЕТЕРАН ВЕЛИКОЙ ОТЕЧЕСТВЕННОЙ ВОЙНЫ</string>
 
 
     <string name="title_button_legk_car">ЛЕГКОВОЙ АВТОМОБИЛЬ</string>

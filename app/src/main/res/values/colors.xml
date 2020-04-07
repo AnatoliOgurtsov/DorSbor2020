@@ -50,7 +50,7 @@
     <color name="toolBarTextColorSnow">#FFFFFF</color>
 
     <color name="materialButtonBackgroundTintSnow">#979797</color>
-    <color name="materialButtonTextColorSnow">#000000</color>
+    <color name="materialButtonTextColorSnow">#FFFFFF</color>
     <color name="materialButtonStrokeColorSnow">#979797</color>
     <color name="materialButtonOutlineTextColorSnow">#979797</color>
 
@@ -86,7 +86,7 @@
     <color name="toolBarTextColorHoney">#000000</color>
 
     <color name="materialButtonBackgroundTintHoney">#C47D02</color>
-    <color name="materialButtonTextColorHoney">#FFFFFF</color>
+    <color name="materialButtonTextColorHoney">#000000</color>
     <color name="materialButtonStrokeColorHoney">#C47D02</color>
     <color name="materialButtonOutlineTextColorHoney">#C47D02</color>
 
