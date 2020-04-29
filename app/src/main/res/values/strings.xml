@@ -5,6 +5,8 @@
     <string name="about_app">О приложении</string>
     <string name="rate_app">Оценить приложение</string>
 
+    <string name="euroRate">Курс евро: </string>
+
 
     <string name="titleDorSbor">Дорожный сбор</string>
     <string name="titleUtilSbor">Утилизационный сбор</string>

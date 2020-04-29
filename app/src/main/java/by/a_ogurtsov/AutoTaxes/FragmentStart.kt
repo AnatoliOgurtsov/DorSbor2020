@@ -5,32 +5,46 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import by.a_ogurtsov.AutoTaxes.databinding.FragmentStartBinding
 import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel
 
-class FragmentStart : Fragment(), View.OnClickListener {
+
+class FragmentStart : Fragment(R.layout.fragment_start), View.OnClickListener {
+
+    private var _binding: FragmentStartBinding? = null
+    private val binding get() = _binding!!
 
     val LOG_TAG = "myLogs"
     private lateinit var model: MyViewModel
     val FRAGMENTDORSBOR = "FRAGMENT_DORSBOR"
     val FRAGMENTUTILSBOR = "FRAGMENT_UTILSBOR"
-    private lateinit var buttonDorSbor: Button
-    private lateinit var buttonUtilSbor: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        model = ViewModelProviders.of(this.getActivity()!!).get(MyViewModel::class.java)
+        model = ViewModelProviders.of(this.activity!!).get(MyViewModel::class.java)
+
+
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-        val view: View = inflater.inflate(R.layout.fragment_start, container, false)
-        buttonDorSbor = view.findViewById(R.id.button_open_frag_dor_sbor)
-        buttonUtilSbor = view.findViewById(R.id.button_open_frag_util_sbor)
-        buttonDorSbor.setOnClickListener(this)
-        buttonUtilSbor.setOnClickListener(this)
+        _binding = FragmentStartBinding.inflate(inflater, container, false)
+        val view = binding.root
+        binding.buttonOpenFragDorSbor.setOnClickListener(this)
+        binding.buttonOpenFragUtilSbor.setOnClickListener(this)
+
+
+        val euroRateObserver = Observer<String> { newValue ->
+            binding.textviewEuroRate.text = "${resources.getString(R.string.euroRate)} $newValue рублей"
+        }
+        model.euroRate.observe(this, euroRateObserver)
         return view
     }
 
@@ -46,5 +60,10 @@ class FragmentStart : Fragment(), View.OnClickListener {
                 model.choice_from_fragmentStart.value = FRAGMENTUTILSBOR
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

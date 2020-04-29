@@ -14,7 +14,7 @@ class RepositoryUtilSbor {
     ): String {
         when (kind_auto) {
             "legk_car" -> {
-                if (legk_car_gibrid_switch == false) {
+                if (!legk_car_gibrid_switch) {
                     when (age) {
                         1 -> return "544 рубля 50 копеек"
                         2 -> return "816 рублей 70 копеек"

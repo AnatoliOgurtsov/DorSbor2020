@@ -39,9 +39,6 @@ class ViewModelUtilSbor(application: Application) : AndroidViewModel(application
             us_dumpTruck_weight,
             us_pricep_weight
         )
-
-        /*"$kind_auto + $age + $legk_car_gibrid_switch + $legk_car_gibrid_capacity + " +
-                "$us_gruz_car_weight + $us_bus_engine + $us_dumpTruck_weight + $us_pricep_weight"*/
-    }
+   }
 
 }

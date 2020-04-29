@@ -19,6 +19,10 @@ class MyViewModel(application: Application) : AndroidViewModel(application) {
     val choice_from_fragmentStart: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
+    val euroRate: MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
+
 
     fun <T> putSprefs(sprefs: SharedPreferences, key: String, value: T) {
         val editor: SharedPreferences.Editor = sprefs.edit()

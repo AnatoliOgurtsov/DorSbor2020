@@ -2,8 +2,6 @@ package by.a_ogurtsov.AutoTaxes
 
 import android.content.Intent
 import android.content.Intent.*
-import android.content.pm.ActivityInfo
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -16,17 +14,14 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.preference.PreferenceManager
-import androidx.work.Constraints
-import androidx.work.NetworkType
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.WorkManager
+import androidx.work.*
 import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel
 import by.a_ogurtsov.AutoTaxes.workmanager.MyWorker
 import com.google.android.material.navigation.NavigationView
@@ -69,7 +64,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         initToolbar()
         initDrawerLayout()
         initFragment()
-            //   startEuroRateTask()    парсит сайт минфина по поводу курса евро
+        startEuroRateTask()   // парсит сайт минфина по поводу курса евро
     }
 
     private fun initViewModel() {
@@ -118,7 +113,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         addAppVersionInHeader(textViewAppVersion)
 
-        toggle =  ActionBarDrawerToggle(
+        toggle = ActionBarDrawerToggle(
             this,
             drawer,
             toolbar,
@@ -142,7 +137,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(intentEmail)
         }
 
-Log.d(LOG_TAG, "initDrawerLayout")
+        Log.d(LOG_TAG, "initDrawerLayout")
     }
 
     private fun initFragment() {
@@ -257,11 +252,11 @@ Log.d(LOG_TAG, "initDrawerLayout")
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         setTitle(R.string.app_name)
         fragmentTransaction.replace(R.id.container, FragmentStart(), FRAGMENTSTART)
-        .commit()
+            .commit()
         intent.putExtra(CURRENTFRAGMENT, FRAGMENTSTART)
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)            // on drawer layout
-       // initDrawerLayout()
-        toggle =  ActionBarDrawerToggle(
+        // initDrawerLayout()
+        toggle = ActionBarDrawerToggle(
             this,
             drawer,
             toolbar,
@@ -327,8 +322,9 @@ Log.d(LOG_TAG, "initDrawerLayout")
 
     }
 
-   /* private fun startEuroRateTask() {
-
+    private fun startEuroRateTask() {
+        val LogTAG = "workmng"
+        val wm = WorkManager.getInstance(applicationContext)
         val contrains: Constraints =
             Constraints.Builder()     // вводим ограничения на загрузку задачи без интернета
                 .setRequiredNetworkType(NetworkType.CONNECTED)     // WiFi or mobilData
@@ -340,9 +336,21 @@ Log.d(LOG_TAG, "initDrawerLayout")
             .addTag("TaskParseringSiteMinfinForEuroRate")
             .build()
 
-        WorkManager.getInstance(applicationContext).enqueue(uploadWorkRequest)
+// observer for a WorkManager State  and recieve data(euro Rate)
+        wm.getWorkInfoByIdLiveData(uploadWorkRequest.id)
+            .observe(this, Observer { workInfo ->
+
+                if (workInfo.state == WorkInfo.State.SUCCEEDED) {
+                    /*   Log.d(LogTAG, "state is ${workInfo.state}")*/
+                    Log.d(LogTAG, "outputData is ${workInfo.outputData.getString("EuroRate")}")
+                    model.euroRate.value = workInfo.outputData.getString("EuroRate")
+                }
+            })
+//=======================
+        wm.enqueue(uploadWorkRequest)
+
     }
-*/
+
     private fun startIntentRateApp() {
         val appPackageName = packageName
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName"))
@@ -350,11 +358,15 @@ Log.d(LOG_TAG, "initDrawerLayout")
     }
 
     // add appversion in header
-    private fun addAppVersionInHeader(textView : TextView){
+    private fun addAppVersionInHeader(textView: TextView) {
         textView.text = "${getString(R.string.app_name)} ${packageManager.getPackageInfo(
             packageName,
             0
         ).versionName}"
+    }
+
+    companion object {
+
     }
 
 }

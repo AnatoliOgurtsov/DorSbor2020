@@ -18,7 +18,6 @@ class FragmentSetting : PreferenceFragmentCompat(), SharedPreferences.OnSharedPr
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-       // val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
         model = ViewModelProviders.of(this.getActivity()!!).get(MyViewModel::class.java)
 
     }
