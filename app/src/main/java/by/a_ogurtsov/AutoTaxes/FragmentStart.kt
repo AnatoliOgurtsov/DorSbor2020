@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.preference.PreferenceManager
 import by.a_ogurtsov.AutoTaxes.databinding.FragmentStartBinding
 import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel
 
@@ -21,12 +24,11 @@ class FragmentStart : Fragment(R.layout.fragment_start), View.OnClickListener {
     private lateinit var model: MyViewModel
     val FRAGMENTDORSBOR = "FRAGMENT_DORSBOR"
     val FRAGMENTUTILSBOR = "FRAGMENT_UTILSBOR"
+    val PREFSHOWCURRENCYRATE = "pref_showCurrencyRate"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         model = ViewModelProviders.of(this.activity!!).get(MyViewModel::class.java)
-
-
     }
 
     override fun onCreateView(
@@ -40,24 +42,35 @@ class FragmentStart : Fragment(R.layout.fragment_start), View.OnClickListener {
         binding.buttonOpenFragDorSbor.setOnClickListener(this)
         binding.buttonOpenFragUtilSbor.setOnClickListener(this)
 
+        prefShowCurrencyRate()  // show or no currenty rates
+
 
         val euroRateObserver = Observer<String> { newValue ->
-            binding.textviewEuroRate.text = "${resources.getString(R.string.euroRate)} $newValue рублей"
+            binding.textviewEuroRate.text =
+                "${resources.getString(R.string.euroRate)} $newValue рублей"
         }
         model.euroRate.observe(this, euroRateObserver)
+
+        val dollarRateObserver = Observer<String> { newValue ->
+            binding.textviewDollarRate.text =
+                "${resources.getString(R.string.dollarRate)} $newValue рублей"
+        }
+        model.dollarRate.observe(this, dollarRateObserver)
+
         return view
+
+
     }
 
     override fun onClick(v: View) {
-
         when (v.id) {
             R.id.button_open_frag_dor_sbor -> {
                 Log.d(LOG_TAG, "pressed DorsborKey")
-                model.choice_from_fragmentStart.value = FRAGMENTDORSBOR
+                model.choiceFromFragmentStart.value = FRAGMENTDORSBOR
             }
             R.id.button_open_frag_util_sbor -> {
                 Log.d(LOG_TAG, "pressed UtilsborKey")
-                model.choice_from_fragmentStart.value = FRAGMENTUTILSBOR
+                model.choiceFromFragmentStart.value = FRAGMENTUTILSBOR
             }
         }
     }
@@ -65,5 +78,23 @@ class FragmentStart : Fragment(R.layout.fragment_start), View.OnClickListener {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun prefShowCurrencyRate() {
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+
+        sharedPreferences.booleanLiveData(PREFSHOWCURRENCYRATE, true)
+            .observe(this, Observer { value ->
+                when (value) {
+                    true -> {
+                        binding.textviewEuroRate.visibility = VISIBLE
+                        binding.textviewDollarRate.visibility = VISIBLE
+                    }
+                    false -> {
+                        binding.textviewEuroRate.visibility = GONE
+                        binding.textviewDollarRate.visibility = GONE
+                    }
+                }
+            })
     }
 }

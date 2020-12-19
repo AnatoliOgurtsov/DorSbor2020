@@ -6,12 +6,15 @@
     <string name="rate_app">Оценить приложение</string>
 
     <string name="euroRate">Курс евро: </string>
+    <string name="dollarRate">Курс доллара: </string>
+
 
 
     <string name="titleDorSbor">Дорожный сбор</string>
     <string name="titleUtilSbor">Утилизационный сбор</string>
     <string name="SETTING">Настройки</string>
     <string name="changeTHeme">Тема</string>
+    <string name="showCurrencyRate">Показывать курсы валют</string>
     <string name="water">водяная</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -56,8 +59,9 @@
     //==============================================================================================
     //==============================================================================================
 
-    <string name="title_button_before_3_years">ДО ТРЕХ ЛЕТ</string>
-    <string name="title_button_3_years_and_oldest">СТАРШЕ ТРЕХ ЛЕТ</string>
+    <string name="title_button_before_3_years">ДО 3 ЛЕТ</string>
+    <string name="title_button_in_3_7_years">3..7 ЛЕТ</string>
+    <string name="title_button_7_years_and_oldest">СТАРШЕ 7 ЛЕТ</string>
     <string name="title_button_dumpTruck">САМОСВАЛ</string>
     <string name="switch_gibrid_text">С ГИБРИДНОЙ СИЛОВОЙ УСТАНОВКОЙ РАБОЧИМ ОБЪЕМОМ:</string>
     <string name="less_1000">НЕ БОЛЕЕ 1000 куб. см.</string>
@@ -65,6 +69,17 @@
     <string name="in_2000_3000">СВЫШЕ 2000, НО НЕ БОЛЕЕ 3000 куб. см.</string>
     <string name="in_3000_3500">СВЫШЕ 3000, НЕ НЕ БОЛЕЕ 3500 куб. см.</string>
     <string name="more_3500">СВЫШЕ 3500 куб. см.</string>
+
+
+    <string name="title_button_legk_electro_us">п.1. С электродвигателями, за исключением транспортных
+        средств с гибридной силовой установкой и транспортных средств, указанных в пунктах 3 и 4</string>
+    <string name="title_button_legk_gibrid_us">п.2. С рабочим объемом двигателя, в том числе транспортные средства
+        с гибридной силовой установкой, за исключением транспортных средств, указанных в пунктах 3 и 4:</string>
+    <string name="title_button_legk_fiz_us">п.3. Ввозимые (ввезенные) физическими лицами для личного пользования, вне зависимости
+        от рабочего объема двигателя, за исключением транспортных средств, указанных в пункте 4</string>
+    <string name="title_button_legk_ees_us">п.4. Ввозимые (ввезенные) с территорий государств – членов Евразийского экономического
+        союза, вне зависимости от рабочего объема двигателя, за исключением транспортных средств, находящихся под таможенным контролем</string>
+
 
 
     <string name="title_button_less_2_5t_us">имеющий полную массу НЕ БОЛЕЕ 2,5 ТОНН</string>

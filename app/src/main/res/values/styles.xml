@@ -15,7 +15,6 @@
         <item name="rippleColor">?attr/colorAccent</item>
         <item name="iconTint">?attr/colorIconTint</item>
         <item name="android:gravity">start|center_vertical</item>
-
     </style>
 
 
@@ -32,6 +31,7 @@
         <item name="cornerSizeTopRight">16dp</item>
         <item name="cornerSizeBottomRight">16dp</item>
     </style>
+
 
     <style name="MyShapeAppearanceOutlineButton">
         <item name="cornerFamily">rounded</item>

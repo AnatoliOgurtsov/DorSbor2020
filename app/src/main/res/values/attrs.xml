@@ -14,10 +14,10 @@
     <attr name="colorIconTint" format="reference" />
 
     <declare-styleable name="Screen">
-        <attr name="colorLine" format="color"></attr>
-        <attr name="paddingLine" format="integer"></attr>
-        <attr name="angleLine" format="integer"></attr>
-        <attr name="thicknessLine" format="integer"></attr>
+        <attr name="colorLine" format="color" />
+        <attr name="paddingLine" format="integer"/>
+        <attr name="angleLine" format="integer"/>
+        <attr name="thicknessLine" format="integer"/>
     </declare-styleable>
 
 </resources>

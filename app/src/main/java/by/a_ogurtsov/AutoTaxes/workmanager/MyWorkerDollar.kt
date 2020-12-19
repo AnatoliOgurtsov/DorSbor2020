@@ -12,33 +12,33 @@ import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
 
 
-class MyWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
-    private lateinit var euroValue: String
+class MyWorkerDollar(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
+    private lateinit var dollarValue: String
 
     override fun doWork(): Result {
 
         val document: Document
         var outputData: Data
-        Log.d(LogTAG, "start")
+        Log.d(LogTAG, "startMyWorkerDollar")
 
         try {
             document = Jsoup.connect(URLMINFIN).get()
             val element: Elements = document.getElementsByClass("h1")
-            euroValue = element[0].text()
-            outputData = workDataOf("EuroRate" to euroValue)
+            dollarValue = element[0].text()
+            outputData = workDataOf("DollarRate" to dollarValue)
 
         } catch (e: Exception) {
             Log.d(LogTAG, "something wrong with MinFinSite")
-            outputData = workDataOf("EuroRate" to "something wrong with MinFinSite")
+            outputData = workDataOf("DollarRate" to "something wrong with MinFinSite")
         }
-        Log.d(LogTAG, euroValue)
-        Log.d(LogTAG, "stop")
+        Log.d(LogTAG, dollarValue)
+        Log.d(LogTAG, "stopMyWorkerDollar")
 
         return Result.success(outputData)
     }
 
     companion object {
-        const val URLMINFIN = "https://myfin.by/bank/kursy_valjut_nbrb/eur"
+        const val URLMINFIN = "https://myfin.by/bank/kursy_valjut_nbrb/usd"
         const val LogTAG = "workmng"
     }
 }

@@ -40,6 +40,9 @@
             android:name=".ActivityKindOfAutoUS"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
+            android:name=".ActivityWeightLegkAutoUs"
+            android:theme="@style/AppThemeWaterDialog" />
+        <activity
             android:name=".ActivityWeightGruzAutoUs"
             android:theme="@style/AppThemeWaterDialog" />
         <activity

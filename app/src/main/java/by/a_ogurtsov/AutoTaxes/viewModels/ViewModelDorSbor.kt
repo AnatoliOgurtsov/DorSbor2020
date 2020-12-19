@@ -10,16 +10,24 @@ import by.a_ogurtsov.AutoTaxes.repositories.RepositoryDorSbor
 
 class MyViewModel(application: Application) : AndroidViewModel(application) {
 
-    val repository: RepositoryDorSbor = RepositoryDorSbor()
+    private val repository: RepositoryDorSbor = RepositoryDorSbor()
 
     val currentColor: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
 
-    val choice_from_fragmentStart: MutableLiveData<String> by lazy {
+    val isShowCurrentRate: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>()
+    }
+
+    val choiceFromFragmentStart: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
     val euroRate: MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
+
+    val dollarRate: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
 

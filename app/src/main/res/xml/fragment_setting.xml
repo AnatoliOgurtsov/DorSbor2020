@@ -1,16 +1,22 @@
-<PreferenceScreen
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ListPreference
-            android:key="pref_color_theme"
-            android:title="@string/changeTHeme"
-            android:icon="@drawable/ic_choice_theme"
-            android:entries="@array/fragment_setting_theme_color"
-            app:useSimpleSummaryProvider="true"
-            android:entryValues="@array/fragment_setting_theme_color"
-            android:defaultValue="@string/water">
+        android:defaultValue="@string/water"
+        android:entries="@array/fragment_setting_theme_color"
+        android:entryValues="@array/fragment_setting_theme_color"
+        android:key="pref_color_theme"
+        android:title="@string/changeTHeme"
+        app:useSimpleSummaryProvider="true"
+        app:iconSpaceReserved="false">
     </ListPreference>
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="pref_showCurrencyRate"
+        android:title="@string/showCurrencyRate"
+        app:iconSpaceReserved="false">
+    </CheckBoxPreference>
 
 
 </PreferenceScreen>

@@ -15,7 +15,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
@@ -23,7 +22,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.preference.PreferenceManager
 import androidx.work.*
 import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel
-import by.a_ogurtsov.AutoTaxes.workmanager.MyWorker
+import by.a_ogurtsov.AutoTaxes.workmanager.MyWorkerDollar
+import by.a_ogurtsov.AutoTaxes.workmanager.MyWorkerEuro
 import com.google.android.material.navigation.NavigationView
 
 
@@ -64,7 +64,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         initToolbar()
         initDrawerLayout()
         initFragment()
-        startEuroRateTask()   // парсит сайт минфина по поводу курса евро
+        startCurrencyRateTask()   // парсит сайт минфина по поводу курса евро
     }
 
     private fun initViewModel() {
@@ -86,14 +86,14 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 "FRAGMENT_UTILSBOR" -> showFragmentUtilSbor()
             }
         }
-        model.choice_from_fragmentStart.observe(this, observerPressButtonFromFragmentStart)
+        model.choiceFromFragmentStart.observe(this, observerPressButtonFromFragmentStart)
     }
 
     private fun initTheme() {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        when (sharedPreferences != null) {
-            true -> color = sharedPreferences.getString("pref_color_theme", "")
-            false -> color = "водяная"
+        color = when (sharedPreferences != null) {
+            true -> sharedPreferences.getString("pref_color_theme", "")
+            false -> "водяная"
         }
         setAppTheme(color)
     }
@@ -322,7 +322,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     }
 
-    private fun startEuroRateTask() {
+    private fun startCurrencyRateTask() {
         val LogTAG = "workmng"
         val wm = WorkManager.getInstance(applicationContext)
         val contrains: Constraints =
@@ -331,24 +331,40 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .build()
 
 
-        val uploadWorkRequest = OneTimeWorkRequestBuilder<MyWorker>()
+        val uploadWorkRequestEuro = OneTimeWorkRequestBuilder<MyWorkerEuro>()
             .setConstraints(contrains)
             .addTag("TaskParseringSiteMinfinForEuroRate")
             .build()
 
+        val uploadWorkRequestDollar = OneTimeWorkRequestBuilder<MyWorkerDollar>()
+            .setConstraints(contrains)
+            .addTag("TaskParseringSiteMinfinForDollarRate")
+            .build()
+
 // observer for a WorkManager State  and recieve data(euro Rate)
-        wm.getWorkInfoByIdLiveData(uploadWorkRequest.id)
+        wm.getWorkInfoByIdLiveData(uploadWorkRequestEuro.id)
             .observe(this, Observer { workInfo ->
 
                 if (workInfo.state == WorkInfo.State.SUCCEEDED) {
                     /*   Log.d(LogTAG, "state is ${workInfo.state}")*/
-                    Log.d(LogTAG, "outputData is ${workInfo.outputData.getString("EuroRate")}")
+                    /*Log.d(LogTAG, "outputData is ${workInfo.outputData.getString("EuroRate")}")*/
                     model.euroRate.value = workInfo.outputData.getString("EuroRate")
                 }
             })
 //=======================
-        wm.enqueue(uploadWorkRequest)
 
+        // observer for a WorkManager State  and recieve data(dollar Rate)
+        wm.getWorkInfoByIdLiveData(uploadWorkRequestDollar.id)
+            .observe(this, Observer { workInfo ->
+
+                if (workInfo.state == WorkInfo.State.SUCCEEDED) {
+                    /*   Log.d(LogTAG, "state is ${workInfo.state}")*/
+                    /*Log.d(LogTAG, "outputData is ${workInfo.outputData.getString("DollarRate")}")*/
+                    model.dollarRate.value = workInfo.outputData.getString("DollarRate")
+                }
+            })
+//=======================
+        wm.enqueue(listOf(uploadWorkRequestEuro, uploadWorkRequestDollar))
     }
 
     private fun startIntentRateApp() {
@@ -363,10 +379,6 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             packageName,
             0
         ).versionName}"
-    }
-
-    companion object {
-
     }
 
 }

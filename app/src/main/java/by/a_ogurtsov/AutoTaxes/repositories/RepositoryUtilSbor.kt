@@ -5,8 +5,9 @@ class RepositoryUtilSbor {
     fun totalAmount(
         kind_auto: String,
         age: Int,
-        legk_car_gibrid_switch: Boolean,
+       /* legk_car_gibrid_switch: Boolean,*/
         legk_car_gibrid_capacity: String,
+        us_legk_car_weight: String,
         us_gruz_car_weight: String,
         us_bus_engine: String,
         us_dumpTruck_weight: String,
@@ -14,7 +15,7 @@ class RepositoryUtilSbor {
     ): String {
         when (kind_auto) {
             "legk_car" -> {
-                if (!legk_car_gibrid_switch) {
+                if (true/*!legk_car_gibrid_switch*/) {
                     when (age) {
                         1 -> return "544 рубля 50 копеек"
                         2 -> return "816 рублей 70 копеек"
