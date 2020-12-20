@@ -42,7 +42,7 @@
     <color name="colorPrimarySnow">#858585</color>
     <color name="colorPrimaryDarkSnow">#686868</color>
     <color name="colorAccentSnow">#FFF06292</color>
-    <color name="primaryTextSnow">#000000</color>
+    <color name="primaryTextSnow">#686868</color>
     <color name="buttonNormalSnow">#FFF06292</color>
     <color name="buttonHighlightSnow">#FFFFFF</color>
     <color name="buttonTextSnow">#000000</color>

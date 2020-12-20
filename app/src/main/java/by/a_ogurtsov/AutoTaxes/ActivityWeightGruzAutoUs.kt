@@ -10,14 +10,14 @@ import com.google.android.material.button.MaterialButton
 class ActivityWeightGruzAutoUs : ActivityParent() {
     private val LAYOUT: Int = R.layout.activity_us_weight_of_gruz_auto
 
-    private lateinit var button_less_2_5t_us: MaterialButton
-    private lateinit var button_in_2_5_3_5t_us: MaterialButton
-    private lateinit var button_in_3_5_5t: MaterialButton
-    private lateinit var button_in_5_8t: MaterialButton
-    private lateinit var button_in_8_12t: MaterialButton
-    private lateinit var button_in_12_20t: MaterialButton
-    private lateinit var button_in_20_50t: MaterialButton
-
+    private lateinit var buttonLess25tUs: MaterialButton
+    private lateinit var buttonIn2535tUs: MaterialButton
+    private lateinit var buttonIn355t: MaterialButton
+    private lateinit var buttonIn58t: MaterialButton
+    private lateinit var buttonIn812t: MaterialButton
+    private lateinit var buttonIn1220t: MaterialButton
+    private lateinit var buttonIn2030t: MaterialButton
+    private lateinit var buttonIn3050t: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,13 +26,14 @@ class ActivityWeightGruzAutoUs : ActivityParent() {
 
         setContentView(LAYOUT)
 
-        button_less_2_5t_us = findViewById(R.id.button_less_2_5t_us)
-        button_in_2_5_3_5t_us = findViewById(R.id.button_in_2_5_3_5t_us)
-        button_in_3_5_5t = findViewById(R.id.button_in_3_5_5t)
-        button_in_5_8t = findViewById(R.id.button_in_5_8t)
-        button_in_8_12t = findViewById(R.id.button_in_8_12t)
-        button_in_12_20t = findViewById(R.id.button_in_12_20t)
-        button_in_20_50t = findViewById(R.id.button_in_20_50t)
+        buttonLess25tUs = findViewById(R.id.button_less_2_5t_us)
+        buttonIn2535tUs = findViewById(R.id.button_in_2_5_3_5t_us)
+        buttonIn355t = findViewById(R.id.button_in_3_5_5t)
+        buttonIn58t = findViewById(R.id.button_in_5_8t)
+        buttonIn812t = findViewById(R.id.button_in_8_12t)
+        buttonIn1220t = findViewById(R.id.button_in_12_20t)
+        buttonIn2030t = findViewById(R.id.button_in_20_30t)
+        buttonIn3050t = findViewById(R.id.button_in_30_50t)
 
 
         val onButtonClickListener = View.OnClickListener { v ->
@@ -56,21 +57,23 @@ class ActivityWeightGruzAutoUs : ActivityParent() {
                 R.id.button_in_12_20t -> {
                     intent.putExtra("weight_of_gruz_auto_us", "12_20t")
                 }
-                R.id.button_in_20_50t -> {
-                    intent.putExtra("weight_of_gruz_auto_us", "20_50t")
+                R.id.button_in_20_30t -> {
+                    intent.putExtra("weight_of_gruz_auto_us", "20_30t")
                 }
-
+                R.id.button_in_30_50t -> {
+                    intent.putExtra("weight_of_gruz_auto_us", "30_50t")
+                }
             }
             setResult(Activity.RESULT_OK, intent)  // pass weight of gruz auto to FragmentUtilSbor
             finish()
         }
-        button_less_2_5t_us.setOnClickListener(onButtonClickListener)
-        button_in_2_5_3_5t_us.setOnClickListener(onButtonClickListener)
-        button_in_3_5_5t.setOnClickListener(onButtonClickListener)
-        button_in_5_8t.setOnClickListener(onButtonClickListener)
-        button_in_8_12t.setOnClickListener(onButtonClickListener)
-        button_in_12_20t.setOnClickListener(onButtonClickListener)
-        button_in_20_50t.setOnClickListener(onButtonClickListener)
-
+        buttonLess25tUs.setOnClickListener(onButtonClickListener)
+        buttonIn2535tUs.setOnClickListener(onButtonClickListener)
+        buttonIn355t.setOnClickListener(onButtonClickListener)
+        buttonIn58t.setOnClickListener(onButtonClickListener)
+        buttonIn812t.setOnClickListener(onButtonClickListener)
+        buttonIn1220t.setOnClickListener(onButtonClickListener)
+        buttonIn2030t.setOnClickListener(onButtonClickListener)
+        buttonIn3050t.setOnClickListener(onButtonClickListener)
     }
 }

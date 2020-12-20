@@ -20,26 +20,24 @@ class ViewModelUtilSbor(application: Application) : AndroidViewModel(application
     }
 
     fun calculateSumsValue(
-        kind_auto: String,
+        kindAuto: String,
         age: Int,
-        /*legk_car_gibrid_switch: Boolean,*/
-        legk_car_gibrid_capacity: String,
-        us_legk_car_weight: String,
-        us_gruz_car_weight: String,
-        us_bus_engine: String,
-        us_dumpTruck_weight: String,
-        us_pricep_weight: String
+        legkCarGibridCapacity: String,
+        usLegkCarWeight: String,
+        usGruzCarWeight: String,
+        usBusEngine: String,
+        usDumptruckWeight: String,
+        usPricepWeight: String
     ): String {
         return repository.totalAmount(
-            kind_auto,
+            kindAuto,
             age,
-            /*legk_car_gibrid_switch,*/
-            legk_car_gibrid_capacity,
-            us_legk_car_weight,
-            us_gruz_car_weight,
-            us_bus_engine,
-            us_dumpTruck_weight,
-            us_pricep_weight
+            legkCarGibridCapacity,
+            usLegkCarWeight,
+            usGruzCarWeight,
+            usBusEngine,
+            usDumptruckWeight,
+            usPricepWeight
         )
    }
 

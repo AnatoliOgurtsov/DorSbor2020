@@ -73,14 +73,25 @@
     </com.google.android.material.button.MaterialButton>
 
     <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_in_20_50t"
+            android:id="@+id/button_in_20_30t"
             style="@style/MaterialButtonOutline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_button_in_20_50t_us"
+            android:text="@string/title_button_in_20_30t_us"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_hexagon_slice_6"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_in_30_50t"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_button_in_30_50t_us"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_slice_6"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
     </com.google.android.material.button.MaterialButton>
 
 
