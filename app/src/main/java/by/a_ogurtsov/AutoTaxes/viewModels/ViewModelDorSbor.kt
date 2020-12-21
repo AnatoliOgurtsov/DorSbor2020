@@ -6,11 +6,13 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import by.a_ogurtsov.AutoTaxes.repositories.RepositoryDorSbor
+import by.a_ogurtsov.AutoTaxes.repositories.RepositoryDorSbor21
 
 
 class MyViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: RepositoryDorSbor = RepositoryDorSbor()
+    private val repository21: RepositoryDorSbor21 = RepositoryDorSbor21()
 
     val currentColor: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
@@ -42,7 +44,7 @@ class MyViewModel(application: Application) : AndroidViewModel(application) {
         Log.d("myLogs", "$key $value")
 
     }
-
+//2020====================================
     fun calculateSumsValue(
         period: String,
         fizYur: String,
@@ -52,4 +54,13 @@ class MyViewModel(application: Application) : AndroidViewModel(application) {
         veteran: Int
     ): MutableList<String> =
         repository.totalAmount(period, fizYur, age, kindAuto, weightAuto, veteran)
+//=========================================
+    fun calculateSumsValue21(
+        fizYur: String,
+        kindAuto: String,
+        weightAuto: String,
+        veteran: Int
+    ): String =
+        repository21.totalAmount21(fizYur, kindAuto, weightAuto, veteran)
+
 }

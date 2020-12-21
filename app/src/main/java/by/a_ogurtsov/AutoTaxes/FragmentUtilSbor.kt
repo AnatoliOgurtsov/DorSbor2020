@@ -30,9 +30,7 @@ class FragmentUtilSbor : Fragment() {
 
     private var usAge: Int = 1  // 1 - до трех лет, 2 - от трех до семи лет, 3 - старше семи лет,
     private var usKindAuto: String = "legk_car"
-
-    private var usLegkCarGibridCapacity =
-        "less_1000"   // if toogle gibrid car = false, than null.
+    private var usLegkCarGibridCapacity = "less_1000"
     private var usLegkCarWeight = "electro"
     private var usGruzCarWeight = "less_2_5t"
     private var usBusEngine = "less_2500"
@@ -280,15 +278,15 @@ class FragmentUtilSbor : Fragment() {
 
         val button1: MaterialButton = view.findViewById(idButton1)
         button1.layoutParams.width =
-            arguments!!.getInt(widthScreenDPI) / 3 - 25   // устанавливаем ширину кнопки по размеру экрана
+            requireArguments().getInt(widthScreenDPI) / 3 - 25   // устанавливаем ширину кнопки по размеру экрана
 
         val button2: MaterialButton = view.findViewById(idButton2)
         button2.layoutParams.width =
-            arguments!!.getInt(widthScreenDPI) / 3 - 40  // устанавливаем ширину кнопки по размеру экрана
+            requireArguments().getInt(widthScreenDPI) / 3 - 40  // устанавливаем ширину кнопки по размеру экрана
 
         val button3: MaterialButton = view.findViewById(idButton3)
         button3.layoutParams.width =
-            arguments!!.getInt(widthScreenDPI) / 3 - 10      // устанавливаем ширину кнопки по размеру экрана
+            requireArguments().getInt(widthScreenDPI) / 3 - 10      // устанавливаем ширину кнопки по размеру экрана
 
         // устанавливаем начальное состояние кнопок возраст
 
@@ -301,26 +299,26 @@ class FragmentUtilSbor : Fragment() {
 
     private fun setButtonWidth(button: MaterialButton) {
         button.layoutParams.width =
-            arguments!!.getInt(widthScreenDPI) - 80   // устанавливаем ширину кнопки без группы
+            requireArguments().getInt(widthScreenDPI) - 80   // устанавливаем ширину кнопки без группы
     }
 
     private fun setSwitchButtonWidth(switchButton: SwitchMaterial) {
         switchButton.layoutParams.width =
-            arguments!!.getInt(widthScreenDPI) - 80   // устанавливаем ширину switchButton без группы
+            requireArguments().getInt(widthScreenDPI) - 80   // устанавливаем ширину switchButton без группы
     }
 
     private fun initSpref() {
-        sprefUtilSbor = context!!.getSharedPreferences(SPREF_UTILSBOR_NAME, Context.MODE_PRIVATE)
+        sprefUtilSbor = requireContext().getSharedPreferences(SPREF_UTILSBOR_NAME, Context.MODE_PRIVATE)
         if (sprefUtilSbor.contains(SPREF_UTILSBOR_AGE)) {
-            this.usKindAuto = sprefUtilSbor.getString(SPREF_UTILSBOR_KINDAUTO, "")
+            this.usKindAuto = sprefUtilSbor.getString(SPREF_UTILSBOR_KINDAUTO, "").toString()
             this.usAge = sprefUtilSbor.getInt(SPREF_UTILSBOR_AGE, 0)
             this.usLegkCarGibridCapacity =
-                sprefUtilSbor.getString(SPREF_UTILSBOR_LEGK_CAR_GIBRID_CAPACITY, "")
-            this.usLegkCarWeight = sprefUtilSbor.getString(SPREF_UTILSBOR_LEGK_CAR_WEIGHT, "")
-            this.usGruzCarWeight = sprefUtilSbor.getString(SPREF_UTILSBOR_GRUZ_CAR_WEIGHT, "")
-            this.usBusEngine = sprefUtilSbor.getString(SPREF_UTILSBOR_BUS_ENGINE, "")
-            this.usDumpTruckWeight = sprefUtilSbor.getString(SPREF_UTILSBOR_DUMP_TRUCK_WEIGHT, "")
-            this.usPricepWeight = sprefUtilSbor.getString(SPREF_UTILSBOR_PRICEP_WEIGHT, "")
+                sprefUtilSbor.getString(SPREF_UTILSBOR_LEGK_CAR_GIBRID_CAPACITY, "").toString()
+            this.usLegkCarWeight = sprefUtilSbor.getString(SPREF_UTILSBOR_LEGK_CAR_WEIGHT, "").toString()
+            this.usGruzCarWeight = sprefUtilSbor.getString(SPREF_UTILSBOR_GRUZ_CAR_WEIGHT, "").toString()
+            this.usBusEngine = sprefUtilSbor.getString(SPREF_UTILSBOR_BUS_ENGINE, "").toString()
+            this.usDumpTruckWeight = sprefUtilSbor.getString(SPREF_UTILSBOR_DUMP_TRUCK_WEIGHT, "").toString()
+            this.usPricepWeight = sprefUtilSbor.getString(SPREF_UTILSBOR_PRICEP_WEIGHT, "").toString()
         } else {
             val editor: SharedPreferences.Editor = sprefUtilSbor.edit()
             editor.putString(SPREF_UTILSBOR_KINDAUTO, usKindAuto)
@@ -339,7 +337,7 @@ class FragmentUtilSbor : Fragment() {
 
     private fun initPreferencesObserver() {
         sprefUtilSbor.stringLiveData(SPREF_UTILSBOR_KINDAUTO, "")
-            .observe(this, Observer<String> { value ->
+            .observe(viewLifecycleOwner, Observer<String> { value ->
                 this.usKindAuto = value
                 usTextViewSumsValue.text =
                     model.calculateSumsValue(
@@ -356,7 +354,7 @@ class FragmentUtilSbor : Fragment() {
             }
             )
         sprefUtilSbor.intLiveData(SPREF_UTILSBOR_AGE, 1)
-            .observe(this, Observer<Int> { value ->
+            .observe(viewLifecycleOwner, Observer<Int> { value ->
                 this.usAge = value
                 usTextViewSumsValue.text =
                     model.calculateSumsValue(
@@ -388,7 +386,7 @@ class FragmentUtilSbor : Fragment() {
                      )
              })*/
         sprefUtilSbor.stringLiveData(SPREF_UTILSBOR_LEGK_CAR_GIBRID_CAPACITY, "")
-            .observe(this, Observer<String> { value ->
+            .observe(viewLifecycleOwner, Observer<String> { value ->
                 this.usLegkCarGibridCapacity = value
                 usTextViewSumsValue.text =
                     model.calculateSumsValue(
@@ -405,7 +403,7 @@ class FragmentUtilSbor : Fragment() {
             })
 
         sprefUtilSbor.stringLiveData(SPREF_UTILSBOR_LEGK_CAR_WEIGHT, "")
-            .observe(this, Observer<String> { value ->
+            .observe(viewLifecycleOwner, Observer<String> { value ->
                 this.usLegkCarWeight = value
                 usTextViewSumsValue.text =
                     model.calculateSumsValue(
@@ -423,7 +421,7 @@ class FragmentUtilSbor : Fragment() {
 
 
         sprefUtilSbor.stringLiveData(SPREF_UTILSBOR_GRUZ_CAR_WEIGHT, "")
-            .observe(this, Observer<String> { value ->
+            .observe(viewLifecycleOwner, Observer<String> { value ->
                 this.usGruzCarWeight = value
                 usTextViewSumsValue.text =
                     model.calculateSumsValue(
@@ -439,7 +437,7 @@ class FragmentUtilSbor : Fragment() {
                     )
             })
         sprefUtilSbor.stringLiveData(SPREF_UTILSBOR_BUS_ENGINE, "")
-            .observe(this, Observer<String> { value ->
+            .observe(viewLifecycleOwner, Observer<String> { value ->
                 this.usBusEngine = value
                 usTextViewSumsValue.text =
                     model.calculateSumsValue(
@@ -455,7 +453,7 @@ class FragmentUtilSbor : Fragment() {
                     )
             })
         sprefUtilSbor.stringLiveData(SPREF_UTILSBOR_DUMP_TRUCK_WEIGHT, "")
-            .observe(this, Observer<String> { value ->
+            .observe(viewLifecycleOwner, Observer<String> { value ->
                 this.usDumpTruckWeight = value
                 usTextViewSumsValue.text =
                     model.calculateSumsValue(
@@ -472,7 +470,7 @@ class FragmentUtilSbor : Fragment() {
             })
 
         sprefUtilSbor.stringLiveData(SPREF_UTILSBOR_PRICEP_WEIGHT, "")
-            .observe(this, Observer<String> { value ->
+            .observe(viewLifecycleOwner, Observer<String> { value ->
                 this.usPricepWeight = value
                 usTextViewSumsValue.text =
                     model.calculateSumsValue(
@@ -531,7 +529,7 @@ class FragmentUtilSbor : Fragment() {
                                         "in_3000_3500" -> usRadioGroupLegkGibridMotor.check(R.id.in_3000_3500)
                                         "more_3500" -> usRadioGroupLegkGibridMotor.check(R.id.more_3500)
                                     }
-                                }
+                                } else usRadioGroupLegkGibridMotor.visibility = GONE
                             }
                         }
                         "gruz_car" -> {

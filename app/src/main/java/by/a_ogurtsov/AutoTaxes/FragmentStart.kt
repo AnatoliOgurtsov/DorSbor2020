@@ -28,7 +28,7 @@ class FragmentStart : Fragment(R.layout.fragment_start), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        model = ViewModelProviders.of(this.activity!!).get(MyViewModel::class.java)
+        model = ViewModelProviders.of(this.requireActivity()).get(MyViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -49,13 +49,13 @@ class FragmentStart : Fragment(R.layout.fragment_start), View.OnClickListener {
             binding.textviewEuroRate.text =
                 "${resources.getString(R.string.euroRate)} $newValue рублей"
         }
-        model.euroRate.observe(this, euroRateObserver)
+        model.euroRate.observe(viewLifecycleOwner, euroRateObserver)
 
         val dollarRateObserver = Observer<String> { newValue ->
             binding.textviewDollarRate.text =
                 "${resources.getString(R.string.dollarRate)} $newValue рублей"
         }
-        model.dollarRate.observe(this, dollarRateObserver)
+        model.dollarRate.observe(viewLifecycleOwner, dollarRateObserver)
 
         return view
 
@@ -84,7 +84,7 @@ class FragmentStart : Fragment(R.layout.fragment_start), View.OnClickListener {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
 
         sharedPreferences.booleanLiveData(PREFSHOWCURRENCYRATE, true)
-            .observe(this, Observer { value ->
+            .observe(viewLifecycleOwner, Observer { value ->
                 when (value) {
                     true -> {
                         binding.textviewEuroRate.visibility = VISIBLE

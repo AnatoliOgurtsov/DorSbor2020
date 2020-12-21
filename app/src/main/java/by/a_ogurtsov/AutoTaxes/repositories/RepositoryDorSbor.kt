@@ -298,6 +298,16 @@ class RepositoryDorSbor {
         )
 
     }
+    //============================================================================================
+    fun totalAmount21(
+        fizYur: String,
+        kindAuto: String,
+        weightAuto: String,
+        veteran: Int
+    ): String {
+
+return "EMPTY"
+    }
 
 
     private fun sclonenie(n: Int): String {

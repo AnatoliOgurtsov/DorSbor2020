@@ -92,7 +92,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun initTheme() {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         color = when (sharedPreferences != null) {
-            true -> sharedPreferences.getString("pref_color_theme", "")
+            true -> sharedPreferences.getString("pref_color_theme", "").toString()
             false -> "водяная"
         }
         setAppTheme(color)
@@ -277,7 +277,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(
             R.id.container,
-            FragmentDorSbor().newInstance(color, widthScreen),
+            FragmentDorSbor21().newInstance(color, widthScreen),
             FRAGMENTDORSBOR
         )
             .commit()

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding10dp">
+
+        <RelativeLayout
+            android:id="@+id/RL"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/padding10dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <by.a_ogurtsov.AutoTaxes.Screen
+                android:id="@+id/screen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                custom:angleLine="40"
+                custom:colorLine="?attr/colorPrimary"
+                custom:paddingLine="20"
+                custom:thicknessLine="5" />
+
+            <TextView
+                android:id="@+id/textView_Sums_Value"
+                style="@style/TextViewScreen"
+                android:paddingTop="60dp"
+                android:textSize="28sp" />
+        </RelativeLayout>
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/buttonToggleGroup_fiz_yur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding40dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/RL"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_fiz"
+                style="@style/MaterialButtonOutline"
+                android:text="@string/title_button_fiz"
+                android:textAppearance="@style/MaterialButtonToggleGroupTextAppearance"
+                app:shapeAppearance="@style/MyShapeAppearanceOutlineButtonLeft"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_yur"
+                style="@style/MaterialButtonOutline"
+                android:text="@string/title_button_yur"
+                android:textAppearance="@style/MaterialButtonToggleGroupTextAppearance"
+                app:shapeAppearance="@style/MyShapeAppearanceOutlineButtonRight"/>
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_kind_of_auto"
+            style="@style/MaterialButtonOutline"
+            android:layout_marginTop="@dimen/padding10dp"
+            android:text="@string/title_button_legk_car"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_car_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonToggleGroup_fiz_yur"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_kind_of_auto_weight"
+            style="@style/MaterialButtonOutline"
+            android:layout_marginTop="@dimen/padding10dp"
+            android:text="@string/title_button_less_1_5t"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_car_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_kind_of_auto"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton"/>
+
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding10dp"
+            android:checked="true"
+            android:paddingStart="@dimen/padding10dp"
+            android:paddingEnd="@dimen/padding10dp"
+            android:text="@string/switch_text"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            android:textColor="?attr/materialButtonOutlineTextColor"
+            app:layout_constraintTop_toBottomOf="@+id/button_kind_of_auto_weight" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

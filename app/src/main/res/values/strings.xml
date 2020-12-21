@@ -9,8 +9,9 @@
     <string name="dollarRate">Курс доллара: </string>
 
 
+    <string name="titleDorSbor">Дорожный налог</string>
+    <string name="titleDorSbor2021">Дорожный налог 2021</string>
 
-    <string name="titleDorSbor">Дорожный сбор</string>
     <string name="titleUtilSbor">Утилизационный сбор</string>
     <string name="titleUtilSbor2021">Утилизационный сбор 2021</string>
 
@@ -37,10 +38,26 @@
     <string name="title_button_pricep">ПРИЦЕП</string>
     <string name="title_button_motocycle">МОТОЦИКЛ</string>
 
+//==============================dorsbor 2020
     <string name="title_button_less_1_5t">имеющий разрешенную максимальную массу НЕ БОЛЕЕ 1,5 ТОНН</string>
     <string name="title_button_in_1_5_2t">имеющий разрешенную максимальную массу БОЛЕЕ 1,5 ТОНН, НО НЕ БОЛЕЕ 2 ТОНН</string>
     <string name="title_button_in_2_3t">имеющий разрешенную максимальную массу БОЛЕЕ 2 ТОНН, НО НЕ БОЛЕЕ 3 ТОНН</string>
     <string name="title_button_more_3t">имеющий разрешенную максимальную массу БОЛЕЕ 3 ТОНН</string>
+//==========================================
+
+    <string name="title_button_less_1_5t21">имеющий разрешенную максимальную массу НЕ БОЛЕЕ 1,5 ТОНН</string>
+    <string name="title_button_in_1_5_1_75t21">имеющий разрешенную максимальную массу БОЛЕЕ 1,5 ТОНН, НО НЕ БОЛЕЕ 1,75 ТОНН</string>
+    <string name="title_button_in_1_75_2t21">имеющий разрешенную максимальную массу БОЛЕЕ 1,75 ТОНН, НО НЕ БОЛЕЕ 2 ТОНН</string>
+    <string name="title_button_in_2_2_25t21">имеющий разрешенную максимальную массу БОЛЕЕ 2 ТОНН, НО НЕ БОЛЕЕ 2,25 ТОНН</string>
+    <string name="title_button_in_1_25_2_5t21">имеющий разрешенную максимальную массу БОЛЕЕ 2,25 ТОНН, НО НЕ БОЛЕЕ 2,5 ТОНН</string>
+    <string name="title_button_in_2_5_3t21">имеющий разрешенную максимальную массу БОЛЕЕ 2,5 ТОНН, НО НЕ БОЛЕЕ 3 ТОНН</string>
+    <string name="title_button_more_3t21">имеющий разрешенную максимальную массу БОЛЕЕ 3 ТОНН</string>
+
+    <string name="title_button_less_1t21">имеющий разрешенную максимальную массу НЕ БОЛЕЕ 1 ТОННЫ</string>
+    <string name="title_button_in_1_2t21">имеющий разрешенную максимальную массу БОЛЕЕ 1 ТОННЫ, НО НЕ БОЛЕЕ 2 ТОНН</string>
+    <string name="title_button_in_2_3t21">имеющий разрешенную максимальную массу БОЛЕЕ 2 ТОНН, НО НЕ БОЛЕЕ 3 ТОНН</string>
+    <string name="title_button_more_3t21yur">имеющий разрешенную максимальную массу БОЛЕЕ 3 ТОНН</string>
+
 
     <string name="title_button_less_2_5t">имеющий разрешенную максимальную массу НЕ БОЛЕЕ 2,5 ТОНН</string>
     <string name="title_button_in_2_5_3_5t">имеющий разрешенную максимальную массу БОЛЕЕ 2,5 ТОНН, НО НЕ БОЛЕЕ 3,5 ТОНН</string>
@@ -83,7 +100,6 @@
         союза, вне зависимости от рабочего объема двигателя, за исключением транспортных средств, находящихся под таможенным контролем</string>
 
 
-
     <string name="title_button_less_2_5t_us">имеющий полную массу НЕ БОЛЕЕ 2,5 ТОНН</string>
     <string name="title_button_in_2_5_3_5t_us">имеющий полную массу БОЛЕЕ 2,5 ТОНН, НО НЕ БОЛЕЕ 3,5 ТОНН</string>
     <string name="title_button_in_3_5_5t_us">имеющий полную массу БОЛЕЕ 3,5 ТОНН, НО НЕ БОЛЕЕ 5 ТОНН</string>
@@ -92,7 +108,6 @@
     <string name="title_button_in_12_20t_us">имеющий полную массу БОЛЕЕ 12 ТОНН, НО НЕ БОЛЕЕ 20 ТОНН</string>
     <string name="title_button_in_20_30t_us">имеющий полную массу БОЛЕЕ 20 ТОНН, НО НЕ БОЛЕЕ 30 ТОНН</string>
     <string name="title_button_in_30_50t_us">имеющий полную массу БОЛЕЕ 30 ТОНН, НО НЕ БОЛЕЕ 50 ТОНН</string>
-
 
 
     <string name="title_button_bus_motor_less_2500">с рабочим объемом двигателя НЕ БОЛЕЕ 2500 куб. см.</string>

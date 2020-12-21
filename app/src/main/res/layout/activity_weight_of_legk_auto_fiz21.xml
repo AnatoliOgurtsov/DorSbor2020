@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/padding10dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_less_1_5t"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_button_less_1_5t21"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_outline"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_in_1_5_1_75t"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_button_in_1_5_1_75t21"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_slice_1"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_in_1_75_2t"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_button_in_1_75_2t21"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_slice_2"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_in_2_2_25t"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_button_in_2_2_25t21"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_slice_3"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_in_2_25_2_5t"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_button_in_1_25_2_5t21"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_slice_4"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_in_2_5_3t"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_button_in_2_5_3t21"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_slice_5"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_more_3t"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_button_more_3t21"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_slice_6"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+</LinearLayout>

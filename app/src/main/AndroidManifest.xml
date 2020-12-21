@@ -28,6 +28,12 @@
             android:name=".ActivityWeightLegkAuto"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
+            android:name=".ActivityWeightLegkAutoFiz"
+            android:theme="@style/AppThemeWaterDialog" />
+        <activity
+            android:name=".ActivityWeightLegkAutoYur"
+            android:theme="@style/AppThemeWaterDialog" />
+        <activity
             android:name=".ActivityWeightGruzAuto"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
@@ -54,7 +60,6 @@
         <activity
             android:name=".ActivityWeightPricepUs"
             android:theme="@style/AppThemeWaterDialog" />
-
     </application>
 
 </manifest>
