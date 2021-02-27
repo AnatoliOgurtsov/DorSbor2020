@@ -9,7 +9,7 @@ open class ActivityParent : AppCompatActivity(){
   fun initTheme() {
     val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
     when (sharedPreferences != null) {
-      true -> themeColor = sharedPreferences.getString("pref_color_theme", "")
+      true -> themeColor = sharedPreferences.getString("pref_color_theme", "").toString()
       false -> themeColor = "оливковая"
     }
     setAppTheme(themeColor)

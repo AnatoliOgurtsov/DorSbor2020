@@ -8,7 +8,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_app_round"
-        android:label="@string/titleDorSbor">
+        android:label="@string/labelIconName">
 
         <activity
             android:name=".ActivityMain"
@@ -23,9 +23,6 @@
         </activity>
         <activity
             android:name=".ActivityKindOfAuto"
-            android:theme="@style/AppThemeWaterDialog" />
-        <activity
-            android:name=".ActivityWeightLegkAuto"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
             android:name=".ActivityWeightLegkAutoFiz"

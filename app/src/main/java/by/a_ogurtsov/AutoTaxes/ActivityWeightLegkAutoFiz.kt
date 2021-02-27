@@ -7,7 +7,7 @@ import android.view.View
 import com.google.android.material.button.MaterialButton
 
 class ActivityWeightLegkAutoFiz : ActivityParent(){
-    private val LAYOUT: Int = R.layout.activity_weight_of_legk_auto_fiz21
+    private val LAYOUT: Int = R.layout.activity_weight_of_legk_auto_fiz
 
     private lateinit var button_less_1_5t: MaterialButton
     private lateinit var button_in_1_5_1_75t: MaterialButton

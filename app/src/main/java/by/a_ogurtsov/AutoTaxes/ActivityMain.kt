@@ -273,7 +273,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun showFragmentDorSbor() {
 
-        setTitle(R.string.titleDorSbor)
+        setTitle(R.string.labelIconName)
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(
             R.id.container,

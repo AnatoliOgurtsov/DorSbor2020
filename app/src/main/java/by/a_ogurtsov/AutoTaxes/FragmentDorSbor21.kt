@@ -24,7 +24,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 
 class FragmentDorSbor21 : Fragment() {
 
-    private val LAYOUT: Int = R.layout.fragment_dor_sbor21
+    private val LAYOUT: Int = R.layout.fragment_dor_sbor
 
     private val color: String = "привет"
     private val widthScreenDPI: String = ""

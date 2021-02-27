@@ -5,12 +5,13 @@
     <string name="about_app">О приложении</string>
     <string name="rate_app">Оценить приложение</string>
 
+
+
     <string name="euroRate">Курс евро: </string>
     <string name="dollarRate">Курс доллара: </string>
 
-
-    <string name="titleDorSbor">Дорожный налог</string>
-    <string name="titleDorSbor2021">Транспортный налог 2021</string>
+    <string name="labelIconName">Транспортный налог</string>
+    <string name="titleDorSbor">Транспортный налог 2021</string>
 
     <string name="titleUtilSbor">Утилизационный сбор</string>
     <string name="titleUtilSbor2021">Утилизационный сбор 2021</string>
