@@ -34,14 +34,16 @@ class FragmentDorSbor21 : Fragment() {
     private lateinit var buttonYur: MaterialButton
     private lateinit var buttonKindAuto: MaterialButton
     private lateinit var buttonKindAutoWeight: MaterialButton
-    private lateinit var switch_button: SwitchMaterial
+    private lateinit var switchButtonPens: SwitchMaterial
+    private lateinit var switchButtonInvalid3Group: SwitchMaterial
     private lateinit var coordinatorLayout: CoordinatorLayout
 
 
     private var fizYur: String = "fiz"
     private var kindAuto: String = "legk_car"
     private var weightAuto: String = "less_1_5t"
-    private var veteran: Int = 1                    // 1 - неветеран, 2 - ветеран (50 проц. скидка)
+    private var veteran: Int =
+        1                    // 1 - неветеран, 2 - ветеран (50 проц. скидка), 3 - инвалид 3группы (25 проц. скидка)
 
     val SPREF_DORSBOR_NAME = "sprefDorsbor"
     val SPREF_DORSBOR_FIZYUR = "fizYur"
@@ -85,7 +87,8 @@ class FragmentDorSbor21 : Fragment() {
         buttonYur = view.findViewById(R.id.button_yur)
         buttonKindAuto = view.findViewById(R.id.button_kind_of_auto)
         buttonKindAutoWeight = view.findViewById(R.id.button_kind_of_auto_weight)
-        switch_button = view.findViewById(R.id.switch_button)
+        switchButtonPens = view.findViewById(R.id.switch_button_pensioner)
+        switchButtonInvalid3Group = view.findViewById(R.id.switch_button_invaliv3group)
         coordinatorLayout = view.findViewById(R.id.coordinatorLayout)
         buttonToggleGroup_fiz_yur = view.findViewById(R.id.buttonToggleGroup_fiz_yur)
 
@@ -110,8 +113,10 @@ class FragmentDorSbor21 : Fragment() {
                     buttonFiz.isChecked =
                         true         // если при нажатии на кнопку она уже checked, то toggleGroup снимает checked, поэтому снова устанавливаем Checked
                     model.putSprefs(sprefDorSbor, SPREF_DORSBOR_FIZYUR, "fiz")
-                    if (switch_button.visibility == GONE)
-                        switch_button.visibility = VISIBLE
+                    if (switchButtonPens.visibility == GONE)
+                        switchButtonPens.visibility = VISIBLE
+                    if (switchButtonInvalid3Group.visibility == GONE)
+                        switchButtonInvalid3Group.visibility = VISIBLE
 
                     when (kindAuto) {
                         "legk_car" -> {
@@ -134,7 +139,9 @@ class FragmentDorSbor21 : Fragment() {
                         SPREF_DORSBOR_VETERAN,
                         1
                     )     */
-                    switch_button.visibility = GONE // при нажатии на юр лицо ветеран не нужен
+                    switchButtonPens.visibility = GONE
+                    switchButtonInvalid3Group.visibility =
+                        GONE// при нажатии на юр лицо ветеран не нужен
 
                     when (kindAuto) {
                         "legk_car" -> {
@@ -201,20 +208,47 @@ class FragmentDorSbor21 : Fragment() {
 
         // начальное состояние switch ветеран\неветеран
         when (veteran) {
-            2 -> switch_button.isChecked = true
-            1 -> switch_button.isChecked = false
+            2 -> {
+                switchButtonPens.isChecked = true
+                switchButtonInvalid3Group.isChecked = false
+            }
+            1 -> {
+                switchButtonPens.isChecked = false
+                switchButtonInvalid3Group.isChecked = false
+            }
+            3 -> {
+                switchButtonPens.isChecked = false
+                switchButtonInvalid3Group.isChecked = true
+            }
+
         }
         //============================================
 
 
-        switch_button.setOnCheckedChangeListener { buttonView, isChecked ->
+        switchButtonPens.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 veteran = 2
+                switchButtonInvalid3Group.isChecked = !isChecked
                 model.putSprefs(sprefDorSbor, SPREF_DORSBOR_VETERAN, veteran)
             } else {
-                veteran = 1
-                model.putSprefs(sprefDorSbor, SPREF_DORSBOR_VETERAN, veteran)
+                if (veteran == 2) {
+                    veteran = 1
+                    model.putSprefs(sprefDorSbor, SPREF_DORSBOR_VETERAN, veteran)
+                }
             }
+        }
+        switchButtonInvalid3Group.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                veteran = 3
+                switchButtonPens.isChecked = !isChecked
+                model.putSprefs(sprefDorSbor, SPREF_DORSBOR_VETERAN, veteran)
+            } else {
+                if (veteran == 3) {
+                    veteran = 1
+                    model.putSprefs(sprefDorSbor, SPREF_DORSBOR_VETERAN, veteran)
+                }
+            }
+
         }
         return view
     }
@@ -460,6 +494,11 @@ class FragmentDorSbor21 : Fragment() {
                                     resources.getString(R.string.title_button_more_3t21)
                                 buttonKindAutoWeight.setIconResource(R.drawable.ic_hexagon_slice_6)
                             }
+                            "legk_electro" -> {
+                                buttonKindAutoWeight.text =
+                                    resources.getString(R.string.title_button_electro)
+                                buttonKindAutoWeight.setIconResource(R.drawable.ic_hexagon_outline)
+                            }
                             // yur
                             "less_1t_yur" -> {
                                 buttonKindAutoWeight.text =
@@ -660,6 +699,11 @@ class FragmentDorSbor21 : Fragment() {
                     resources.getString(R.string.title_button_more_3t21)
                 buttonKindAutoWeight.setIconResource(R.drawable.ic_hexagon_slice_6)
             }
+            "legk_electro" -> {
+                buttonKindAutoWeight.text =
+                    resources.getString(R.string.title_button_electro)
+                buttonKindAutoWeight.setIconResource(R.drawable.ic_hexagon_outline)
+            }
             // yur
             "less_1t_yur" -> {
                 buttonKindAutoWeight.text =
@@ -745,8 +789,14 @@ class FragmentDorSbor21 : Fragment() {
 
         }
         when (this.fizYur) {
-            "fiz" -> switch_button.visibility = VISIBLE
-            "yur" -> switch_button.visibility = GONE
+            "fiz" -> {
+                switchButtonPens.visibility = VISIBLE
+                switchButtonInvalid3Group.visibility = VISIBLE
+            }
+            "yur" -> {
+                switchButtonPens.visibility = GONE
+                switchButtonInvalid3Group.visibility = GONE
+            }
         }
     }
 

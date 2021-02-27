@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-  >
+    android:padding="16dp">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_open_frag_dor_sbor"
@@ -30,31 +29,31 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="@string/titleUtilSbor2021"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textviewEuroRate"
-        android:textColor="?attr/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text=""
+        android:textColor="?attr/colorAccent"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/textviewDollarRate"
         app:layout_constraintEnd_toEndOf="parent" />
+
     <TextView
         android:id="@+id/textviewDollarRate"
-        android:textColor="?attr/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text=""
+        android:textColor="?attr/colorAccent"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

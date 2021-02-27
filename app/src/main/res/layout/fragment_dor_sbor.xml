@@ -130,15 +130,16 @@
 
 
         <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switch_button"
+                android:id="@+id/switch_button_pensioner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:paddingStart="@dimen/padding10dp"
                 android:paddingEnd="@dimen/padding10dp"
-                android:text="@string/switch_text"
+                android:text="@string/switch_pensioner"
                 android:textAppearance="@style/MaterialButtonTextAppearance"
                 android:textColor="?attr/materialButtonOutlineTextColor"
                 app:layout_constraintTop_toBottomOf="@+id/buttonToggleGroup_fiz_yur" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

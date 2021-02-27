@@ -75,4 +75,15 @@
         android:textAppearance="@style/MaterialButtonTextAppearance"
         app:icon="@drawable/ic_hexagon_slice_6"
         app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_legk_electro"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_button_electro"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_outline"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
 </LinearLayout>

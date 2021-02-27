@@ -84,16 +84,33 @@
 
 
         <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/switch_button"
+            android:id="@+id/switch_button_pensioner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding10dp"
             android:checked="true"
             android:paddingStart="@dimen/padding10dp"
             android:paddingEnd="@dimen/padding10dp"
-            android:text="@string/switch_text"
+            android:text="@string/switch_pensioner"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             android:textColor="?attr/materialButtonOutlineTextColor"
             app:layout_constraintTop_toBottomOf="@+id/button_kind_of_auto_weight" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_button_invaliv3group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding10dp"
+            android:checked="true"
+            android:paddingStart="@dimen/padding10dp"
+            android:paddingEnd="@dimen/padding10dp"
+            android:text="@string/switch_invalid3group"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            android:textColor="?attr/materialButtonOutlineTextColor"
+            app:layout_constraintTop_toBottomOf="@+id/switch_button_pensioner" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -10,8 +10,8 @@ android {
         applicationId "by.a_ogurtsov.AutoTaxes"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 4
-        versionName "1.3"
+        versionCode 6
+        versionName "2.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

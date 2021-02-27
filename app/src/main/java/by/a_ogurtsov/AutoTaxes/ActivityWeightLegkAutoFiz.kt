@@ -16,6 +16,7 @@ class ActivityWeightLegkAutoFiz : ActivityParent(){
     private lateinit var button_in_2_25_2_5t: MaterialButton
     private lateinit var button_in_2_5_3t: MaterialButton
     private lateinit var button_more_3t: MaterialButton
+    private lateinit var button_electro: MaterialButton
 
 
 
@@ -33,7 +34,7 @@ class ActivityWeightLegkAutoFiz : ActivityParent(){
         button_in_2_25_2_5t = findViewById(R.id.button_in_2_25_2_5t)
         button_in_2_5_3t = findViewById(R.id.button_in_2_5_3t)
         button_more_3t = findViewById(R.id.button_more_3t)
-
+        button_electro = findViewById(R.id.button_legk_electro)
 
         val onButtonClickListener = View.OnClickListener { v ->
             val intent: Intent = intent
@@ -59,6 +60,9 @@ class ActivityWeightLegkAutoFiz : ActivityParent(){
                 R.id.button_more_3t -> {
                     intent.putExtra("weight_of_legk_auto", "more_3t")
                 }
+                R.id.button_legk_electro -> {
+                    intent.putExtra("weight_of_legk_auto", "legk_electro")
+                }
 
             }
             setResult(Activity.RESULT_OK, intent)  // pass kind of auto to FragmentDorSbor
@@ -71,6 +75,6 @@ class ActivityWeightLegkAutoFiz : ActivityParent(){
         button_in_2_25_2_5t.setOnClickListener(onButtonClickListener)
         button_in_2_5_3t.setOnClickListener(onButtonClickListener)
         button_more_3t.setOnClickListener(onButtonClickListener)
-
+        button_electro.setOnClickListener(onButtonClickListener)
     }
 }

@@ -98,7 +98,7 @@ class FragmentDorSbor : Fragment() {
         button10YearsAndOldest = view.findViewById(R.id.button_10_years_and_oldest)
         buttonKindAuto = view.findViewById(R.id.button_kind_of_auto)
         buttonKindAutoWeight = view.findViewById(R.id.button_kind_of_auto_weight)
-        switch_button = view.findViewById(R.id.switch_button)
+        switch_button = view.findViewById(R.id.switch_button_pensioner)
         coordinatorLayout = view.findViewById(R.id.coordinatorLayout)
         buttonToggleGroup_fiz_yur = view.findViewById(R.id.buttonToggleGroup_fiz_yur)
         buttonToggleGroup_vozrast = view.findViewById(R.id.buttonToggleGroup_vozrast)

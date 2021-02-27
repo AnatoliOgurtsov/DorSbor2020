@@ -10,7 +10,7 @@
 
 
     <string name="titleDorSbor">Дорожный налог</string>
-    <string name="titleDorSbor2021">Дорожный налог 2021</string>
+    <string name="titleDorSbor2021">Транспортный налог 2021</string>
 
     <string name="titleUtilSbor">Утилизационный сбор</string>
     <string name="titleUtilSbor2021">Утилизационный сбор 2021</string>
@@ -28,7 +28,9 @@
     <string name="title_button_yur">ЮРИДИЧЕСКОЕ ЛИЦО</string>
     <string name="title_button_before_10_years">МЛАДШЕ 10 ЛЕТ</string>
     <string name="title_button__10_years_and_oldest">10 ЛЕТ И СТАРШЕ</string>
-    <string name="switch_text">ИНВАЛИД ПЕРВОЙ ИЛИ ВТОРОЙ ГРУППЫ, \nВЕТЕРАН ВЕЛИКОЙ ОТЕЧЕСТВЕННОЙ ВОЙНЫ</string>
+    <string name="switch_pensioner">ИНВАЛИД ПЕРВОЙ ИЛИ ВТОРОЙ ГРУППЫ, \nВЕТЕРАН ВЕЛИКОЙ ОТЕЧЕСТВЕННОЙ ВОЙНЫ, \nПЕНСИОНЕР</string>
+    <string name="switch_invalid3group">ИНВАЛИД ТРЕТЬЕЙ ГРУППЫ</string>
+    <string name="electro_2025">освобождение от уплаты до 31 декабря 2025 года</string>
 
 
     <string name="title_button_legk_car">ЛЕГКОВОЙ АВТОМОБИЛЬ</string>
@@ -52,6 +54,8 @@
     <string name="title_button_in_1_25_2_5t21">имеющий разрешенную максимальную массу БОЛЕЕ 2,25 ТОНН, НО НЕ БОЛЕЕ 2,5 ТОНН</string>
     <string name="title_button_in_2_5_3t21">имеющий разрешенную максимальную массу БОЛЕЕ 2,5 ТОНН, НО НЕ БОЛЕЕ 3 ТОНН</string>
     <string name="title_button_more_3t21">имеющий разрешенную максимальную массу БОЛЕЕ 3 ТОНН</string>
+    <string name="title_button_electro">приводимый в движение исключительно электрическим двигателем</string>
+
 
     <string name="title_button_less_1t21">имеющий разрешенную максимальную массу НЕ БОЛЕЕ 1 ТОННЫ</string>
     <string name="title_button_in_1_2t21">имеющий разрешенную максимальную массу БОЛЕЕ 1 ТОННЫ, НО НЕ БОЛЕЕ 2 ТОНН</string>
