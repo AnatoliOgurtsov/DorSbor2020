@@ -20,11 +20,7 @@ class FragmentStart : Fragment(R.layout.fragment_start), View.OnClickListener {
     private var _binding: FragmentStartBinding? = null
     private val binding get() = _binding!!
 
-    val LOG_TAG = "myLogs"
     private lateinit var model: MyViewModel
-    val FRAGMENTDORSBOR = "FRAGMENT_DORSBOR"
-    val FRAGMENTUTILSBOR = "FRAGMENT_UTILSBOR"
-    val PREFSHOWCURRENCYRATE = "pref_showCurrencyRate"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +37,7 @@ class FragmentStart : Fragment(R.layout.fragment_start), View.OnClickListener {
         val view = binding.root
         binding.buttonOpenFragDorSbor.setOnClickListener(this)
         binding.buttonOpenFragUtilSbor.setOnClickListener(this)
+        binding.buttonOpenFragStrahovka.setOnClickListener(this)
 
         prefShowCurrencyRate()  // show or no currenty rates
 
@@ -59,7 +56,6 @@ class FragmentStart : Fragment(R.layout.fragment_start), View.OnClickListener {
 
         return view
 
-
     }
 
     override fun onClick(v: View) {
@@ -71,6 +67,10 @@ class FragmentStart : Fragment(R.layout.fragment_start), View.OnClickListener {
             R.id.button_open_frag_util_sbor -> {
                 Log.d(LOG_TAG, "pressed UtilsborKey")
                 model.choiceFromFragmentStart.value = FRAGMENTUTILSBOR
+            }
+            R.id.button_open_frag_strahovka -> {
+                Log.d(LOG_TAG, "pressed Strahovanie")
+                model.choiceFromFragmentStart.value = FRAGMENTSTRAHOVKA
             }
         }
     }
@@ -96,5 +96,9 @@ class FragmentStart : Fragment(R.layout.fragment_start), View.OnClickListener {
                     }
                 }
             })
+    }
+
+    companion object {
+        private val LOG_TAG = "myLogs"
     }
 }

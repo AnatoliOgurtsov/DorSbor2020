@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding10dp"
+        android:orientation="vertical">
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_legk_car_russia"
+            android:text="@string/title_button_legk_car_russia"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_car_black_24dp"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_legk_car_not_russia"
+            android:text="@string/title_button_legk_car_not_russia"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_car_black_24dp"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_electro_gibrid_strahovka"
+            android:text="@string/title_button_electro_gibrid_strahovka"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_baseline_electric_car_24"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_legk_car_pricep"
+            android:text="@string/title_button_legk_car_pricep"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_pricep"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_gruz_car_strahovka"
+        android:text="@string/title_button_gruz_car_strahovka"
+        style="@style/MaterialButtonOutline"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_gruz_black_24dp"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_tractor"
+        android:text="@string/title_button_tractor"
+        style="@style/MaterialButtonOutline"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_baseline_tractor_24"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_gruz_car_pricep"
+        android:text="@string/title_button_gruz_car_pricep"
+        style="@style/MaterialButtonOutline"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_pricep"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_moto"
+        android:text="@string/title_button_moto"
+        style="@style/MaterialButtonOutline"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_motorcycle_black_24dp"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_bus_strahovka"
+        android:text="@string/title_button_bus_strahovka"
+        style="@style/MaterialButtonOutline"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_directions_bus_black_24dp"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+</LinearLayout>
+</ScrollView>

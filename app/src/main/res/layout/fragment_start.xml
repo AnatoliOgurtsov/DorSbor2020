@@ -5,16 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="@dimen/padding16dp">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_open_frag_dor_sbor"
         style="@style/MaterialButtonDefault"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/padding16dp"
         android:text="@string/titleDorSbor"
         app:layout_constraintBottom_toTopOf="@id/button_open_frag_util_sbor"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,21 +23,30 @@
         style="@style/MaterialButtonDefault"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/padding16dp"
         android:text="@string/titleUtilSbor2021"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_open_frag_strahovka"
+        style="@style/MaterialButtonDefault"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding16dp"
+        android:text="@string/titleStrahovka"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_open_frag_util_sbor" />
+
     <TextView
         android:id="@+id/textviewEuroRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="@dimen/padding16dp"
+        android:layout_marginBottom="@dimen/padding16dp"
         android:text=""
         android:textColor="?attr/colorAccent"
         android:textSize="18sp"
@@ -50,8 +57,8 @@
         android:id="@+id/textviewDollarRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="@dimen/padding16dp"
+        android:layout_marginBottom="@dimen/padding16dp"
         android:text=""
         android:textColor="?attr/colorAccent"
         android:textSize="18sp"

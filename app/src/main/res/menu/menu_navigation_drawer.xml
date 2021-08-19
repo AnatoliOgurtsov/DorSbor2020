@@ -12,6 +12,10 @@
             android:icon="@drawable/ic_util_sbor"
             android:title="@string/titleUtilSbor"></item>
         <item
+            android:id="@+id/navigation_view_item_strahovka"
+            android:icon="@drawable/ic_outline_strah_24"
+            android:title="@string/titleStrahovkaShot"></item>
+        <item
             android:id="@+id/rate_app"
             android:icon="@drawable/ic_thumb_up"
             android:title="@string/rate_app"></item>

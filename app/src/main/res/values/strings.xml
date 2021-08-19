@@ -6,7 +6,6 @@
     <string name="rate_app">Оценить приложение</string>
 
 
-
     <string name="euroRate">Курс евро: </string>
     <string name="dollarRate">Курс доллара: </string>
 
@@ -15,6 +14,9 @@
 
     <string name="titleUtilSbor">Утилизационный сбор</string>
     <string name="titleUtilSbor2021">Утилизационный сбор 2021</string>
+    <string name="titleStrahovka">Обязательное страхование гражданской ответственности</string>
+    <string name="titleStrahovkaShot">Cтрахование</string>
+
 
     <string name="SETTING">Настройки</string>
     <string name="changeTHeme">Тема</string>
@@ -41,12 +43,12 @@
     <string name="title_button_pricep">ПРИЦЕП</string>
     <string name="title_button_motocycle">МОТОЦИКЛ</string>
 
-//==============================dorsbor 2020
+    //==============================dorsbor 2020
     <string name="title_button_less_1_5t">имеющий разрешенную максимальную массу НЕ БОЛЕЕ 1,5 ТОНН</string>
     <string name="title_button_in_1_5_2t">имеющий разрешенную максимальную массу БОЛЕЕ 1,5 ТОНН, НО НЕ БОЛЕЕ 2 ТОНН</string>
     <string name="title_button_in_2_3t">имеющий разрешенную максимальную массу БОЛЕЕ 2 ТОНН, НО НЕ БОЛЕЕ 3 ТОНН</string>
     <string name="title_button_more_3t">имеющий разрешенную максимальную массу БОЛЕЕ 3 ТОНН</string>
-//==========================================
+    //==========================================
 
     <string name="title_button_less_1_5t21">имеющий разрешенную максимальную массу НЕ БОЛЕЕ 1,5 ТОНН</string>
     <string name="title_button_in_1_5_1_75t21">имеющий разрешенную максимальную массу БОЛЕЕ 1,5 ТОНН, НО НЕ БОЛЕЕ 1,75 ТОНН</string>
@@ -129,5 +131,34 @@
 
     <string name="title_button_pricep_more10t_us">ПРИЦЕП, имеющий полную массу СВЫШЕ 10 ТОНН</string>
     <string name="title_button_half_pricep_more10t_us">ПОЛУПРИЦЕП, имеющий полную массу СВЫШЕ 10 ТОНН</string>
+
+    //======================================Страхование=====================================
+    //==============================================================================================
+    //==============================================================================================
+
+    <string name="title_button_location">НАСЕЛЕННЫЙ ПУНКТ</string>
+    <string name="location">г.Минск и Минский район</string>
+
+    <string name="title_button_legk_car_russia">ЛЕГКОВЫЕ АВТОМОБИЛИ ВАЗ, ЗАЗ, Москвич, АЗЛК, ИЖ, ГАЗ, ЛуАЗ, УАЗ</string>
+    <string name="title_button_legk_car_not_russia">ЛЕГКОВЫЕ АВТОМОБИЛИ, включая микроавтобусы, с числом мест для сидения до 8 включительно (не считая места водителя), за исключением автомобилей ВАЗ, ЗАЗ, Москвич, АЗЛК, ИЖ, ГАЗ, ЛуАЗ, УАЗ</string>
+    <string name="title_button_electro_gibrid_strahovka">ЭЛЕКТРОМОБИЛИ И ГИБРИДНЫЕ АВТОМОБИЛИ</string>
+    <string name="title_button_legk_car_pricep">ПРИЦЕПЫ К ЛЕГКОВЫМ АВТОМОБИЛЯМ</string>
+    <string name="title_button_gruz_car_strahovka">ГРУЗОВЫЕ И ГРУЗОПАССАЖИРСКИЕ АВТОМОБИЛИ</string>
+    <string name="title_button_tractor">КОЛЕСНЫЕ ТРАКТОРЫ и ДОРОЖНЫЕ МАШИНЫ</string>
+    <string name="title_button_gruz_car_pricep">ПРИЦЕПЫ И ПОЛУПРИЦЕПЫ к грузовым автомобилям и тракторам</string>
+    <string name="title_button_moto">МОТОКОЛЯСКИ, МОТОЦИКЛЫ, МОТОРОЛЛЕРЫ</string>
+    <string name="title_button_bus_strahovka">АВТОБУСЫ</string>
+
+    <string name="title_button_less1200_strahovka">с рабочим объемом двигателя ДО 1200 куб. см. включительно</string>
+    <string name="title_button_in_1200_1800_strahovka">с рабочим объемом двигателя СВЫШЕ 1200 куб. см. ДО 1800 куб. см. включительно</string>
+    <string name="title_button_in_1800_2500_strahovka">с рабочим объемом двигателя СВЫШЕ 1800 куб. см. ДО 2500 куб. см. включительно</string>
+    <string name="title_button_in_2500_3500_strahovka">с рабочим объемом двигателя СВЫШЕ 2500 куб. см. ДО 3500 куб. см. включительно</string>
+    <string name="title_button_more_3500_strahovka">с рабочим объемом двигателя СВЫШЕ 3500 куб. см</string>
+    <string name="title_button_taxi">ТАКСИ</string>
+
+    <string name="title_button_gibrid">ГИБРИДНЫЕ АВТОМОБИЛИ</string>
+    <string name="title_button_electro_strahovka">ЭЛЕКТРОМОБИЛИ</string>
+
+
 
 </resources>

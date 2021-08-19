@@ -19,26 +19,25 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.viewModelScope
 import androidx.preference.PreferenceManager
 import androidx.work.*
+import by.a_ogurtsov.AutoTaxes.dorSbor.FragmentDorSbor21
+import by.a_ogurtsov.AutoTaxes.strahovka.FragmentStrahovka
+import by.a_ogurtsov.AutoTaxes.strahovka.Location
+import by.a_ogurtsov.AutoTaxes.utilSbor.FragmentUtilSbor
 import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel
 import by.a_ogurtsov.AutoTaxes.workmanager.MyWorkerDollar
 import by.a_ogurtsov.AutoTaxes.workmanager.MyWorkerEuro
 import com.google.android.material.navigation.NavigationView
+import com.google.gson.Gson
+import kotlinx.coroutines.*
 
 
 class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var model: MyViewModel
     private lateinit var color: String // color of theme
-
-    val LOG_TAG = "myLogs"
-    val FRAGMENTSTART = "FRAGMENT_START"
-    val FRAGMENTDORSBOR = "FRAGMENT_DORSBOR"
-    val FRAGMENTUTILSBOR = "FRAGMENT_UTILSBOR"
-    val FRAGMENTSETTINGS = "FRAGMENT_SETTINGS"
-    val CURRENTFRAGMENT = "CURRENT_FRAGMENT"
-    val CURRENTFRAGMENT_PRESS_ARROW_BACK = "CURRENT_FRAGMENT_PRESS_ARROW_BACK"
 
     private val fragmentManager: FragmentManager = supportFragmentManager
 
@@ -65,6 +64,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         initDrawerLayout()
         initFragment()
         startCurrencyRateTask()   // парсит сайт минфина по поводу курса евро
+        getLocationListFromJsonStrahovka()
     }
 
     private fun initViewModel() {
@@ -84,6 +84,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             when (choice_from_fragmentStart) {
                 "FRAGMENT_DORSBOR" -> showFragmentDorSbor()
                 "FRAGMENT_UTILSBOR" -> showFragmentUtilSbor()
+                "FRAGMENT_STRAHOVKA" -> showFragmentStrahovka()
             }
         }
         model.choiceFromFragmentStart.observe(this, observerPressButtonFromFragmentStart)
@@ -155,6 +156,8 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             showFragmentDorSbor()                                                    //добавляется DorSborFragment
         } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTUTILSBOR) {
             showFragmentUtilSbor()                                                     //добавляется UtilSborFragment
+        } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTSTRAHOVKA) {
+            showFragmentStrahovka()                                                     //добавляется StrahovkaFragment
         } else if (intent.getStringExtra(CURRENTFRAGMENT) == FRAGMENTSTART) {                //добавляется СтартFragment при повороте экрана
             showFragmentStart()
         }
@@ -169,7 +172,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
 
         when (intent.getStringExtra(CURRENTFRAGMENT)) {
-            null, FRAGMENTDORSBOR, FRAGMENTSTART, FRAGMENTUTILSBOR ->
+            null, FRAGMENTDORSBOR, FRAGMENTSTART, FRAGMENTUTILSBOR, FRAGMENTSTRAHOVKA ->
                 menu?.findItem(R.id.menu_setting)!!.isVisible = true
             FRAGMENTSETTINGS -> menu?.findItem(R.id.menu_setting)!!.isVisible = false
         }
@@ -209,7 +212,9 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (p0.itemId) {
             R.id.navigation_view_item_dor_sbor -> showFragmentDorSbor()
             R.id.navigation_view_item_util_sbor -> showFragmentUtilSbor()
+            R.id.navigation_view_item_strahovka -> showFragmentStrahovka()
             R.id.rate_app -> startIntentRateApp()
+
         }
         return true
     }
@@ -222,6 +227,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 FRAGMENTSTART -> showFragmentStart()
                 FRAGMENTDORSBOR -> showFragmentDorSbor()
                 FRAGMENTUTILSBOR -> showFragmentUtilSbor()
+                FRAGMENTSTRAHOVKA -> showFragmentStrahovka()
             } //when
         } else super.onBackPressed()
     }
@@ -231,6 +237,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             FRAGMENTSTART -> showFragmentStart()
             FRAGMENTDORSBOR -> showFragmentDorSbor()
             FRAGMENTUTILSBOR -> showFragmentUtilSbor()
+            FRAGMENTSTRAHOVKA -> showFragmentStrahovka()
         } //when
     }
 
@@ -301,6 +308,22 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         closeDrawer_initToolbar()    // inherit fun
         invalidateOptionsMenu()   // update menu
     }
+
+    private fun showFragmentStrahovka() {
+
+        setTitle(R.string.titleStrahovka)
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(
+            R.id.container,
+            FragmentStrahovka.newInstance(color, widthScreen),
+            FRAGMENTSTRAHOVKA
+        ).commit()
+        intent.putExtra(CURRENTFRAGMENT, FRAGMENTSTRAHOVKA)
+        intent.putExtra(CURRENTFRAGMENT_PRESS_ARROW_BACK, FRAGMENTSTART)
+        closeDrawer_initToolbar()    // inherit fun
+        invalidateOptionsMenu()   // update menu
+    }
+
 
     private fun showFragmentSettings() {
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
@@ -375,10 +398,22 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     // add appversion in header
     private fun addAppVersionInHeader(textView: TextView) {
-        textView.text = "${getString(R.string.app_name)} ${packageManager.getPackageInfo(
-            packageName,
-            0
-        ).versionName}"
+        textView.text = "${getString(R.string.app_name)} ${
+            packageManager.getPackageInfo(
+                packageName,
+                0
+            ).versionName
+        }"
+    }
+
+    private fun getLocationListFromJsonStrahovka() {   //getting list of cities from json for strahovki
+        val scope = CoroutineScope(Dispatchers.IO)
+        scope.launch {
+            val jsonFileString = getJsonDataFromAsset(applicationContext, "cities.json")
+            val json = Gson()
+            val location = json.fromJson(jsonFileString, Location::class.java)
+            listLocationsStrahovkaUtils = location.cities
+        }
     }
 
 }

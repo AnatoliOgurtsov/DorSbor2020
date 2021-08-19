@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding10dp"
+        android:orientation="vertical">
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_legk_car_less1200"
+            android:text="@string/title_button_less1200_strahovka"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_hexagon_slice_1"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_legk_car_in_1200_1800"
+            android:text="@string/title_button_in_1200_1800_strahovka"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_hexagon_slice_2"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_legk_car_in_1800_2500"
+            android:text="@string/title_button_in_1800_2500_strahovka"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_hexagon_slice_3"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_legk_car_in_2500_3500"
+            android:text="@string/title_button_in_2500_3500_strahovka"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_hexagon_slice_4"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_legk_car_more_3500"
+        android:text="@string/title_button_more_3500_strahovka"
+        style="@style/MaterialButtonOutline"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_slice_5"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_legk_car_taxi"
+        android:text="@string/title_button_taxi"
+        style="@style/MaterialButtonOutline"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_baseline_local_taxi_24"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+</LinearLayout>
+</ScrollView>

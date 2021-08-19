@@ -9,7 +9,6 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_app_round"
         android:label="@string/labelIconName">
-
         <activity
             android:name=".ActivityMain"
             android:screenOrientation="portrait"
@@ -22,40 +21,52 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActivityKindOfAuto"
+            android:name=".dorSbor.ActivityKindOfAuto"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
-            android:name=".ActivityWeightLegkAutoFiz"
+            android:name=".dorSbor.ActivityWeightLegkAutoFiz"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
-            android:name=".ActivityWeightLegkAutoYur"
+            android:name=".dorSbor.ActivityWeightLegkAutoYur"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
-            android:name=".ActivityWeightGruzAuto"
+            android:name=".dorSbor.ActivityWeightGruzAuto"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
-            android:name=".ActivityWeightBus"
+            android:name=".dorSbor.ActivityWeightBus"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
-            android:name=".ActivityWeightPricep"
+            android:name=".dorSbor.ActivityWeightPricep"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
-            android:name=".ActivityKindOfAutoUS"
+            android:name=".utilSbor.ActivityKindOfAutoUS"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
-            android:name=".ActivityWeightLegkAutoUs"
+            android:name=".utilSbor.ActivityWeightLegkAutoUs"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
-            android:name=".ActivityWeightGruzAutoUs"
+            android:name=".utilSbor.ActivityWeightGruzAutoUs"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
-            android:name=".ActivityEngineBusUs"
+            android:name=".utilSbor.ActivityEngineBusUs"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
-            android:name=".ActivityWeightDumpTruckUs"
+            android:name=".utilSbor.ActivityWeightDumpTruckUs"
             android:theme="@style/AppThemeWaterDialog" />
         <activity
-            android:name=".ActivityWeightPricepUs"
+            android:name=".utilSbor.ActivityWeightPricepUs"
+            android:theme="@style/AppThemeWaterDialog" />
+        <activity
+            android:name=".strahovka.location.ActivityStrahovkaLocation"
+            android:theme="@style/AppThemeWaterDialog" />
+        <activity
+            android:name=".strahovka.autoKind.ActivityStrahovkaAutoKind"
+            android:theme="@style/AppThemeWaterDialog" />
+        <activity
+            android:name=".strahovka.autoKind.details.ActivityStrahovkaLegkCarDetails"
+            android:theme="@style/AppThemeWaterDialog" />
+        <activity
+            android:name=".strahovka.autoKind.details.ActivityStrahovkaElectroDetails"
             android:theme="@style/AppThemeWaterDialog" />
     </application>
 

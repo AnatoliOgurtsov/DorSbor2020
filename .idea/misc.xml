@@ -5,6 +5,45 @@
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_baseline_electric_car_24.xml" value="0.2382882882882883" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_baseline_local_taxi_24.xml" value="0.2382882882882883" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_baseline_location_city_24.xml" value="0.21944444444444444" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_baseline_location_house_24.xml" value="0.21944444444444444" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.13513513513513514" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_baseline_tractor_24.xml" value="0.2382882882882883" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_car_black_24dp.xml" value="0.2351111111111111" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_gruz_black_24dp.xml" value="0.2382882882882883" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_hexagon_slice_1.xml" value="0.2382882882882883" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_hexagon_slice_6.xml" value="0.12972972972972974" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_location_24.xml" value="0.2351111111111111" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_location_bigcity_24.xml" value="0.21944444444444444" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_location_city_24.xml" value="0.264" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_location_town_24.xml" value="0.21944444444444444" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_outline_strah_24.xml" value="0.21944444444444444" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_pricep.xml" value="0.2382882882882883" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/drawable/ic_semi_trailer.xml" value="0.2382882882882883" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/activity_electro_details_strahovka.xml" value="0.22133333333333333" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/activity_kind_of_auto.xml" value="0.20925925925925926" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/activity_kind_of_auto_strahovka.xml" value="0.264" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/activity_legk_auto_details_strahovka.xml" value="0.22133333333333333" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/activity_strahovka_location.xml" value="0.18888888888888888" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/activity_us_bus_engine.xml" value="0.1" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/activity_us_kind_of_auto.xml" value="0.20925925925925926" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/activity_us_weight_of_gruz_auto.xml" value="0.12207207207207207" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/activity_us_weight_of_pricep.xml" value="0.11576576576576576" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/activity_weight_of_gruz_auto.xml" value="0.11576576576576576" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/fragment_dor_sbor.xml" value="0.1935185185185185" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/fragment_strahovka.xml" value="0.1935185185185185" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/recyclerview_strahovka_location_item.xml" value="0.2" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/us_button_dumptruck_weight.xml" value="0.20925925925925926" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/layout/us_layout_bus.xml" value="0.20925925925925926" />
+        <entry key="..\:/WORK/AndroidStudio/AutoTaxes/app/src/main/res/menu/menu_navigation_drawer.xml" value="0.22133333333333333" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>

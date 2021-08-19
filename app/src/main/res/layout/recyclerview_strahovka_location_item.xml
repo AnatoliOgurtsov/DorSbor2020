@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/button_recyclerView_strahovka_item"
+    style="@style/MaterialButtonOutline"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/location"
+    android:textAppearance="@style/MaterialButtonTextAppearance"
+    app:icon="@drawable/ic_location_city_24"
+    app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />

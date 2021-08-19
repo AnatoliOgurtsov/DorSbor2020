@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding10dp">
+
+    <by.a_ogurtsov.AutoTaxes.Screen
+        android:id="@+id/strahovka_screen"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        app:angleLine="40"
+        app:colorLine="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:paddingLine="20"
+        app:thicknessLine="5" />
+
+    <TextView
+        android:id="@+id/strahovka_textView_Sums_Value"
+        style="@style/TextViewStrahovkaScreen"
+        android:text="5 рублей 55555 копеек"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/strahovka_screen"
+        app:layout_constraintEnd_toEndOf="@id/strahovka_screen"
+        app:layout_constraintStart_toStartOf="@id/strahovka_screen"
+        app:layout_constraintTop_toTopOf="@id/strahovka_screen" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_location"
+        style="@style/MaterialButtonOutline"
+        android:layout_marginTop="@dimen/padding40dp"
+        android:text="@string/title_button_location"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_location_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/strahovka_screen"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_kind_of_auto_strahovka"
+        style="@style/MaterialButtonOutline"
+        android:layout_marginTop="@dimen/padding10dp"
+        android:text="@string/title_button_legk_car"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_car_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_strahovka_location"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_kind_of_auto_details_strahovka"
+        style="@style/MaterialButtonOutline"
+        android:layout_marginTop="@dimen/padding10dp"
+        android:text="@string/title_button_legk_car"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_car_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_kind_of_auto_strahovka"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

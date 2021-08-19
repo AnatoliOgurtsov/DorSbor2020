@@ -32,7 +32,8 @@ abstract class SharedPreferenceLiveData<T>(
 
 class SharedPreferenceStringLiveData(sharedPref: SharedPreferences, key: String, defValue: String) :
     SharedPreferenceLiveData<String>(sharedPref, key, defValue) {
-override fun getValueFromPreferences(key: String, defValue: String): String = pref.getString(key, defValue)
+override fun getValueFromPreferences(key: String, defValue: String): String =
+    pref.getString(key, defValue).toString()
 }
 
 class SharedPreferenceIntLiveData(sharedPref: SharedPreferences, key: String, defValue: Int) :
