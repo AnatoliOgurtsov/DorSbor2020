@@ -19,7 +19,7 @@ class ActivityStrahovkaAutoKind : ActivityParent() {
         setContentView()
         setListeners()
     }
-
+//=
     private fun setContentView() {
         binding = ActivityKindOfAutoStrahovkaBinding.inflate(layoutInflater)
         setContentView(binding.root)
