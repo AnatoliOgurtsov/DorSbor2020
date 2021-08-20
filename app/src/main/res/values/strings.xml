@@ -159,6 +159,34 @@
     <string name="title_button_gibrid">ГИБРИДНЫЕ АВТОМОБИЛИ</string>
     <string name="title_button_electro_strahovka">ЭЛЕКТРОМОБИЛИ</string>
 
+    <string name="title_button_legk_pricep_b1">ГРУЗОВЫЕ И СКЛАДНЫЕ ЖИЛЫЕ</string>
+    <string name="title_button_legk_pricep_b2">ПРИЦЕПЫ - ДАЧА(КАРАВАН)</string>
 
+    <string name="title_button_gruz_less_1_t_С0">грузоподъемностью ДО 1 т. включительно</string>
+    <string name="title_button_gruz_in_1_t_2_t_С1">грузоподъемностью СВЫШЕ 1 т. ДО 2 т. включительно</string>
+    <string name="title_button_gruz_in_2_t_8_t_С2">грузоподъемностью СВЫШЕ 2 т. ДО 8 т. включительно</string>
+    <string name="title_button_gruz_in_8_t_15_t_С3">грузоподъемностью СВЫШЕ 8 т. ДО 15 т. включительно</string>
+    <string name="title_button_gruz_in_15_t_25_t_С4">грузоподъемностью СВЫШЕ 15 т. ДО 25 т. включительно</string>
+    <string name="title_button_gruz_more_25_t_С5">грузоподъемностью СВЫШЕ 25 т.</string>
+    <string name="title_button_gruz_trailer_С6">ТЯГАЧИ</string>
+
+    <string name="title_button_tractor_less_50_V1">с мощностью двигателя ДО 50 л.с. включительно</string>
+    <string name="title_button_tractor_шт_50_200_V2">с мощностью двигателя ОТ 50 ДО 200 л.с. включительно</string>
+    <string name="title_button_tractor_more_200_V3">с мощностью двигателя СВЫШЕ 200 л.с.</string>
+    <string name="title_button_tractor_crawler_M">ГУСЕНИЧНЫЕ ТРАКТОРЫ</string>
+
+    <string name="title_button_gruz_car_pricep_less_10_E1">грузоподъемностью ДО 10 т. включительно</string>
+    <string name="title_button_gruz_car_pricep_in_10_20_E2">грузоподъемностью СВЫШЕ 10 ДО 20 т. включительно</string>
+    <string name="title_button_gruz_car_pricep_more_20_E3">грузоподъемностью СВЫШЕ 20 т.</string>
+
+    <string name="title_button_moto_less_150_F1">с рабочим объемом двигателя ДО 150 куб. см. включительно</string>
+    <string name="title_button_moto_in_150_750_F2">с рабочим объемом двигателя СВЫШЕ 150 ДО 750 куб. см. включительно</string>
+    <string name="title_button_moto_more_750_F3">с рабочим объемом двигателя СВЫШЕ 750 куб. см.</string>
+
+    <string name="title_button_bus_strahovka_less_20_L1">с числом мест для сидения ДО 20 включительно</string>
+    <string name="title_button_bus_strahovka_in_21_40_L2">с числом мест для сидения ОТ 21 ДО 40 включительно</string>
+    <string name="title_button_bus_strahovka_more_40_L3">с числом мест для сидения СВЫШЕ 40</string>
+    <string name="title_button_bus_strahovka_express_L4">используемые на экспрессных регулярных маршрутах</string>
+    <string name="title_button_bus_strahovka_trolleybus_W">ТРОЛЛЕЙБУСЫ, ТРАМВАИ</string>
 
 </resources>

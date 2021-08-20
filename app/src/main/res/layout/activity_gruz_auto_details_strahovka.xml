@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding10dp"
+        android:orientation="vertical">
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_gruz_car_C0"
+            android:text="@string/title_button_gruz_less_1_t_С0"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_hexagon_slice_1"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_gruz_car_C1"
+            android:text="@string/title_button_gruz_in_1_t_2_t_С1"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_hexagon_slice_2"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_gruz_car_C2"
+            android:text="@string/title_button_gruz_in_2_t_8_t_С2"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_hexagon_slice_3"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_gruz_car_C3"
+            android:text="@string/title_button_gruz_in_8_t_15_t_С3"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_hexagon_slice_4"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_gruz_car_C4"
+        android:text="@string/title_button_gruz_in_15_t_25_t_С4"
+        style="@style/MaterialButtonOutline"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_slice_5"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_gruz_car_C5"
+        android:text="@string/title_button_gruz_more_25_t_С5"
+        style="@style/MaterialButtonOutline"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_slice_6"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_gruz_trailer_C6"
+        android:text="@string/title_button_gruz_trailer_С6"
+        style="@style/MaterialButtonOutline"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_semi_trailer"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+</LinearLayout>
+</ScrollView>

@@ -68,6 +68,24 @@
         <activity
             android:name=".strahovka.autoKind.details.ActivityStrahovkaElectroDetails"
             android:theme="@style/AppThemeWaterDialog" />
+        <activity
+            android:name=".strahovka.autoKind.details.ActivityStrahovkaLegkPricepDetails"
+            android:theme="@style/AppThemeWaterDialog" />
+        <activity
+            android:name=".strahovka.autoKind.details.ActivityStrahovkaGruzCarDetails"
+            android:theme="@style/AppThemeWaterDialog" />
+        <activity
+            android:name=".strahovka.autoKind.details.ActivityStrahovkaTractorDetails"
+            android:theme="@style/AppThemeWaterDialog" />
+        <activity
+            android:name=".strahovka.autoKind.details.ActivityStrahovkaGruzPricepDetails"
+            android:theme="@style/AppThemeWaterDialog" />
+        <activity
+            android:name=".strahovka.autoKind.details.ActivityStrahovkaMotoDetails"
+            android:theme="@style/AppThemeWaterDialog" />
+        <activity
+            android:name=".strahovka.autoKind.details.ActivityStrahovkaBusDetails"
+            android:theme="@style/AppThemeWaterDialog" />
     </application>
 
 </manifest>

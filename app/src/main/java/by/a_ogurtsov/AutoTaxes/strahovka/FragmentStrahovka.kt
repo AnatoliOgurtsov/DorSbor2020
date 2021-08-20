@@ -10,8 +10,7 @@ import androidx.fragment.app.viewModels
 import by.a_ogurtsov.AutoTaxes.*
 import by.a_ogurtsov.AutoTaxes.databinding.FragmentStrahovkaBinding
 import by.a_ogurtsov.AutoTaxes.strahovka.autoKind.ContractActivityStrahovkaAutoKind
-import by.a_ogurtsov.AutoTaxes.strahovka.autoKind.details.ContractActivityStrahovkaElectroDetails
-import by.a_ogurtsov.AutoTaxes.strahovka.autoKind.details.ContractActivityStrahovkaLegkCarDetails
+import by.a_ogurtsov.AutoTaxes.strahovka.autoKind.details.*
 import by.a_ogurtsov.AutoTaxes.strahovka.location.ContractActivityStrahovkaLocation
 import by.a_ogurtsov.AutoTaxes.strahovka.viewModel.ViewModelStrahovka
 import com.google.android.material.button.MaterialButton
@@ -47,7 +46,14 @@ class FragmentStrahovka : Fragment() {
                 bindButtonAutoKindStrahovka(it, binding.buttonKindOfAutoStrahovka)
                 viewModel.putAutoKindToSharedPref(it)
                 when (it) {
-                    resources.getString(R.string.title_button_legk_car_russia),
+                    resources.getString(R.string.title_button_legk_car_russia) -> {
+                        bindButtonAutoKindDetailsStrahovka(
+                            viewModel.autoKindLegkRusDetails,
+                            binding.buttonKindOfAutoDetailsStrahovka
+                        )
+                        viewModel.putAutoKindLegkRusDetailsToSharedPref(viewModel.autoKindLegkRusDetails)
+                    }
+
                     resources.getString(R.string.title_button_legk_car_not_russia) -> {
                         bindButtonAutoKindDetailsStrahovka(
                             viewModel.autoKindLegkDetails,
@@ -62,9 +68,49 @@ class FragmentStrahovka : Fragment() {
                         )
                         viewModel.putAutoKindElectroGibridDetailsToSharedPref(viewModel.autoKindElectroGibridDetails)
                     }
-
+                    resources.getString(R.string.title_button_legk_car_pricep) -> {
+                        bindButtonAutoKindDetailsStrahovka(
+                            viewModel.autoKindLegkPricepDetails,
+                            binding.buttonKindOfAutoDetailsStrahovka
+                        )
+                        viewModel.putAutoKindLegkPricepDetailsToSharedPref(viewModel.autoKindLegkPricepDetails)
+                    }
+                    resources.getString(R.string.title_button_gruz_car_strahovka) -> {
+                        bindButtonAutoKindDetailsStrahovka(
+                            viewModel.autoKindGruzDetails,
+                            binding.buttonKindOfAutoDetailsStrahovka
+                        )
+                        viewModel.putAutoKindGruzDetailsToSharedPref(viewModel.autoKindGruzDetails)
+                    }
+                    resources.getString(R.string.title_button_tractor) -> {
+                        bindButtonAutoKindDetailsStrahovka(
+                            viewModel.autoKindTractorDetails,
+                            binding.buttonKindOfAutoDetailsStrahovka
+                        )
+                        viewModel.putAutoKindTractorDetailsToSharedPref(viewModel.autoKindTractorDetails)
+                    }
+                    resources.getString(R.string.title_button_gruz_car_pricep) -> {
+                        bindButtonAutoKindDetailsStrahovka(
+                            viewModel.autoKindGruzPricepDetails,
+                            binding.buttonKindOfAutoDetailsStrahovka
+                        )
+                        viewModel.putAutoKindGruzPricepDetailsToSharedPref(viewModel.autoKindGruzPricepDetails)
+                    }
+                    resources.getString(R.string.title_button_moto) -> {
+                        bindButtonAutoKindDetailsStrahovka(
+                            viewModel.autoKindMotoDetails,
+                            binding.buttonKindOfAutoDetailsStrahovka
+                        )
+                        viewModel.putAutoKindMotoDetailsToSharedPref(viewModel.autoKindMotoDetails)
+                    }
+                    resources.getString(R.string.title_button_bus_strahovka) -> {
+                        bindButtonAutoKindDetailsStrahovka(
+                            viewModel.autoKindBusDetails,
+                            binding.buttonKindOfAutoDetailsStrahovka
+                        )
+                        viewModel.putAutoKindBusDetailsToSharedPref(viewModel.autoKindBusDetails)
+                    }
                 }
-
             }
         }
 
@@ -72,14 +118,65 @@ class FragmentStrahovka : Fragment() {
         registerForActivityResult(ContractActivityStrahovkaLegkCarDetails()) {
             if (it != null) {
                 bindButtonAutoKindDetailsStrahovka(it, binding.buttonKindOfAutoDetailsStrahovka)
-                viewModel.putAutoKindLegkDetailsToSharedPref(it)
+                when (viewModel.autoKind) {
+                    resources.getString(R.string.title_button_legk_car_russia) ->
+                        viewModel.putAutoKindLegkRusDetailsToSharedPref(it)
+                    resources.getString(R.string.title_button_legk_car_not_russia) ->
+                        viewModel.putAutoKindLegkDetailsToSharedPref(it)
+                }
             }
         }
+
     private val activityStrahovkaElectroDetails =
         registerForActivityResult(ContractActivityStrahovkaElectroDetails()) {
             if (it != null) {
                 bindButtonAutoKindDetailsStrahovka(it, binding.buttonKindOfAutoDetailsStrahovka)
                 viewModel.putAutoKindElectroGibridDetailsToSharedPref(it)
+            }
+        }
+
+    private val activityStrahovkaLegkPricepDetails =
+        registerForActivityResult(ContractActivityStrahovkaLegkPricepDetails()) {
+            if (it != null) {
+                bindButtonAutoKindDetailsStrahovka(it, binding.buttonKindOfAutoDetailsStrahovka)
+                viewModel.putAutoKindLegkPricepDetailsToSharedPref(it)
+            }
+        }
+    private val activityStrahovkaGruzCarDetails =
+        registerForActivityResult(ContractActivityStrahovkaGruzCarDetails()) {
+            if (it != null) {
+                bindButtonAutoKindDetailsStrahovka(it, binding.buttonKindOfAutoDetailsStrahovka)
+                viewModel.putAutoKindGruzDetailsToSharedPref(it)
+            }
+        }
+
+    private val activityStrahovkaTractorDetails =
+        registerForActivityResult(ContractActivityStrahovkaTractorDetails()) {
+            if (it != null) {
+                bindButtonAutoKindDetailsStrahovka(it, binding.buttonKindOfAutoDetailsStrahovka)
+                viewModel.putAutoKindTractorDetailsToSharedPref(it)
+            }
+        }
+
+    private val activityStrahovkaGruzPricepDetails =
+        registerForActivityResult(ContractActivityStrahovkaGruzPricepDetails()) {
+            if (it != null) {
+                bindButtonAutoKindDetailsStrahovka(it, binding.buttonKindOfAutoDetailsStrahovka)
+                viewModel.putAutoKindGruzPricepDetailsToSharedPref(it)
+            }
+        }
+    private val activityStrahovkaMotoDetails =
+        registerForActivityResult(ContractActivityStrahovkaMotoDetails()) {
+            if (it != null) {
+                bindButtonAutoKindDetailsStrahovka(it, binding.buttonKindOfAutoDetailsStrahovka)
+                viewModel.putAutoKindMotoDetailsToSharedPref(it)
+            }
+        }
+    private val activityStrahovkaBusDetails =
+        registerForActivityResult(ContractActivityStrahovkaBusDetails()) {
+            if (it != null) {
+                bindButtonAutoKindDetailsStrahovka(it, binding.buttonKindOfAutoDetailsStrahovka)
+                viewModel.putAutoKindBusDetailsToSharedPref(it)
             }
         }
 
@@ -119,9 +216,20 @@ class FragmentStrahovka : Fragment() {
                 }
                 resources.getString(R.string.title_button_electro_gibrid_strahovka) ->
                     activityStrahovkaElectroDetails.launch()
+                resources.getString(R.string.title_button_legk_car_pricep) ->
+                    activityStrahovkaLegkPricepDetails.launch()
+                resources.getString(R.string.title_button_gruz_car_strahovka) ->
+                    activityStrahovkaGruzCarDetails.launch()
+                resources.getString(R.string.title_button_tractor) ->
+                    activityStrahovkaTractorDetails.launch()
+                resources.getString(R.string.title_button_gruz_car_pricep) ->
+                    activityStrahovkaGruzPricepDetails.launch()
+                resources.getString(R.string.title_button_moto) ->
+                    activityStrahovkaMotoDetails.launch()
+                resources.getString(R.string.title_button_bus_strahovka) ->
+                    activityStrahovkaBusDetails.launch()
             }
         }
-
     }
 
     private fun setObservers() {
@@ -148,9 +256,46 @@ class FragmentStrahovka : Fragment() {
         bindButtonAutoKindStrahovka(
             viewModel.autoKind, binding.buttonKindOfAutoStrahovka
         )
-        bindButtonAutoKindDetailsStrahovka(
-            viewModel.autoKindLegkDetails, binding.buttonKindOfAutoDetailsStrahovka
-        )
+        when (viewModel.autoKind){
+            resources.getString(R.string.title_button_legk_car_russia) -> {
+                bindButtonAutoKindDetailsStrahovka(
+                    viewModel.autoKindLegkRusDetails, binding.buttonKindOfAutoDetailsStrahovka
+                )
+            }
+            resources.getString(R.string.title_button_legk_car_not_russia) -> {
+                bindButtonAutoKindDetailsStrahovka(
+                    viewModel.autoKindLegkDetails, binding.buttonKindOfAutoDetailsStrahovka
+                )
+            }
+            resources.getString(R.string.title_button_electro_gibrid_strahovka) ->
+                bindButtonAutoKindDetailsStrahovka(
+                    viewModel.autoKindElectroGibridDetails, binding.buttonKindOfAutoDetailsStrahovka
+                )
+            resources.getString(R.string.title_button_legk_car_pricep) ->
+                bindButtonAutoKindDetailsStrahovka(
+                    viewModel.autoKindLegkPricepDetails, binding.buttonKindOfAutoDetailsStrahovka
+                )
+            resources.getString(R.string.title_button_gruz_car_strahovka) ->
+                bindButtonAutoKindDetailsStrahovka(
+                    viewModel.autoKindGruzDetails, binding.buttonKindOfAutoDetailsStrahovka
+                )
+            resources.getString(R.string.title_button_tractor) ->
+                bindButtonAutoKindDetailsStrahovka(
+                    viewModel.autoKindTractorDetails, binding.buttonKindOfAutoDetailsStrahovka
+                )
+            resources.getString(R.string.title_button_gruz_car_pricep) ->
+                bindButtonAutoKindDetailsStrahovka(
+                    viewModel.autoKindGruzPricepDetails, binding.buttonKindOfAutoDetailsStrahovka
+                )
+            resources.getString(R.string.title_button_moto) ->
+                bindButtonAutoKindDetailsStrahovka(
+                    viewModel.autoKindMotoDetails, binding.buttonKindOfAutoDetailsStrahovka
+                )
+            resources.getString(R.string.title_button_bus_strahovka) ->
+                bindButtonAutoKindDetailsStrahovka(
+                    viewModel.autoKindBusDetails, binding.buttonKindOfAutoDetailsStrahovka
+                )
+        }
     }
 
     companion object {

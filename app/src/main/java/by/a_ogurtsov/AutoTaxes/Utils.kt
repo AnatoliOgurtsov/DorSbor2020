@@ -2,6 +2,7 @@ package by.a_ogurtsov.AutoTaxes
 
 import android.content.Context
 import by.a_ogurtsov.AutoTaxes.strahovka.City
+import by.a_ogurtsov.AutoTaxes.strahovka.autoKind.details.setIcon
 import com.google.android.material.button.MaterialButton
 import java.io.IOException
 
@@ -22,10 +23,18 @@ const val SPREF_STRAHOVKA_NAME = "sprefStrahovka"
 const val SPREF_STRAHOVKA_LOCATION_K = "location_k"
 const val SPREF_STRAHOVKA_LOCATION_NAME = "location_name"
 const val SPREF_STRAHOVKA_AUTO_KIND = "auto_kind"
+const val SPREF_STRAHOVKA_AUTO_KIND_LEGK_RUS_DETAILS = "SPREF_STRAHOVKA_AUTO_KIND_LEGK_RUS_DETAILS"
 const val SPREF_STRAHOVKA_AUTO_KIND_LEGK_DETAILS = "SPREF_STRAHOVKA_AUTO_KIND_LEGK_DETAILS"
-const val SPREF_STRAHOVKA_AUTO_KIND_ELECTRO_GIBRID_DETAILS = "SPREF_STRAHOVKA_AUTO_KIND_ELECTRO_GIBRID_DETAILS"
-
-
+const val SPREF_STRAHOVKA_AUTO_KIND_ELECTRO_GIBRID_DETAILS =
+    "SPREF_STRAHOVKA_AUTO_KIND_ELECTRO_GIBRID_DETAILS"
+const val SPREF_STRAHOVKA_AUTO_KIND_LEGK_PRICEP_DETAILS =
+    "SPREF_STRAHOVKA_AUTO_KIND_LEGK_PRICEP_DETAILS"
+const val SPREF_STRAHOVKA_AUTO_KIND_GRUZ_DETAILS = "SPREF_STRAHOVKA_AUTO_KIND_GRUZ_DETAILS"
+const val SPREF_STRAHOVKA_AUTO_KIND_TRACTOR_DETAILS = "SPREF_STRAHOVKA_AUTO_KIND_TRACTOR_DETAILS"
+const val SPREF_STRAHOVKA_AUTO_KIND_GRUZ_PRICEP_DETAILS =
+    "SPREF_STRAHOVKA_AUTO_KIND_GRUZ_PRICEP_DETAILS"
+const val SPREF_STRAHOVKA_AUTO_KIND_MOTO_DETAILS = "SPREF_STRAHOVKA_AUTO_KIND_MOTO_DETAILS"
+const val SPREF_STRAHOVKA_AUTO_KIND_BUS_DETAILS = "SPREF_STRAHOVKA_AUTO_KIND_BUS_DETAILS"
 
 
 const val baseValue: Double = 27.0
@@ -89,7 +98,7 @@ fun bindButtonAutoKindStrahovka(name: String?, button: MaterialButton) {
 
 fun bindButtonAutoKindDetailsStrahovka(name: String, button: MaterialButton) {
     button.text = name
-    // TODO icon binding
+    button.setIcon(name)
 }
 
 

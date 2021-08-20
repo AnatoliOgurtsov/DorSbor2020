@@ -13,18 +13,29 @@
     <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button_electro_strahovka"
-            android:text="@string/title_button_electro_strahovka"
+            android:id="@+id/button_moto_F1"
+            android:text="@string/title_button_moto_less_150_F1"
             style="@style/MaterialButtonOutline"
             android:textAppearance="@style/MaterialButtonTextAppearance"
-            app:icon="@drawable/ic_hexagon_outline"
+            app:icon="@drawable/ic_hexagon_slice_2"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
     </com.google.android.material.button.MaterialButton>
     <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button_gibrid_strahovka"
-            android:text="@string/title_button_gibrid"
+            android:id="@+id/button_moto_F2"
+            android:text="@string/title_button_moto_in_150_750_F2"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_hexagon_slice_4"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_moto_F3"
+            android:text="@string/title_button_moto_more_750_F3"
             style="@style/MaterialButtonOutline"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_hexagon_slice_6"

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding10dp"
+        android:orientation="vertical">
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_bus_L1"
+            android:text="@string/title_button_bus_strahovka_less_20_L1"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_hexagon_slice_2"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_bus_L2"
+            android:text="@string/title_button_bus_strahovka_in_21_40_L2"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_hexagon_slice_4"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_bus_L3"
+            android:text="@string/title_button_bus_strahovka_more_40_L3"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_hexagon_slice_6"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_bus_L4"
+            android:text="@string/title_button_bus_strahovka_express_L4"
+            style="@style/MaterialButtonOutline"
+            android:textAppearance="@style/MaterialButtonTextAppearance"
+            app:icon="@drawable/ic_directions_bus_black_24dp"
+            app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_trolleybus_W"
+        android:text="@string/title_button_bus_strahovka_trolleybus_W"
+        style="@style/MaterialButtonOutline"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_baseline_tram_24"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+
+</LinearLayout>
+</ScrollView>
