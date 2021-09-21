@@ -175,9 +175,10 @@
     <string name="title_button_tractor_more_200_V3">с мощностью двигателя СВЫШЕ 200 л.с.</string>
     <string name="title_button_tractor_crawler_M">ГУСЕНИЧНЫЕ ТРАКТОРЫ</string>
 
-    <string name="title_button_gruz_car_pricep_less_10_E1">грузоподъемностью ДО 10 т. включительно</string>
-    <string name="title_button_gruz_car_pricep_in_10_20_E2">грузоподъемностью СВЫШЕ 10 ДО 20 т. включительно</string>
-    <string name="title_button_gruz_car_pricep_more_20_E3">грузоподъемностью СВЫШЕ 20 т.</string>
+    <string name="title_button_gruz_car_pricep_less_5_E1">грузоподъемностью ДО 5 т. включительно</string>
+    <string name="title_button_gruz_car_pricep_in_5_10_E2">грузоподъемностью СВЫШЕ 5 ДО 10 т. включительно</string>
+    <string name="title_button_gruz_car_pricep_in_10_20_E3">грузоподъемностью СВЫШЕ 10 ДО 20 т. включительно</string>
+    <string name="title_button_gruz_car_pricep_more_20_E4">грузоподъемностью СВЫШЕ 20 т.</string>
 
     <string name="title_button_moto_less_150_F1">с рабочим объемом двигателя ДО 150 куб. см. включительно</string>
     <string name="title_button_moto_in_150_750_F2">с рабочим объемом двигателя СВЫШЕ 150 ДО 750 куб. см. включительно</string>
@@ -188,5 +189,24 @@
     <string name="title_button_bus_strahovka_more_40_L3">с числом мест для сидения СВЫШЕ 40</string>
     <string name="title_button_bus_strahovka_express_L4">используемые на экспрессных регулярных маршрутах</string>
     <string name="title_button_bus_strahovka_trolleybus_W">ТРОЛЛЕЙБУСЫ, ТРАМВАИ</string>
+
+    <string name="title_button_strahovka_vozrast_stazh_less25_less2">ВОЗРАСТ владельца младше 25 лет,\nСТАЖ вождения менее 2 лет включительно</string>
+    <string name="title_button_strahovka_vozrast_stazh_less25_more2">ВОЗРАСТ владельца младше 25 лет,\nСТАЖ вождения более 2 лет</string>
+    <string name="title_button_strahovka_vozrast_stazh_more25_less2">ВОЗРАСТ владельца старше 25 лет,\nСТАЖ вождения менее 2 лет включительно</string>
+    <string name="title_button_strahovka_vozrast_stazh_more25_more2">ВОЗРАСТ владельца старше 25 лет,\nСТАЖ вождения более 2 лет</string>
+
+    <string name="title_button_days15">15 ДНЕЙ</string>
+    <string name="title_button_month1">1 МЕСЯЦ</string>
+    <string name="title_button_month2">2 МЕСЯЦА</string>
+    <string name="title_button_month3">3 МЕСЯЦА</string>
+    <string name="title_button_month4">4 МЕСЯЦА</string>
+    <string name="title_button_month5">5 МЕСЯЦЕВ</string>
+    <string name="title_button_month6">6 МЕСЯЦЕВ</string>
+    <string name="title_button_month7">7 МЕСЯЦЕВ</string>
+    <string name="title_button_month8">8 МЕСЯЦЕВ</string>
+    <string name="title_button_month9">9 МЕСЯЦЕВ</string>
+    <string name="title_button_month10">10 МЕСЯЦЕВ</string>
+    <string name="title_button_month11">11 МЕСЯЦЕВ</string>
+    <string name="title_button_month12">1 ГОД</string>
 
 </resources>

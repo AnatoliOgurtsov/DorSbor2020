@@ -35,6 +35,9 @@ class ActivityStrahovkaGruzPricepDetails : ActivityParent() {
         binding.buttonGruzPricepE3.setOnClickListener {
             setIntentForResultActivity((it as MaterialButton).text.toString())
         }
+        binding.buttonGruzPricepE4.setOnClickListener {
+            setIntentForResultActivity((it as MaterialButton).text.toString())
+        }
 
     }
 

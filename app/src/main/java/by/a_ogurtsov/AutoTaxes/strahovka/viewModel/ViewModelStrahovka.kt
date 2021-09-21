@@ -68,6 +68,14 @@ class ViewModelStrahovka(applicationContext: Context?) : ViewModel() {
         "с числом мест для сидения ДО 20 включительно"
     val autoKindBusDetails: String get() = _autoKindBusDetails
 
+    private var _vozrastStazh: String =
+        "ВОЗРАСТ владельца младше 25 лет,\nСТАЖ вождения менее 2 лет включительно"
+    val vozrastStazh: String get() = _vozrastStazh
+
+    private var _term: String =
+        "1 ГОД"
+    val term: String get() = _term
+
 
     private lateinit var sprefStarhovka: SharedPreferences
 
@@ -105,6 +113,12 @@ class ViewModelStrahovka(applicationContext: Context?) : ViewModel() {
             ).toString()
             this._autoKindBusDetails = sprefStarhovka.getString(
                 SPREF_STRAHOVKA_AUTO_KIND_BUS_DETAILS, ""
+            ).toString()
+            this._vozrastStazh = sprefStarhovka.getString(
+                SPREF_STRAHOVKA_VOZRAST_STAZH, ""
+            ).toString()
+            this._term = sprefStarhovka.getString(
+                SPREF_STRAHOVKA_TERM, ""
             ).toString()
 
             setSumValue()
@@ -145,6 +159,14 @@ class ViewModelStrahovka(applicationContext: Context?) : ViewModel() {
             editor.putString(
                 SPREF_STRAHOVKA_AUTO_KIND_BUS_DETAILS,
                 this._autoKindBusDetails
+            )
+            editor.putString(
+                SPREF_STRAHOVKA_VOZRAST_STAZH,
+                this._vozrastStazh
+            )
+            editor.putString(
+                SPREF_STRAHOVKA_TERM,
+                this._term
             )
             editor.apply()
             setSumValue()
@@ -231,10 +253,25 @@ class ViewModelStrahovka(applicationContext: Context?) : ViewModel() {
         setSumValue()
     }
 
+    fun putVozrastStazhToSharedPref(name: String) {
+        this._vozrastStazh = name
+        val editor: SharedPreferences.Editor = sprefStarhovka.edit()
+        editor.putString(SPREF_STRAHOVKA_VOZRAST_STAZH, name).apply()
+        setSumValue()
+    }
 
-    fun setSumValue() {
+    fun putTermToSharedPref(name: String) {
+        this._term = name
+        val editor: SharedPreferences.Editor = sprefStarhovka.edit()
+        editor.putString(SPREF_STRAHOVKA_TERM, name).apply()
+        setSumValue()
+    }
+
+
+    private fun setSumValue() {
         _totalSumValue.value =
             repositoryStrahovka.totalSumValue(
+                context = this.context,
                 k1 = this._locationK,
                 autoKind = this._autoKind,
                 autoKindLegkRusDetails = this.autoKindLegkRusDetails,
@@ -245,9 +282,9 @@ class ViewModelStrahovka(applicationContext: Context?) : ViewModel() {
                 autoKindTractorDetails = this.autoKindTractorDetails,
                 autoKindGruzPricepDetails = this.autoKindGruzPricepDetails,
                 autoKindMotoDetails = this.autoKindMotoDetails,
-                autoKindBusDetails = this.autoKindBusDetails
+                autoKindBusDetails = this.autoKindBusDetails,
+                vozrastStazh = this.vozrastStazh,
+                term = this.term
             )
     }
-
-
 }

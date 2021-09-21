@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/padding10dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_15days"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_days15"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_1month"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_month1"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_2month"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_month2"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_3month"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_month3"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_4month"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_month4"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_5month"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_month5"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_6month"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_month6"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_7month"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_month7"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_8month"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_month8"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_9month"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_month9"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_10month"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_month10"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_11month"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_month11"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term_12month"
+        style="@style/MaterialButtonOutline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_button_month12"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
+
+</LinearLayout>

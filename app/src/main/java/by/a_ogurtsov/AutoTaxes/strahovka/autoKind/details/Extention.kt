@@ -74,13 +74,13 @@ fun MaterialButton.setIcon(name: String) {
             this.setIconResource(R.drawable.ic_baseline_tractor_24)
         }
         //=============================================================
-        resources.getString(R.string.title_button_gruz_car_pricep_less_10_E1) -> {
+        resources.getString(R.string.title_button_gruz_car_pricep_less_5_E1) -> {
             this.setIconResource(R.drawable.ic_hexagon_slice_2)
         }
-        resources.getString(R.string.title_button_gruz_car_pricep_in_10_20_E2) -> {
+        resources.getString(R.string.title_button_gruz_car_pricep_in_5_10_E2) -> {
             this.setIconResource(R.drawable.ic_hexagon_slice_4)
         }
-        resources.getString(R.string.title_button_gruz_car_pricep_more_20_E3) -> {
+        resources.getString(R.string.title_button_gruz_car_pricep_more_20_E4) -> {
             this.setIconResource(R.drawable.ic_hexagon_slice_6)
         }
         //===============================================================
@@ -108,6 +108,19 @@ fun MaterialButton.setIcon(name: String) {
         }
         resources.getString(R.string.title_button_bus_strahovka_trolleybus_W) -> {
             this.setIconResource(R.drawable.ic_baseline_tram_24)
+        }
+        //================================================================
+        resources.getString(R.string.title_button_strahovka_vozrast_stazh_less25_less2) -> {
+            this.setIconResource(R.drawable.ic_hexagon_slice_1)
+        }
+        resources.getString(R.string.title_button_strahovka_vozrast_stazh_less25_more2) -> {
+            this.setIconResource(R.drawable.ic_hexagon_slice_2)
+        }
+        resources.getString(R.string.title_button_strahovka_vozrast_stazh_more25_less2) -> {
+            this.setIconResource(R.drawable.ic_hexagon_slice_4)
+        }
+        resources.getString(R.string.title_button_strahovka_vozrast_stazh_more25_more2) -> {
+            this.setIconResource(R.drawable.ic_hexagon_slice_6)
         }
 
     }

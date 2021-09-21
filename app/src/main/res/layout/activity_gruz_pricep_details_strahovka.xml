@@ -14,27 +14,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button_gruz_pricep_E1"
-            android:text="@string/title_button_gruz_car_pricep_less_10_E1"
+            android:text="@string/title_button_gruz_car_pricep_less_5_E1"
             style="@style/MaterialButtonOutline"
             android:textAppearance="@style/MaterialButtonTextAppearance"
-            app:icon="@drawable/ic_hexagon_slice_2"
+            app:icon="@drawable/ic_hexagon_slice_1"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
     </com.google.android.material.button.MaterialButton>
     <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button_gruz_pricep_E2"
-            android:text="@string/title_button_gruz_car_pricep_in_10_20_E2"
+            android:text="@string/title_button_gruz_car_pricep_in_5_10_E2"
             style="@style/MaterialButtonOutline"
             android:textAppearance="@style/MaterialButtonTextAppearance"
-            app:icon="@drawable/ic_hexagon_slice_4"
+            app:icon="@drawable/ic_hexagon_slice_2"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
     </com.google.android.material.button.MaterialButton>
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_gruz_pricep_E3"
-        android:text="@string/title_button_gruz_car_pricep_more_20_E3"
+        android:text="@string/title_button_gruz_car_pricep_in_10_20_E3"
+        style="@style/MaterialButtonOutline"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_slice_4"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_gruz_pricep_E4"
+        android:text="@string/title_button_gruz_car_pricep_more_20_E4"
         style="@style/MaterialButtonOutline"
         android:textAppearance="@style/MaterialButtonTextAppearance"
         app:icon="@drawable/ic_hexagon_slice_6"
