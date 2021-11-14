@@ -19,7 +19,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.viewModelScope
 import androidx.preference.PreferenceManager
 import androidx.work.*
 import by.a_ogurtsov.AutoTaxes.dorSbor.FragmentDorSbor21
@@ -31,7 +30,9 @@ import by.a_ogurtsov.AutoTaxes.workmanager.MyWorkerDollar
 import by.a_ogurtsov.AutoTaxes.workmanager.MyWorkerEuro
 import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -46,6 +47,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var navigationView: NavigationView
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var intentEmail: Intent
+    private lateinit var intentShare: Intent
 
 
     private val metrics: DisplayMetrics = DisplayMetrics()
@@ -111,6 +113,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val view: View = View.inflate(this, R.layout.nav_drawer_header, navigationView)
         val email = view.findViewById<TextView>(R.id.nav_header_email)
         val textViewAppVersion = view.findViewById<TextView>(R.id.app_name)
+        val shareApp = view.findViewById<TextView>(R.id.share_app)
 
         addAppVersionInHeader(textViewAppVersion)
 
@@ -121,7 +124,6 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.string.nav_app_bar_open_drawer_description,
             R.string.navigation_drawer_close
         )
-
 
         drawer.addDrawerListener(toggle)
         toggle.syncState()
@@ -214,7 +216,7 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.navigation_view_item_util_sbor -> showFragmentUtilSbor()
             R.id.navigation_view_item_strahovka -> showFragmentStrahovka()
             R.id.rate_app -> startIntentRateApp()
-
+            R.id.share_app -> startIntentShareApp()
         }
         return true
     }
@@ -391,9 +393,23 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun startIntentRateApp() {
+
         val appPackageName = packageName
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName"))
+        val intent = Intent(ACTION_VIEW, Uri.parse("market://details?id=$appPackageName"))
         startActivity(intent)
+    }
+
+    private fun startIntentShareApp() {
+
+        val appPackageName = packageName
+
+        val intent = Intent().apply {
+            action = ACTION_SEND
+            putExtra(EXTRA_TEXT, "https://play.google.com/store/apps/details?id=$appPackageName" )
+            type = "text/plain"
+        }
+        val shareIntent = Intent.createChooser(intent, null)
+        startActivity(shareIntent)
     }
 
     // add appversion in header

@@ -1,53 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/padding10dp">
+    android:layout_height="match_parent">
 
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding10dp"
+        android:orientation="vertical">
     <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_less_2500_us_bus"
-            style="@style/MaterialButtonOutline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_button_bus_motor_less_2500"
+            android:id="@+id/button_strahovka_vozrast_stazh_less25_less2"
+            android:text="@string/title_button_strahovka_vozrast_stazh_less25_less2"
+            style="@style/MaterialButtonOutline"
             android:textAppearance="@style/MaterialButtonTextAppearance"
-            app:icon="@drawable/ic_hexagon_outline"
+            app:icon="@drawable/ic_hexagon_slice_1"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
     </com.google.android.material.button.MaterialButton>
-
     <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_in_2500_5000_us_bus"
-            style="@style/MaterialButtonOutline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_button_bus_motor_in_2500_5000"
+            android:id="@+id/button_strahovka_vozrast_stazh_less25_more2"
+            android:text="@string/title_button_strahovka_vozrast_stazh_less25_more2"
+            style="@style/MaterialButtonOutline"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_hexagon_slice_2"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
     </com.google.android.material.button.MaterialButton>
 
     <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_in_5000_10000_us_bus"
-            style="@style/MaterialButtonOutline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_button_bus_motor_in_5000_10000"
+            android:id="@+id/button_strahovka_vozrast_stazh_more25_less2"
+            android:text="@string/title_button_strahovka_vozrast_stazh_more25_less2"
+            style="@style/MaterialButtonOutline"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_hexagon_slice_4"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
     </com.google.android.material.button.MaterialButton>
-
     <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_more_10000_us_bus"
-            style="@style/MaterialButtonOutline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_button_bus_motor_more_10000"
+            android:id="@+id/button_strahovka_vozrast_stazh_more25_more2"
+            android:text="@string/title_button_strahovka_vozrast_stazh_more25_more2"
+            style="@style/MaterialButtonOutline"
             android:textAppearance="@style/MaterialButtonTextAppearance"
             app:icon="@drawable/ic_hexagon_slice_6"
             app:shapeAppearance="@style/MyShapeAppearanceOutlineButton">
     </com.google.android.material.button.MaterialButton>
 
 </LinearLayout>
+</ScrollView>

@@ -4,12 +4,15 @@ import android.content.Context
 import android.util.Log
 import by.a_ogurtsov.AutoTaxes.LOG_TAG
 import by.a_ogurtsov.AutoTaxes.R
+import by.a_ogurtsov.MyClass
 import java.math.BigDecimal
 import java.math.RoundingMode
 
 class RepositoryStrahovka {
 
-    fun totalSumValue(
+    private var total: Float = 0.0F
+
+    fun totalEuroValue(
         context: Context?,
         k1: Float,
         autoKind: String,
@@ -26,15 +29,6 @@ class RepositoryStrahovka {
         term: String
     ): String {
 
-       /* val total =
-            k1.toString() + autoKind + autoKindLegkDetails + autoKindElectroGibridDetails + autoKindLegkPricepDetails
-
-        Log.d(
-            LOG_TAG, "$k1 - $autoKind - $autoKindLegkRusDetails - $autoKindLegkDetails - " +
-                    "$autoKindElectroGibridDetails - $autoKindLegkPricepDetails - $autoKindGruzDetails - $autoKindTractorDetails " +
-                    "$autoKindGruzPricepDetails - $autoKindMotoDetails - $autoKindBusDetails - $vozrastStazh" +
-                    term
-        )*/
 
         //==============================================calculate k3
         val k3: Float = when (vozrastStazh) {
@@ -842,11 +836,21 @@ class RepositoryStrahovka {
         // end calculate insurance rate (return t)
         //=============================================================
 
-        val _total = (k1 + k3 - 1.0F) * t
-        val total  = BigDecimal(_total.toDouble())
+        val totalTemp = (k1 + k3 - 1.0F) * t
+        val total  = BigDecimal(totalTemp.toDouble())
             .setScale(2, RoundingMode.HALF_DOWN).toFloat()
+        this.total = total
 
         return "$total евро"
+    }
+
+    fun totalRubbleValue(euroRate: String) : String {
+        var rubble = 0.0
+        if (euroRate != "")
+        rubble = BigDecimal((euroRate.toFloat()*this.total).toDouble()).setScale(2, RoundingMode.HALF_DOWN).toDouble()
+        else return ""
+
+        return  MyClass.check_ruble(rubble)
     }
 
 

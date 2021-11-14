@@ -3,9 +3,7 @@ package by.a_ogurtsov.AutoTaxes
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProviders
-import androidx.preference.CheckBoxPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel

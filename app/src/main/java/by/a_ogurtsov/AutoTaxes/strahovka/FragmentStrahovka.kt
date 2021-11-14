@@ -5,14 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.launch
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProviders
 import by.a_ogurtsov.AutoTaxes.*
 import by.a_ogurtsov.AutoTaxes.databinding.FragmentStrahovkaBinding
 import by.a_ogurtsov.AutoTaxes.strahovka.autoKind.ContractActivityStrahovkaAutoKind
 import by.a_ogurtsov.AutoTaxes.strahovka.autoKind.details.*
 import by.a_ogurtsov.AutoTaxes.strahovka.location.ContractActivityStrahovkaLocation
+import by.a_ogurtsov.AutoTaxes.strahovka.term.ContractActivityStrahovkaTerm
 import by.a_ogurtsov.AutoTaxes.strahovka.viewModel.ViewModelStrahovka
+import by.a_ogurtsov.AutoTaxes.strahovka.vozrastStazh.ContractActivityStrahovkaVozrastStazh
+import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel
 import com.google.android.material.button.MaterialButton
 
 class FragmentStrahovka : Fragment() {
@@ -24,6 +29,9 @@ class FragmentStrahovka : Fragment() {
     private val widthScreenDPI: String = ""
 
     private val viewModel: ViewModelStrahovka by viewModels { ViewModelFactory(context) }
+
+    private lateinit var model: MyViewModel
+
 
     private val activityStrahovkaLocation =
         registerForActivityResult(ContractActivityStrahovkaLocation()) {
@@ -180,6 +188,29 @@ class FragmentStrahovka : Fragment() {
             }
         }
 
+    private val activityStrahovkaVozrastStazh =
+        registerForActivityResult(ContractActivityStrahovkaVozrastStazh()) {
+            if (it != null) {
+                bindButtonVozrastStazhStrahovka(it, binding.buttonStrahovkaVozrastStazh)
+                viewModel.putVozrastStazhToSharedPref(it)
+            }
+        }
+
+    private val activityStrahovkaTerm =
+        registerForActivityResult(ContractActivityStrahovkaTerm()) {
+            if (it != null) {
+                bindButtonTermStrahovka(it, binding.buttonStrahovkaTerm)
+                viewModel.putTermToSharedPref(it)
+            }
+        }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        model = ViewModelProviders.of(this.requireActivity()).get(MyViewModel::class.java)
+
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -190,6 +221,8 @@ class FragmentStrahovka : Fragment() {
         setButtonWidth(binding.buttonStrahovkaLocation)  // get width of button according screen width
         setButtonWidth(binding.buttonKindOfAutoStrahovka)
         setButtonWidth(binding.buttonKindOfAutoDetailsStrahovka)
+        setButtonWidth(binding.buttonStrahovkaVozrastStazh)
+        setButtonTerm(binding.buttonStrahovkaTerm)
         setListeners(binding)
         viewModel.initSpref()
         setObservers()
@@ -230,22 +263,52 @@ class FragmentStrahovka : Fragment() {
                     activityStrahovkaBusDetails.launch()
             }
         }
-    }
-
-    private fun setObservers() {
-        viewModel.totalSumValue.observe(this.viewLifecycleOwner) {
-            setDataScreen(it)
+        binding.buttonStrahovkaVozrastStazh.setOnClickListener {
+            activityStrahovkaVozrastStazh.launch()
+        }
+        binding.buttonStrahovkaTerm.setOnClickListener {
+            activityStrahovkaTerm.launch()
         }
     }
 
-    private fun setDataScreen(data: String) {
-        binding.strahovkaTextViewSumsValue.text = data
+    private fun setObservers() {
+        viewModel.totalEuroValue.observe(this.viewLifecycleOwner) {
+            setEuroScreen(it)
+        }
+
+        model.euroRate.observe(this.viewLifecycleOwner){
+           viewModel.setRubbleValue(it)
+        }
+
+        viewModel.totalRubbleValue.observe(this.viewLifecycleOwner) {
+            setRubbleScreen(it)
+        }
+
+    }
+
+    private fun setEuroScreen(data: String) {
+        binding.strahovkaTextViewEuroValue.text = data
+    }
+
+    private fun setRubbleScreen(data: String) {
+        binding.strahovkaTextViewRubbleValue.text = data
     }
 
     private fun setButtonWidth(button: MaterialButton) {
+
         button.layoutParams.width =
             requireArguments().getInt(widthScreenDPI) - 80   // устанавливаем ширину кнопки без группы
     }
+
+    private fun setButtonTerm(button: MaterialButton) {
+
+        val marginStart = 10
+        val params = button.layoutParams as ConstraintLayout.LayoutParams
+        params.marginStart = marginStart
+        button.layoutParams = params
+
+    }
+
 
     private fun setStartSettingbuttons() {
         bindButtonLocationStrahovka(
@@ -256,7 +319,7 @@ class FragmentStrahovka : Fragment() {
         bindButtonAutoKindStrahovka(
             viewModel.autoKind, binding.buttonKindOfAutoStrahovka
         )
-        when (viewModel.autoKind){
+        when (viewModel.autoKind) {
             resources.getString(R.string.title_button_legk_car_russia) -> {
                 bindButtonAutoKindDetailsStrahovka(
                     viewModel.autoKindLegkRusDetails, binding.buttonKindOfAutoDetailsStrahovka
@@ -296,6 +359,13 @@ class FragmentStrahovka : Fragment() {
                     viewModel.autoKindBusDetails, binding.buttonKindOfAutoDetailsStrahovka
                 )
         }
+
+        bindButtonVozrastStazhStrahovka(
+            viewModel.vozrastStazh, binding.buttonStrahovkaVozrastStazh
+        )
+        bindButtonTermStrahovka(
+            viewModel.term, binding.buttonStrahovkaTerm
+        )
     }
 
     companion object {
@@ -322,9 +392,11 @@ class FragmentStrahovka : Fragment() {
         const val RESULT_AUTO_KIND_GRUZ_PRICEP_DETAILS = "RESULT_AUTO_KIND_GRUZ_PRICEP_DETAILS"
         const val RESULT_AUTO_KIND_MOTO_DETAILS = "RESULT_AUTO_KIND_MOTO_DETAILS"
         const val RESULT_AUTO_KIND_BUS_DETAILS = "RESULT_AUTO_KIND_BUS_DETAILS"
-
-
+        const val RESULT_VOZRAST_STAZH = "RESULT_VOZRAST_STAZH"
+        const val RESULT_TERM = "RESULT_TERM"
     }
 
 }
+
+
 

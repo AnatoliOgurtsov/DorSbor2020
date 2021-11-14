@@ -2,11 +2,11 @@ package by.a_ogurtsov.AutoTaxes.workmanager
 
 import android.content.Context
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
 import androidx.work.Data
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
+import by.a_ogurtsov.AutoTaxes.euroRate
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
@@ -26,6 +26,8 @@ class MyWorkerEuro(context: Context, workerParams: WorkerParameters) : Worker(co
             val element: Elements = document.getElementsByClass("h1")
             euroValue = element[0].text()
             outputData = workDataOf("EuroRate" to euroValue)
+
+            euroRate = euroValue
 
         } catch (e: Exception) {
             Log.d(LogTAG, "something wrong with MinFinSite")

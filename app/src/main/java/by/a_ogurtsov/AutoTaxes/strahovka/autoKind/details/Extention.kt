@@ -25,10 +25,10 @@ fun MaterialButton.setIcon(name: String) {
         }
         //=============================================================
 
-        resources.getString(R.string.title_button_gibrid) -> {
+        resources.getString(R.string.title_button_electro_strahovka) -> {
             this.setIconResource(R.drawable.ic_hexagon_outline)
         }
-        resources.getString(R.string.title_button_electro_strahovka) -> {
+        resources.getString(R.string.title_button_gibrid) -> {
             this.setIconResource(R.drawable.ic_hexagon_slice_6)
         }
         //=============================================================

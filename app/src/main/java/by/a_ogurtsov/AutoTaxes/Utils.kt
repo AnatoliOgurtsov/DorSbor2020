@@ -35,10 +35,12 @@ const val SPREF_STRAHOVKA_AUTO_KIND_GRUZ_PRICEP_DETAILS =
     "SPREF_STRAHOVKA_AUTO_KIND_GRUZ_PRICEP_DETAILS"
 const val SPREF_STRAHOVKA_AUTO_KIND_MOTO_DETAILS = "SPREF_STRAHOVKA_AUTO_KIND_MOTO_DETAILS"
 const val SPREF_STRAHOVKA_AUTO_KIND_BUS_DETAILS = "SPREF_STRAHOVKA_AUTO_KIND_BUS_DETAILS"
+const val SPREF_STRAHOVKA_VOZRAST_STAZH = "SPREF_STRAHOVKA_VOZRAST_STAZH"
+const val SPREF_STRAHOVKA_TERM = "SPREF_STRAHOVKA_TERM"
 
 
+var euroRate = ""
 const val baseValue: Double = 27.0
-
 
 fun getJsonDataFromAsset(context: Context?, fileName: String): String? {
     val jsonString: String?
@@ -54,6 +56,7 @@ fun getJsonDataFromAsset(context: Context?, fileName: String): String? {
 }
 
 var listLocationsStrahovkaUtils: List<City>? = null
+
 
 fun bindButtonLocationStrahovka(name: String?, k: Float?, button: MaterialButton) {
     button.text = name
@@ -101,5 +104,13 @@ fun bindButtonAutoKindDetailsStrahovka(name: String, button: MaterialButton) {
     button.setIcon(name)
 }
 
+fun bindButtonVozrastStazhStrahovka(name: String, button: MaterialButton) {
+    button.text = name
+    button.setIcon(name)
+}
+
+fun bindButtonTermStrahovka(name: String, button: MaterialButton) {
+    button.text = name
+}
 
 

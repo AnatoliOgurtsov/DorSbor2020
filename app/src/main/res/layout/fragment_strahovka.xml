@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="@dimen/padding10dp">
 
     <by.a_ogurtsov.AutoTaxes.Screen
@@ -19,25 +20,48 @@
         app:thicknessLine="5" />
 
     <TextView
-        android:id="@+id/strahovka_textView_Sums_Value"
+        android:id="@+id/strahovka_textView_Euro_Value"
         style="@style/TextViewStrahovkaScreen"
-        android:text="5 рублей 55555 копеек"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/strahovka_screen"
+        android:text="5 euro"
+        android:paddingTop="60dp"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="@id/strahovka_screen"
         app:layout_constraintStart_toStartOf="@id/strahovka_screen"
         app:layout_constraintTop_toTopOf="@id/strahovka_screen" />
 
+    <TextView
+        android:id="@+id/strahovka_textView_Rubble_Value"
+        style="@style/TextViewStrahovkaScreen"
+        tools:text="5 rubbles"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/strahovka_screen"
+        app:layout_constraintStart_toStartOf="@id/strahovka_screen"
+        app:layout_constraintBottom_toBottomOf="@id/strahovka_screen"
+        android:layout_marginBottom="@dimen/padding20dp"/>
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_term"
+        style="@style/MaterialButtonOutline"
+        android:layout_marginTop="@dimen/padding40dp"
+        android:text="@string/title_button_month12"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/strahovka_screen"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton"/>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_strahovka_location"
         style="@style/MaterialButtonOutline"
-        android:layout_marginTop="@dimen/padding40dp"
+        android:layout_marginTop="@dimen/padding10dp"
         android:text="@string/title_button_location"
         android:textAppearance="@style/MaterialButtonTextAppearance"
         app:icon="@drawable/ic_location_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/strahovka_screen"
+        app:layout_constraintTop_toBottomOf="@+id/button_strahovka_term"
         app:shapeAppearance="@style/MyShapeAppearanceOutlineButton" />
 
     <com.google.android.material.button.MaterialButton
@@ -63,5 +87,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_kind_of_auto_strahovka"
         app:shapeAppearance="@style/MyShapeAppearanceOutlineButton"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_strahovka_vozrast_stazh"
+        style="@style/MaterialButtonOutline"
+        android:layout_marginTop="@dimen/padding10dp"
+        android:text="@string/title_button_strahovka_vozrast_stazh_less25_less2"
+        android:textAppearance="@style/MaterialButtonTextAppearance"
+        app:icon="@drawable/ic_hexagon_slice_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_kind_of_auto_details_strahovka"
+        app:shapeAppearance="@style/MyShapeAppearanceOutlineButton"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

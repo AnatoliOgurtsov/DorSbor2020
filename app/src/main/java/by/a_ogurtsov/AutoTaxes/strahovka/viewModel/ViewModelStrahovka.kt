@@ -6,19 +6,20 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import by.a_ogurtsov.AutoTaxes.*
-import by.a_ogurtsov.AutoTaxes.strahovka.City
 import by.a_ogurtsov.AutoTaxes.strahovka.repository.RepositoryStrahovka
 
 class ViewModelStrahovka(applicationContext: Context?) : ViewModel() {
 
+
     private val repositoryStrahovka = RepositoryStrahovka()
 
     private val context by lazy { applicationContext }
-    /*private val _locationList = MutableLiveData<List<City>>()
-    val locationList: LiveData<List<City>> get() = _locationList*/
 
-    private var _totalSumValue = MutableLiveData<String>()
-    val totalSumValue: LiveData<String> get() = _totalSumValue
+    private var _totalEuroValue = MutableLiveData<String>()
+    val totalEuroValue: LiveData<String> get() = _totalEuroValue
+
+    private var _totalRubbleValue = MutableLiveData<String>()
+    val totalRubbleValue: LiveData<String> get() = _totalRubbleValue
 
     private var _locationK: Float = 1.5F
     val locationK: Float get() = _locationK
@@ -76,7 +77,6 @@ class ViewModelStrahovka(applicationContext: Context?) : ViewModel() {
         "1 ГОД"
     val term: String get() = _term
 
-
     private lateinit var sprefStarhovka: SharedPreferences
 
     fun initSpref() {
@@ -121,7 +121,8 @@ class ViewModelStrahovka(applicationContext: Context?) : ViewModel() {
                 SPREF_STRAHOVKA_TERM, ""
             ).toString()
 
-            setSumValue()
+            setEuroValue()
+            setRubbleValue(euroRate)
         } else {
             val editor: SharedPreferences.Editor = sprefStarhovka.edit()
             editor.putFloat(SPREF_STRAHOVKA_LOCATION_K, this._locationK)
@@ -169,7 +170,8 @@ class ViewModelStrahovka(applicationContext: Context?) : ViewModel() {
                 this._term
             )
             editor.apply()
-            setSumValue()
+            setEuroValue()
+            setRubbleValue(euroRate)
         }
     }
 
@@ -180,97 +182,110 @@ class ViewModelStrahovka(applicationContext: Context?) : ViewModel() {
         editor.putFloat(SPREF_STRAHOVKA_LOCATION_K, k)
         editor.putString(SPREF_STRAHOVKA_LOCATION_NAME, name)
         editor.apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
     fun putAutoKindToSharedPref(name: String) {
         this._autoKind = name
         val editor: SharedPreferences.Editor = sprefStarhovka.edit()
         editor.putString(SPREF_STRAHOVKA_AUTO_KIND, name).apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
     fun putAutoKindLegkRusDetailsToSharedPref(name: String) {
         this._autoKindLegkRusDetails = name
         val editor: SharedPreferences.Editor = sprefStarhovka.edit()
         editor.putString(SPREF_STRAHOVKA_AUTO_KIND_LEGK_RUS_DETAILS, name).apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
     fun putAutoKindLegkDetailsToSharedPref(name: String) {
         this._autoKindLegkDetails = name
         val editor: SharedPreferences.Editor = sprefStarhovka.edit()
         editor.putString(SPREF_STRAHOVKA_AUTO_KIND_LEGK_DETAILS, name).apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
     fun putAutoKindElectroGibridDetailsToSharedPref(name: String) {
         this._autoKindElectroGibridDetails = name
         val editor: SharedPreferences.Editor = sprefStarhovka.edit()
         editor.putString(SPREF_STRAHOVKA_AUTO_KIND_ELECTRO_GIBRID_DETAILS, name).apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
     fun putAutoKindLegkPricepDetailsToSharedPref(name: String) {
         this._autoKindLegkPricepDetails = name
         val editor: SharedPreferences.Editor = sprefStarhovka.edit()
         editor.putString(SPREF_STRAHOVKA_AUTO_KIND_LEGK_PRICEP_DETAILS, name).apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
     fun putAutoKindGruzDetailsToSharedPref(name: String) {
         this._autoKindGruzDetails = name
         val editor: SharedPreferences.Editor = sprefStarhovka.edit()
         editor.putString(SPREF_STRAHOVKA_AUTO_KIND_GRUZ_DETAILS, name).apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
     fun putAutoKindTractorDetailsToSharedPref(name: String) {
         this._autoKindTractorDetails = name
         val editor: SharedPreferences.Editor = sprefStarhovka.edit()
         editor.putString(SPREF_STRAHOVKA_AUTO_KIND_TRACTOR_DETAILS, name).apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
     fun putAutoKindGruzPricepDetailsToSharedPref(name: String) {
         this._autoKindGruzPricepDetails = name
         val editor: SharedPreferences.Editor = sprefStarhovka.edit()
         editor.putString(SPREF_STRAHOVKA_AUTO_KIND_GRUZ_PRICEP_DETAILS, name).apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
     fun putAutoKindMotoDetailsToSharedPref(name: String) {
         this._autoKindMotoDetails = name
         val editor: SharedPreferences.Editor = sprefStarhovka.edit()
         editor.putString(SPREF_STRAHOVKA_AUTO_KIND_MOTO_DETAILS, name).apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
     fun putAutoKindBusDetailsToSharedPref(name: String) {
         this._autoKindBusDetails = name
         val editor: SharedPreferences.Editor = sprefStarhovka.edit()
         editor.putString(SPREF_STRAHOVKA_AUTO_KIND_BUS_DETAILS, name).apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
     fun putVozrastStazhToSharedPref(name: String) {
         this._vozrastStazh = name
         val editor: SharedPreferences.Editor = sprefStarhovka.edit()
         editor.putString(SPREF_STRAHOVKA_VOZRAST_STAZH, name).apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
     fun putTermToSharedPref(name: String) {
         this._term = name
         val editor: SharedPreferences.Editor = sprefStarhovka.edit()
         editor.putString(SPREF_STRAHOVKA_TERM, name).apply()
-        setSumValue()
+        setEuroValue()
+        setRubbleValue(euroRate)
     }
 
 
-    private fun setSumValue() {
-        _totalSumValue.value =
-            repositoryStrahovka.totalSumValue(
+    private fun setEuroValue() {
+        _totalEuroValue.value =
+            repositoryStrahovka.totalEuroValue(
                 context = this.context,
                 k1 = this._locationK,
                 autoKind = this._autoKind,
@@ -287,4 +302,10 @@ class ViewModelStrahovka(applicationContext: Context?) : ViewModel() {
                 term = this.term
             )
     }
+
+    fun setRubbleValue(rate: String){
+        _totalRubbleValue.value = repositoryStrahovka.totalRubbleValue(rate)
+    }
+
+
 }

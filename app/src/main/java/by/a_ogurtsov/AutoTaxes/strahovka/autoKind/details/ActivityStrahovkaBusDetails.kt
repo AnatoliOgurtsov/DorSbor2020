@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import by.a_ogurtsov.AutoTaxes.ActivityParent
 import by.a_ogurtsov.AutoTaxes.databinding.ActivityBusDetailsStrahovkaBinding
-import by.a_ogurtsov.AutoTaxes.databinding.ActivityGruzAutoDetailsStrahovkaBinding
 import by.a_ogurtsov.AutoTaxes.strahovka.FragmentStrahovka
 import com.google.android.material.button.MaterialButton
 

@@ -16,7 +16,9 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import by.a_ogurtsov.AutoTaxes.*
+import by.a_ogurtsov.AutoTaxes.R
+import by.a_ogurtsov.AutoTaxes.intLiveData
+import by.a_ogurtsov.AutoTaxes.stringLiveData
 import by.a_ogurtsov.AutoTaxes.viewModels.MyViewModel
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.button.MaterialButtonToggleGroup

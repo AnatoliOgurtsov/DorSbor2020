@@ -4,6 +4,8 @@
     <string name="author">Анатолий Огурцов</string>
     <string name="about_app">О приложении</string>
     <string name="rate_app">Оценить приложение</string>
+    <string name="share_app">Поделиться</string>
+
 
 
     <string name="euroRate">Курс евро: </string>
@@ -14,7 +16,7 @@
 
     <string name="titleUtilSbor">Утилизационный сбор</string>
     <string name="titleUtilSbor2021">Утилизационный сбор 2021</string>
-    <string name="titleStrahovka">Обязательное страхование гражданской ответственности</string>
+    <string name="titleStrahovka">Обязательное страхование</string>
     <string name="titleStrahovkaShot">Cтрахование</string>
 
 

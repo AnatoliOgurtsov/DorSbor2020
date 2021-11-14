@@ -1,17 +1,15 @@
-package by.a_ogurtsov.AutoTaxes.strahovka.autoKind.details
-
+package by.a_ogurtsov.AutoTaxes.strahovka.vozrastStazh
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import by.a_ogurtsov.AutoTaxes.ActivityParent
-import by.a_ogurtsov.AutoTaxes.databinding.ActivityMotoDetailsStrahovkaBinding
+import by.a_ogurtsov.AutoTaxes.databinding.ActivityVozrastStazhStrahovkaBinding
 import by.a_ogurtsov.AutoTaxes.strahovka.FragmentStrahovka
 import com.google.android.material.button.MaterialButton
 
-class ActivityStrahovkaMotoDetails : ActivityParent() {
-
-    private lateinit var binding: ActivityMotoDetailsStrahovkaBinding
+class ActivityStrahovkaVozrastStazh : ActivityParent() {
+    private lateinit var binding: ActivityVozrastStazhStrahovkaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,26 +19,28 @@ class ActivityStrahovkaMotoDetails : ActivityParent() {
     }
 
     private fun setContentView() {
-        binding = ActivityMotoDetailsStrahovkaBinding.inflate(layoutInflater)
+        binding = ActivityVozrastStazhStrahovkaBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
     private fun setListeners() {
-        binding.buttonMotoF1.setOnClickListener {
+        binding.buttonStrahovkaVozrastStazhLess25Less2.setOnClickListener {
             setIntentForResultActivity((it as MaterialButton).text.toString())
         }
-        binding.buttonMotoF2.setOnClickListener {
+        binding.buttonStrahovkaVozrastStazhLess25More2.setOnClickListener {
             setIntentForResultActivity((it as MaterialButton).text.toString())
         }
-        binding.buttonMotoF3.setOnClickListener {
+        binding.buttonStrahovkaVozrastStazhMore25Less2.setOnClickListener {
             setIntentForResultActivity((it as MaterialButton).text.toString())
         }
-
+        binding.buttonStrahovkaVozrastStazhMore25More2.setOnClickListener {
+            setIntentForResultActivity((it as MaterialButton).text.toString())
+        }
     }
 
-    private fun setIntentForResultActivity(autoDetails: String) {
+    private fun setIntentForResultActivity(vozrastStazh: String) {
         val intent = Intent()
-        intent.putExtra(FragmentStrahovka.RESULT_AUTO_KIND_MOTO_DETAILS, autoDetails)
+        intent.putExtra(FragmentStrahovka.RESULT_VOZRAST_STAZH, vozrastStazh)
         setResult(Activity.RESULT_OK, intent)
         finish()
     }
