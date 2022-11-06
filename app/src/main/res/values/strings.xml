@@ -12,10 +12,10 @@
     <string name="dollarRate">Курс доллара: </string>
 
     <string name="labelIconName">Транспортный налог</string>
-    <string name="titleDorSbor">Транспортный налог 2021</string>
+    <string name="titleDorSbor">Транспортный налог</string>
 
     <string name="titleUtilSbor">Утилизационный сбор</string>
-    <string name="titleUtilSbor2021">Утилизационный сбор 2021</string>
+    <string name="titleUtilSbor2021">Утилизационный сбор</string>
     <string name="titleStrahovka">Обязательное страхование</string>
     <string name="titleStrahovkaShot">Cтрахование</string>
 

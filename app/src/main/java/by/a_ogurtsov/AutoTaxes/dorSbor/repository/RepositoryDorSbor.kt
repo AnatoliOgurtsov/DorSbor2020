@@ -137,9 +137,9 @@ class RepositoryDorSbor {
                         when (weightAuto) {
                             "less_0_75" -> {
                                 when (veteran) {
-                                    1 -> return MyClass.check_ruble(31.00)
-                                    2 -> return MyClass.check_ruble(31.00 / 2)
-                                    3 -> return MyClass.check_ruble(31.00 * 0.75)
+                                    1 -> return MyClass.check_ruble(41.00)
+                                    2 -> return MyClass.check_ruble(41.00 / 2)
+                                    3 -> return MyClass.check_ruble(41.00 * 0.75)
                                 }
                             }
                             "more_0_75" -> {

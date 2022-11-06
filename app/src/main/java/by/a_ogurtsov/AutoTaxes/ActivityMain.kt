@@ -13,6 +13,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentManager
@@ -47,17 +48,17 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var navigationView: NavigationView
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var intentEmail: Intent
-    private lateinit var intentShare: Intent
-
 
     private val metrics: DisplayMetrics = DisplayMetrics()
     private var widthScreen: Int =
         0                                      //ширина экрана, передаем во фрагмент как атрибут
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        disableNightTheme()
         getSizeButtonLayoutWidth()
         initTheme()
         setContentView(R.layout.activity_main)
@@ -67,6 +68,10 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         initFragment()
         startCurrencyRateTask()   // парсит сайт минфина по поводу курса евро
         getLocationListFromJsonStrahovka()
+    }
+
+    private fun disableNightTheme() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
     private fun initViewModel() {
@@ -181,7 +186,9 @@ class ActivityMain : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return super.onPrepareOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item?.itemId) {
             // нажатие кнопки "настройки"

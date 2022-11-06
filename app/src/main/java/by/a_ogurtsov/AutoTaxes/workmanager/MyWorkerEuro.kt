@@ -23,7 +23,8 @@ class MyWorkerEuro(context: Context, workerParams: WorkerParameters) : Worker(co
 
         try {
             document = Jsoup.connect(URLMINFIN).get()
-            val element: Elements = document.getElementsByClass("h1")
+            //val element: Elements = document.getElementsByClass("h1")
+            val element: Elements = document.getElementsByClass("currency-detailed-change-card__value")
             euroValue = element[0].text()
             outputData = workDataOf("EuroRate" to euroValue)
 
@@ -40,7 +41,8 @@ class MyWorkerEuro(context: Context, workerParams: WorkerParameters) : Worker(co
     }
 
     companion object {
-        const val URLMINFIN = "https://myfin.by/bank/kursy_valjut_nbrb/eur"
+        //const val URLMINFIN = "https://myfin.by/bank/kursy_valjut_nbrb/eur"
+        const val URLMINFIN = "https://myfin.by/currency/torgi-na-bvfb/kurs-euro"
         const val LogTAG = "workmng"
     }
 }
